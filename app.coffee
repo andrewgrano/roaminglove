@@ -12,7 +12,7 @@ module.exports =
     js_pipeline(files: 'assets/js/*.coffee'),
     css_pipeline(files: 'assets/css/*.styl'),
     wordpress
-      site: '159.203.232.85'
+      site: '107.170.229.16'
       post_types:
         post:
           template: 'views/_single.jade'

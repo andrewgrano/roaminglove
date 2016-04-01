@@ -1,0 +1,19 @@
+/*$~ site header ~$------------------------------------*/
+.site-header {
+    height: 100px;
+}
+
+.site-header .site-nav-wrapper {
+    width: 73%;
+}
+
+
+/*$~ index page ~$------------------------------------*/
+.indexJobs__header {
+    width: 100%;
+}
+
+/*$~ site footer ~$------------------------------------*/
+.site-footer {
+    height: 442px;
+}

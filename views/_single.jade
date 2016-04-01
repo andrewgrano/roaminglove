@@ -1,8 +1,13 @@
 extends layout
 
 block content
-  h1= post.title
-  .content!= post.content
+  .container
+      h1= post.title
+      //- p= post.date
+      p= moment(post.date).format("MMMM DD, YYYY")
+      .content!= post.content
+      img(src=post.featured_image)
 
+  pre= JSON.stringify(post, null, 2)
 
 

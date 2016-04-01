@@ -1,0 +1,29 @@
+.postWidget {
+    @include span-columns(6);
+    @include omega();
+
+    a {
+        @include outer-container;
+    }
+
+    &__img {
+        @include span-columns(6);
+    }
+
+    &__content {
+        @include span-columns(6);
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 20px;
+        display: block;
+        margin-top: 40px;
+    }
+
+    &__date {
+        display: block;
+        color: $gray;
+        font-size: 14px;
+    }
+}

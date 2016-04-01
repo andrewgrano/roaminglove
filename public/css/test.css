@@ -1,0 +1,15 @@
+body {
+  font-family: 'Merriweather', serif;
+  font-size: 18px; }
+
+.header {
+  background: url(http://107.170.229.16/wp-content/uploads/2016/03/rome-landscape.jpg);
+  background-position: center center;
+  background-size: cover;
+  height: 415px;
+  text-align: center; }
+
+.heading {
+  font-family: "Amatic SC", cursive;
+  font-size: 22px;
+  color: #fff; }

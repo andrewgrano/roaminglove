@@ -1,0 +1,35 @@
+$white: #fff;
+$displayFont: 'Amatic SC', cursive;
+$defaultFont: 'Merriweather', serif;
+
+$offwhite: #FFFFF6;
+$black: #2C2C2C;
+$gray: #ccc;
+
+
+body {
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    background: $offwhite;
+    color: $black;
+}
+
+a {
+    color: $black;
+}
+
+.container {
+    @include outer-container;
+}
+
+.heading {
+    font-family: $displayFont;
+    font-size: 38px;
+    color: $white;
+}
+
+.pageHeading {
+    font-family: $displayFont;
+}
+
+

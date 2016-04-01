@@ -1,7 +1,13 @@
 extends layout
 
 block content
-  h1 Roots-Wordpress Integration
-  ul
-    for post in wordpress.post
-      li: a(href=post._url)= post.title
+    .container
+        h1.pageHeading Recent Posts
+        for post in wordpress.post
+          div.postWidget: a(href=post._url)
+              .postWidget__img
+                img(src=post.featured_image class="img-responsive")
+              .postWidget__content
+                span.postWidget__title= post.title
+                span.postWidget__date= moment(post.date).format("MMMM DD, YYYY")
+                .postWidget__preview!= string(post.content).truncate(50).s

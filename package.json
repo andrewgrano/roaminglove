@@ -6,13 +6,17 @@
     "axis": "0.5.x",
     "coffee-script": "^1.0.0",
     "css-pipeline": "0.3.x",
+    "express": "^4.13.4",
     "jade": "^1.0.0",
     "js-pipeline": "0.2.x",
     "jstransformer-marked": "^1.0.0",
     "marked": "0.3.x",
+    "moment": "^2.12.0",
+    "node-sass": "^3.4.2",
     "roots": "^4.0.1",
     "roots-wordpress": "^0.3.1",
     "rupture": "0.6.x",
+    "string": "^3.3.1",
     "stylus": "0.52.x"
   }
 }

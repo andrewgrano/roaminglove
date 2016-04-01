@@ -4,6 +4,8 @@ autoprefixer = require 'autoprefixer-stylus'
 js_pipeline  = require 'js-pipeline'
 css_pipeline = require 'css-pipeline'
 wordpress    = require 'roots-wordpress'
+moment       = require 'moment'
+string         = require 'string'
 
 module.exports =
   ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']
@@ -25,6 +27,10 @@ module.exports =
 
   'coffee-script':
     sourcemap: true
+
+  locals:
+    moment: moment
+    string: string
 
   jade:
     pretty: true

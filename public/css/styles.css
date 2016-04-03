@@ -372,13 +372,17 @@ a {
   color: #2C2C2C; }
 
 .container {
-  max-width: 1200px;
+  max-width: 1140px;
   margin-left: auto;
   margin-right: auto; }
   .container::after {
     clear: both;
     content: "";
     display: block; }
+  @media screen and (max-width: 1160px) {
+    .container {
+      padding-left: 25px;
+      padding-right: 25px; } }
 
 .heading {
   font-family: "Amatic SC", cursive;
@@ -417,15 +421,21 @@ a {
   text-align: center; }
 
 .header {
-  background: url(http://107.170.229.16/wp-content/uploads/2016/03/rome-landscape.jpg);
+  background: url(http://107.170.229.16/wp-content/uploads/2016/04/desert-cropped2.jpg);
   background-position: center center;
   background-size: cover;
   height: 415px;
   text-align: center;
   color: #fff;
-  position: relative; }
+  position: relative;
+  border-bottom: 3px solid #2c2c2c; }
+  @media screen and (max-width: 800px) {
+    .header {
+      height: 350px; } }
+  @media screen and (max-width: 479px) {
+    .header {
+      height: 280px; } }
   .header .patternbg {
-    background: url("http://107.170.229.16/wp-content/uploads/2016/03/black-zigzag-pattern.png");
     background-repeat: repeat;
     position: absolute;
     top: 0;
@@ -433,7 +443,7 @@ a {
     width: 100%;
     height: 100%;
     z-index: 1;
-    opacity: 0.4; }
+    opacity: 0.2; }
   .header .wrapper {
     position: relative;
     z-index: 2; }
@@ -455,16 +465,54 @@ a {
         font-size: 22px;
         padding: 4px 15px; }
 
+.footer {
+  margin-top: 70px;
+  text-align: center;
+  padding: 30px 0;
+  position: relative; }
+  @media screen and (max-width: 479px) {
+    .footer {
+      font-size: 13px;
+      margin-top: 40px; } }
+  .footer:before {
+    content: " ";
+    width: 70%;
+    height: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #2C2C2C;
+    position: absolute;
+    left: 15%; }
+  .footer .bio {
+    margin-top: 40px; }
+
 .postWidget {
   float: left;
   display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%;
-  margin-right: 0; }
+  margin-right: 2.55507%;
+  width: 48.72247%;
+  margin-right: 0;
+  margin-bottom: 15px; }
   .postWidget:last-child {
     margin-right: 0; }
+  @media screen and (max-width: 991px) {
+    .postWidget {
+      float: left;
+      display: block;
+      margin-right: 2.55507%;
+      width: 91.45374%; }
+      .postWidget:last-child {
+        margin-right: 0; } }
+  @media screen and (max-width: 767px) {
+    .postWidget {
+      float: left;
+      display: block;
+      margin-right: 2.55507%;
+      width: 100%; }
+      .postWidget:last-child {
+        margin-right: 0; } }
   .postWidget a {
-    max-width: 1200px;
+    max-width: 1140px;
     margin-left: auto;
     margin-right: auto; }
     .postWidget a::after {
@@ -474,23 +522,77 @@ a {
   .postWidget__img {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
+    margin-right: 2.55507%;
+    width: 48.72247%;
+    height: 200px;
+    position: relative;
+    overflow: hidden; }
     .postWidget__img:last-child {
       margin-right: 0; }
+    @media screen and (max-width: 479px) {
+      .postWidget__img {
+        float: left;
+        display: block;
+        margin-right: 2.55507%;
+        width: 100%;
+        height: auto; }
+        .postWidget__img:last-child {
+          margin-right: 0; } }
+    .postWidget__img img {
+      position: absolute;
+      top: 0;
+      left: 0; }
+      @media screen and (max-width: 479px) {
+        .postWidget__img img {
+          position: relative; } }
   .postWidget__content {
     float: left;
     display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
+    margin-right: 2.55507%;
+    width: 48.72247%; }
     .postWidget__content:last-child {
       margin-right: 0; }
+    @media screen and (max-width: 479px) {
+      .postWidget__content {
+        float: left;
+        display: block;
+        margin-right: 2.55507%;
+        width: 100%;
+        height: 100px; }
+        .postWidget__content:last-child {
+          margin-right: 0; } }
   .postWidget__title {
     font-weight: 700;
     font-size: 20px;
     display: block;
     margin-top: 40px; }
+    @media screen and (max-width: 479px) {
+      .postWidget__title {
+        margin-top: 10px; } }
   .postWidget__date {
     display: block;
     color: #ccc;
     font-size: 14px; }
+
+.post h1 {
+  margin-top: 55px;
+  margin-bottom: 5px; }
+
+.post .date {
+  color: #ccc;
+  padding-top: 0;
+  margin-top: 0;
+  font-style: italic;
+  margin-bottom: 35px; }
+
+.post .btn {
+  margin: 40px 0; }
+
+.btn {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-family: "Amatic SC", cursive;
+  font-size: 28px;
+  display: inline-block;
+  text-decoration: none; }

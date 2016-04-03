@@ -1,6 +1,19 @@
 .postWidget {
     @include span-columns(6);
     @include omega();
+    margin-bottom: 15px;
+
+    @media screen and (max-width: $vp-lg-max) {
+
+    }
+
+    @media screen and (max-width: $vp-md-max) {
+         @include span-columns(11);
+    }
+
+    @media screen and (max-width: $vp-sm-max) {
+        @include span-columns(12);
+    }
 
     a {
         @include outer-container;
@@ -8,10 +21,33 @@
 
     &__img {
         @include span-columns(6);
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+
+        @media screen and (max-width: 479px) {
+            @include span-columns(12);
+            height: auto;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            @media screen and (max-width: 479px) {
+                position: relative;
+            }
+        }
     }
 
     &__content {
         @include span-columns(6);
+
+        @media screen and (max-width: 479px) {
+            @include span-columns(12);
+            height: 100px;
+        }
     }
 
     &__title {
@@ -19,6 +55,10 @@
         font-size: 20px;
         display: block;
         margin-top: 40px;
+
+        @media screen and (max-width: 479px) {
+            margin-top: 10px;
+        }
     }
 
     &__date {

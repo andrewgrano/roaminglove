@@ -1,13 +1,15 @@
 extends layout
 
 block content
-  .container
+  .container.post
       h1= post.title
       //- p= post.date
-      p= moment(post.date).format("MMMM DD, YYYY")
+      p.date= moment(post.date).format("MMMM DD, YYYY")
       .content!= post.content
-      img(src=post.featured_image)
+      img(src=post.featured_image class="img-responsive")
+      br
+      a.btn.btn-returnhome(href="/")< &nbsp;Return Home
 
-  pre= JSON.stringify(post, null, 2)
+  //- pre= JSON.stringify(post, null, 2)
 
 

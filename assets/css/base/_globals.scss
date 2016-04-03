@@ -20,6 +20,11 @@ a {
 
 .container {
     @include outer-container;
+
+    @media screen and (max-width: 1160px) {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
 }
 
 .heading {

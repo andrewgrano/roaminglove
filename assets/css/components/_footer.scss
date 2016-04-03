@@ -1,0 +1,26 @@
+.footer {
+    margin-top: 70px;
+    text-align: center;
+    padding: 30px 0;
+    position: relative;
+
+    @media screen and (max-width: 479px) {
+        font-size: 13px;
+        margin-top: 40px;
+    }
+
+    &:before {
+        content: " ";
+        width: 70%;
+        height: 2px;
+        margin-left: auto;
+        margin-right: auto;
+        background: #2C2C2C;
+        position: absolute;
+        left: 15%;
+    }
+
+    .bio {
+        margin-top: 40px;
+    }
+}

@@ -449,7 +449,7 @@ a {
     z-index: 2; }
   .header .heading {
     padding-top: 135px;
-    margin: 0px;
+    margin: 0;
     font-size: 50px; }
   .header .subheading {
     margin-bottom: 50px;

@@ -589,6 +589,11 @@ a {
 .post .btn {
   margin: 40px 0; }
 
+.post img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto; }
+
 .btn {
   border: 1px solid;
   border-radius: 5px;

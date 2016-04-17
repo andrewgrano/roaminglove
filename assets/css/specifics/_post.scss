@@ -18,8 +18,13 @@
 
     img {
         display: inline-block;
-        max-width: 100%;
+        max-width: 50%;
         height: auto;
+        margin: 1em 0;
+
+        @media screen and (max-width: 767px) {
+            max-width: 100%;
+        }
     }
 
 

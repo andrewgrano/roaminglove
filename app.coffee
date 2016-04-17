@@ -5,7 +5,11 @@ js_pipeline  = require 'js-pipeline'
 css_pipeline = require 'css-pipeline'
 wordpress    = require 'roots-wordpress'
 moment       = require 'moment'
-string         = require 'string'
+string       = require 'string'
+config       = require 'roots-config'
+templates    = require 'client-templates'
+
+api_url = 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100'
 
 module.exports =
   ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']
@@ -18,7 +22,9 @@ module.exports =
       post_types:
         post:
           template: 'views/_single.jade'
-          number: 10
+          number: 100
+    config(api_url: api_url, static_items: 10),
+    templates(base: 'views/templates')
   ]
 
   stylus:

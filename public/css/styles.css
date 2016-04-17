@@ -575,6 +575,11 @@ a {
     color: #ccc;
     font-size: 14px; }
 
+.postWidget__wrapper::after {
+  clear: both;
+  content: "";
+  display: block; }
+
 .post h1 {
   margin-top: 55px;
   margin-bottom: 5px; }
@@ -591,8 +596,12 @@ a {
 
 .post img {
   display: inline-block;
-  max-width: 100%;
-  height: auto; }
+  max-width: 50%;
+  height: auto;
+  margin: 1em 0; }
+  @media screen and (max-width: 767px) {
+    .post img {
+      max-width: 100%; } }
 
 .btn {
   border: 1px solid;

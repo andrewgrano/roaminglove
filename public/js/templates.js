@@ -4,7 +4,7 @@ var buf = [];
 var jade_mixins = {};
 var jade_interp;
 ;var locals_for_with = (locals || {});(function (moment, post) {
-buf.push("<div class=\"postWidget\"><a" + (jade.attr("href", post._url, true, false)) + "><div class=\"postWidget__img\">");
+buf.push("<div class=\"postWidget\"><a" + (jade.attr("href", 'post/' + post.slug + '.html', true, false)) + "><div class=\"postWidget__img\">");
 if ( post.featured_image)
 {
 buf.push("<img" + (jade.attr("src", post.featured_image, true, false)) + " class=\"img-responsive\"/>");

@@ -22,7 +22,7 @@ module.exports =
       post_types:
         post:
           template: 'views/_single.jade'
-          number: 100
+          number: 10
     config(api_url: api_url, static_items: 10),
     templates(base: 'views/templates')
   ]

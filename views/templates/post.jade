@@ -1,4 +1,5 @@
-div.postWidget: a(href=post._url)
+//- div.postWidget: a(href=post._url) <-- post._url is a roots variable that the JSON data cannot use, so we do the following instead...
+div.postWidget: a(href='post/' + post.slug + '.html')
   .postWidget__img
     if post.featured_image
       img(src=post.featured_image class="img-responsive")

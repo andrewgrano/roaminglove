@@ -7,44 +7,45 @@
 
   $.get(config.api_url, function(res) {
     console.log(res);
-    return post = res.posts.slice(config.static_items);
+    post = res.posts.slice(config.static_items);
+    return $('.more').removeClass('disabled');
   });
 
   $('.more').on('click', function() {
     console.log(post);
     if (post.length >= 4) {
-      $('.postWidget__wrapper').append(templates.post({
+      $('.postWidget__wrapper').append($(templates.post({
         post: post[0]
-      }), templates.post({
+      })).hide().fadeIn(), $(templates.post({
         post: post[1]
-      }), templates.post({
+      })).hide().fadeIn(), $(templates.post({
         post: post[2]
-      }), templates.post({
+      })).hide().fadeIn(), $(templates.post({
         post: post[3]
-      }));
+      })).hide().fadeIn());
       return post.splice(0, 4);
     } else if (post.length === 3) {
-      $('.postWidget__wrapper').append(templates.post({
+      $('.postWidget__wrapper').append($(templates.post({
         post: post[0]
-      }), templates.post({
+      })).hide().fadeIn(), $(templates.post({
         post: post[1]
-      }), templates.post({
+      })).hide().fadeIn(), $(templates.post({
         post: post[2]
-      }));
+      })).hide().fadeIn());
       post.splice(0, 3);
       return $('.more').fadeOut();
     } else if (post.length === 2) {
-      $('.postWidget__wrapper').append(templates.post({
+      $('.postWidget__wrapper').append($(templates.post({
         post: post[0]
-      }), templates.post({
+      })).hide().fadeIn(), $(templates.post({
         post: post[1]
-      }));
+      })).hide().fadeIn());
       post.splice(0, 2);
       return $('.more').fadeOut();
     } else if (post.length === 1) {
-      $('.postWidget__wrapper').append(templates.post({
+      $('.postWidget__wrapper').append($(templates.post({
         post: post[0]
-      }));
+      })).hide().fadeIn());
       post.splice(0, 1);
       return $('.more').fadeOut();
     }

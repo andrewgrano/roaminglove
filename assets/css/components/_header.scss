@@ -53,7 +53,7 @@
     }
 
     nav {
-        @extend clearfix;
+        @include clearfix;
         ul {
             padding: 0;
             li {

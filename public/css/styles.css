@@ -457,6 +457,10 @@ a {
   .header a {
     color: #fff;
     text-decoration: none; }
+  .header nav::after {
+    clear: both;
+    content: "";
+    display: block; }
   .header nav ul {
     padding: 0; }
     .header nav ul li {

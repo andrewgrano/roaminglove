@@ -13,6 +13,8 @@ var Stream = require('stream').Stream
 var PATH = 'PATH'
 var uidNumber = require('uid-number')
 var umask = require('./umask')
+var usage = require('./usage')
+var output = require('./output.js')
 
 // windows calls it's path 'Path' usually, but this is not guaranteed.
 if (process.platform === 'win32') {
@@ -46,7 +48,12 @@ function lifecycle (pkg, stage, wd, unsafe, failOk, cb) {
   if (!pkg) return cb(new Error('Invalid package data'))
 
   log.info('lifecycle', logid(pkg, stage), pkg._id)
-  if (!pkg.scripts || npm.config.get('ignore-scripts')) pkg.scripts = {}
+  if (!pkg.scripts) pkg.scripts = {}
+
+  if (npm.config.get('ignore-scripts')) {
+    log.info('lifecycle', logid(pkg, stage), 'ignored because ignore-scripts is set to true', pkg._id)
+    pkg.scripts = {}
+  }
 
   validWd(wd || path.resolve(npm.dir, pkg.name), function (er, wd) {
     if (er) return cb(er)
@@ -176,9 +183,7 @@ function runCmd (note, cmd, pkg, env, stage, wd, unsafe, cb) {
   var group = unsafe ? null : npm.config.get('group')
 
   if (log.level !== 'silent') {
-    log.clearProgress()
-    console.log(note)
-    log.showProgress()
+    output(note)
   }
   log.verbose('lifecycle', logid(pkg, stage), 'unsafe-perm in lifecycle', unsafe)
 
@@ -226,8 +231,6 @@ function runCmd_ (cmd, pkg, env, wd, stage, unsafe, uid, gid, cb_) {
   log.verbose('lifecycle', logid(pkg, stage), 'CWD:', wd)
   log.silly('lifecycle', logid(pkg, stage), 'Args:', [shFlag, cmd])
 
-  var progressEnabled = log.progressEnabled
-  if (progressEnabled) log.disableProgress()
   var proc = spawn(sh, [shFlag, cmd], conf)
 
   proc.on('error', procError)
@@ -243,7 +246,6 @@ function runCmd_ (cmd, pkg, env, wd, stage, unsafe, uid, gid, cb_) {
   process.once('SIGTERM', procKill)
 
   function procError (er) {
-    if (progressEnabled) log.enableProgress()
     if (er) {
       log.info('lifecycle', logid(pkg, stage), 'Failed to exec ' + stage + ' script')
       er.message = pkg._id + ' ' + stage + ': `' + cmd + '`\n' +
@@ -287,8 +289,10 @@ function makeEnv (data, prefix, env) {
   prefix = prefix || 'npm_package_'
   if (!env) {
     env = {}
-    for (var i in process.env) if (!i.match(/^npm_/)) {
-      env[i] = process.env[i]
+    for (var i in process.env) {
+      if (!i.match(/^npm_/)) {
+        env[i] = process.env[i]
+      }
     }
 
     // npat asks for tap output
@@ -305,31 +309,33 @@ function makeEnv (data, prefix, env) {
     )
   }
 
-  for (i in data) if (i.charAt(0) !== '_') {
-    var envKey = (prefix + i).replace(/[^a-zA-Z0-9_]/g, '_')
-    if (i === 'readme') {
-      continue
-    }
-    if (data[i] && typeof data[i] === 'object') {
-      try {
-        // quick and dirty detection for cyclical structures
-        JSON.stringify(data[i])
-        makeEnv(data[i], envKey + '_', env)
-      } catch (ex) {
-        // usually these are package objects.
-        // just get the path and basic details.
-        var d = data[i]
-        makeEnv(
-          { name: d.name, version: d.version, path: d.path },
-          envKey + '_',
-          env
-        )
+  for (i in data) {
+    if (i.charAt(0) !== '_') {
+      var envKey = (prefix + i).replace(/[^a-zA-Z0-9_]/g, '_')
+      if (i === 'readme') {
+        continue
       }
-    } else {
-      env[envKey] = String(data[i])
-      env[envKey] = env[envKey].indexOf('\n') !== -1
-                      ? JSON.stringify(env[envKey])
-                      : env[envKey]
+      if (data[i] && typeof data[i] === 'object') {
+        try {
+          // quick and dirty detection for cyclical structures
+          JSON.stringify(data[i])
+          makeEnv(data[i], envKey + '_', env)
+        } catch (ex) {
+          // usually these are package objects.
+          // just get the path and basic details.
+          var d = data[i]
+          makeEnv(
+            { name: d.name, version: d.version, path: d.path },
+            envKey + '_',
+            env
+          )
+        }
+      } else {
+        env[envKey] = String(data[i])
+        env[envKey] = env[envKey].indexOf('\n') !== -1
+                        ? JSON.stringify(env[envKey])
+                        : env[envKey]
+      }
     }
   }
 
@@ -386,7 +392,7 @@ function cmd (stage) {
   function CMD (args, cb) {
     npm.commands['run-script']([stage].concat(args), cb)
   }
-  CMD.usage = 'npm ' + stage + ' [-- <args>]'
+  CMD.usage = usage(stage, 'npm ' + stage + ' [-- <args>]')
   var installedShallow = require('./completion/installed-shallow.js')
   CMD.completion = function (opts, cb) {
     installedShallow(opts, function (d) {

@@ -22,11 +22,16 @@
   var npmconf = require('./config/core.js')
   var log = require('npmlog')
 
+  var tty = require('tty')
   var path = require('path')
   var abbrev = require('abbrev')
   var which = require('which')
   var CachingRegClient = require('./cache/caching-client.js')
   var parseJSON = require('./utils/parse-json.js')
+  var aliases = require('./config/cmd-list').aliases
+  var cmdList = require('./config/cmd-list').cmdList
+  var plumbing = require('./config/cmd-list').plumbing
+  var output = require('./utils/output.js')
 
   npm.config = {
     loaded: false,
@@ -55,114 +60,9 @@
   }
 
   var commandCache = {}
-
-  // short names for common things
-  var aliases = {
-    'rm': 'uninstall',
-    'r': 'uninstall',
-    'un': 'uninstall',
-    'unlink': 'uninstall',
-    'remove': 'uninstall',
-    'rb': 'rebuild',
-    'list': 'ls',
-    'la': 'ls',
-    'll': 'ls',
-    'ln': 'link',
-    'i': 'install',
-    'isntall': 'install',
-    'it': 'install-test',
-    'up': 'update',
-    'upgrade': 'update',
-    'c': 'config',
-    'dist-tags': 'dist-tag',
-    'info': 'view',
-    'show': 'view',
-    'find': 'search',
-    's': 'search',
-    'se': 'search',
-    'author': 'owner',
-    'home': 'docs',
-    'issues': 'bugs',
-    'unstar': 'star', // same function
-    'apihelp': 'help',
-    'login': 'adduser',
-    'add-user': 'adduser',
-    'tst': 'test',
-    't': 'test',
-    'find-dupes': 'dedupe',
-    'ddp': 'dedupe',
-    'v': 'view',
-    'verison': 'version'
-  }
-
   var aliasNames = Object.keys(aliases)
 
-  // these are filenames in .
-  var cmdList = [
-    'install',
-    'install-test',
-    'uninstall',
-    'cache',
-    'config',
-    'set',
-    'get',
-    'update',
-    'outdated',
-    'prune',
-    'pack',
-    'dedupe',
-
-    'rebuild',
-    'link',
-
-    'publish',
-    'star',
-    'stars',
-    'tag',
-    'adduser',
-    'logout',
-    'unpublish',
-    'owner',
-    'access',
-    'team',
-    'deprecate',
-    'shrinkwrap',
-
-    'help',
-    'help-search',
-    'ls',
-    'search',
-    'view',
-    'init',
-    'version',
-    'edit',
-    'explore',
-    'docs',
-    'repo',
-    'bugs',
-    'faq',
-    'root',
-    'prefix',
-    'bin',
-    'whoami',
-    'dist-tag',
-    'ping',
-
-    'test',
-    'stop',
-    'start',
-    'restart',
-    'run-script',
-    'completion'
-  ]
-  var plumbing = [
-    'build',
-    'unbuild',
-    'xmas',
-    'substack',
-    'visnup'
-  ]
-  var littleGuys = [ 'isntall' ]
+  var littleGuys = [ 'isntall', 'verison' ]
   var fullList = cmdList.concat(aliasNames).filter(function (c) {
     return plumbing.indexOf(c) === -1
   })
@@ -189,7 +89,7 @@
       npm.command = c
       if (commandCache[a]) return commandCache[a]
 
-      var cmd = require(__dirname + '/' + a + '.js')
+      var cmd = require(path.join(__dirname, a + '.js'))
 
       commandCache[a] = function () {
         var args = Array.prototype.slice.call(arguments, 0)
@@ -197,6 +97,14 @@
           args.push(defaultCb)
         }
         if (args.length === 1) args.unshift([])
+
+        // Options are prefixed by a hyphen-minus (-, \u2d).
+        // Other dash-type chars look similar but are invalid.
+        Array(args[0]).forEach(function (arg) {
+          if (/^[\u2010-\u2015\u2212\uFE58\uFE63\uFF0D]/.test(arg)) {
+            log.error('arg', 'Argument starts with non-ascii dash, this is probably invalid:', arg)
+          }
+        })
 
         npm.registry.version = npm.version
         if (!npm.registry.refer) {
@@ -234,7 +142,7 @@
   function defaultCb (er, data) {
     log.disableProgress()
     if (er) console.error(er.stack || er.message)
-    else console.log(data)
+    else output(data)
   }
 
   npm.deref = function (c) {
@@ -355,7 +263,6 @@
             npm.color = false
             break
           default:
-            var tty = require('tty')
             if (process.stdout.isTTY) npm.color = true
             else if (!tty.isatty) npm.color = true
             else if (tty.isatty(1)) npm.color = true
@@ -363,13 +270,19 @@
             break
         }
 
-        log.resume()
+        if (config.get('unicode')) {
+          log.enableUnicode()
+        } else {
+          log.disableUnicode()
+        }
 
-        if (config.get('progress')) {
+        if (config.get('progress') && (process.stderr.isTTY || (tty.isatty && tty.isatty(2)))) {
           log.enableProgress()
         } else {
           log.disableProgress()
         }
+
+        log.resume()
 
         // at this point the configs are all set.
         // go ahead and spin up the registry client.

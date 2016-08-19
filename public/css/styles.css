@@ -421,9 +421,6 @@ a {
 .text-center {
   text-align: center; }
 
-.red {
-  color: #f00; }
-
 .header {
   background: url(http://107.170.229.16/wp-content/uploads/2016/04/desert-cropped2.jpg);
   background-position: center center;
@@ -595,9 +592,6 @@ a {
     display: block;
     color: #ccc;
     font-size: 14px; }
-  .postWidget pre {
-    width: 200%;
-    margin-left: -100%; }
 
 /*
  *  Usage:

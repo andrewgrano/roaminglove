@@ -2,6 +2,19 @@
 
     .postInner {
         @include span-columns(9);
+
+        @media screen and (max-width: $vp-lg-max) {
+             @include span-columns(10);
+        }
+
+        @media screen and (max-width: $vp-md-max) {
+             @include span-columns(11);
+        }
+
+        @media screen and (max-width: $vp-sm-max) {
+             @include span-columns(12);
+        }
+
     }
 
     h1 {
@@ -36,6 +49,7 @@
 
     figure {
         margin: 0 0 2em 0;
+        width: 100% !important;
 
         img {
             margin-bottom: 0;

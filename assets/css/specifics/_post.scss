@@ -1,4 +1,9 @@
 .post {
+
+    .postInner {
+        @include span-columns(9);
+    }
+
     h1 {
         margin-top: 55px;
         margin-bottom: 5px;
@@ -18,12 +23,27 @@
 
     img {
         display: inline-block;
-        max-width: 50%;
+        max-width: 60%;
         height: auto;
         margin: 1em 0;
+        border: 3px solid #ccc;
+        box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.5);
 
         @media screen and (max-width: 767px) {
             max-width: 100%;
+        }
+    }
+
+    figure {
+        margin: 0 0 2em 0;
+
+        img {
+            margin-bottom: 0;
+        }
+
+        figcaption {
+            font-size: 14px;
+            font-style: italic;
         }
     }
 

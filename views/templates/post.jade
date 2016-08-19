@@ -7,6 +7,13 @@ div.postWidget: a(href='post/' + post.slug + '.html')
         img(src="http://placehold.it/350x200?text=roaming+love" class="img-responsive")
   .postWidget__content
     span.postWidget__title= post.title
+    //- ul
+    // - for category in post.categories
+      //- li
+        //- h4= category.name
+
+
+
     span.postWidget__date= moment(post.date).format("MMMM DD, YYYY")
     //- .postWidget__preview!= string(post.content).truncate(50).s
     //- pre= JSON.stringify(post, null, 2)

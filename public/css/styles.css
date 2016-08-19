@@ -365,6 +365,7 @@ html {
 body {
   font-family: 'Merriweather', serif;
   font-size: 18px;
+  line-height: 1.7;
   background: #FFFFF6;
   color: #2C2C2C; }
 
@@ -456,7 +457,8 @@ a {
     display: inline-block; }
   .header a {
     color: #fff;
-    text-decoration: none; }
+    text-decoration: none;
+    text-shadow: 0px 0px 15px #000; }
   .header nav::after {
     clear: both;
     content: "";
@@ -494,10 +496,14 @@ a {
 .postWidget {
   float: left;
   display: block;
-  margin-right: 2.55507%;
-  width: 48.72247%;
-  margin-right: 0;
-  margin-bottom: 15px; }
+  margin-right: 2.03366%;
+  width: 45.58205%;
+  margin-right: 4%;
+  padding-right: 1%;
+  margin-bottom: 25px;
+  line-height: 1.3;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1); }
   .postWidget:last-child {
     margin-right: 0; }
   @media screen and (max-width: 991px) {
@@ -529,7 +535,7 @@ a {
     display: block;
     margin-right: 2.55507%;
     width: 48.72247%;
-    height: 200px;
+    height: 185px;
     position: relative;
     overflow: hidden; }
     .postWidget__img:last-child {
@@ -694,6 +700,14 @@ a {
     -spec-transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s;
     transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s; }
 
+.post .postInner {
+  float: left;
+  display: block;
+  margin-right: 2.55507%;
+  width: 74.36123%; }
+  .post .postInner:last-child {
+    margin-right: 0; }
+
 .post h1 {
   margin-top: 55px;
   margin-bottom: 5px; }
@@ -710,12 +724,22 @@ a {
 
 .post img {
   display: inline-block;
-  max-width: 50%;
+  max-width: 60%;
   height: auto;
-  margin: 1em 0; }
+  margin: 1em 0;
+  border: 3px solid #ccc;
+  box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.5); }
   @media screen and (max-width: 767px) {
     .post img {
       max-width: 100%; } }
+
+.post figure {
+  margin: 0 0 2em 0; }
+  .post figure img {
+    margin-bottom: 0; }
+  .post figure figcaption {
+    font-size: 14px;
+    font-style: italic; }
 
 .btn {
   border: 1px solid;

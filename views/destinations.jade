@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    .container.index
+        h1.pageHeading Destinations
+        .postWidget__wrapper
+        for post in wordpress.post
+            - for category in post.categories
+                if  (category.name == "Destination")
+                  include templates/post
+
+
+
+
+

@@ -10,6 +10,7 @@ config       = require 'roots-config'
 templates    = require 'client-templates'
 
 api_url = 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100'
+api_url2 = 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/categories'
 
 module.exports =
   ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']

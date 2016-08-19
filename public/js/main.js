@@ -1,5 +1,5 @@
 (function() {
-  var post;
+  var categories, post;
 
   console.log('hello there!');
 
@@ -49,6 +49,21 @@
       post.splice(0, 1);
       return $('.more').fadeOut();
     }
+  });
+
+  categories = [];
+
+  $.get('https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/categories', function(res) {
+    console.log(res);
+    return categories = res.categories[2];
+  });
+
+  $('.foobar').on('click', function() {
+    console.log(categories);
+    $('.postWidget__wrapper').append($(templates.category({
+      post: categories[2]
+    })).hide().fadeIn());
+    return categories.splice(0, 1);
   });
 
 }).call(this);

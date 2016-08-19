@@ -24,3 +24,15 @@ $('.more').on 'click', ->
     $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn())
     post.splice(0, 1)
     $('.more').fadeOut();
+
+# this was all stuff I was playing around with. none of it works.
+categories = []
+
+$.get 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/categories', (res) ->
+  console.log(res)
+  categories = res.categories[2]
+
+$('.foobar').on 'click', ->
+  console.log(categories)
+  $('.postWidget__wrapper').append($(templates.category(post: categories[2])).hide().fadeIn())
+  categories.splice(0, 1)

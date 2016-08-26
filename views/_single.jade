@@ -6,11 +6,10 @@ block content
           h1= post.title
           //- h1= post.categories.name
           //- ul
-          // - for category in post.categories
+          //- - for category in post.categories
             //- li
               //- h4= category.name
 
-          //- p= post.date
           p.date= moment(post.date).format("MMMM DD, YYYY")
           .content!= post.content
           //- img(src=post.featured_image class="img-responsive")

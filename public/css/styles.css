@@ -592,6 +592,9 @@ a {
     display: block;
     color: #ccc;
     font-size: 14px; }
+  .postWidget pre {
+    width: 200%;
+    margin-left: -100%; }
 
 /*
  *  Usage:

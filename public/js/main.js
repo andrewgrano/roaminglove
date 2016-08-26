@@ -6,13 +6,11 @@
   post = [];
 
   $.get(config.api_url, function(res) {
-    console.log(res);
     post = res.posts.slice(config.static_items);
     return $('.more').removeClass('disabled');
   });
 
   $('.more').on('click', function() {
-    console.log(post);
     if (post.length >= 4) {
       $('.postWidget__wrapper').append($(templates.post({
         post: post[0]
@@ -54,12 +52,10 @@
   categories = [];
 
   $.get('https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/categories', function(res) {
-    console.log(res);
     return categories = res.categories[2];
   });
 
   $('.foobar').on('click', function() {
-    console.log(categories);
     $('.postWidget__wrapper').append($(templates.category({
       post: categories[2]
     })).hide().fadeIn());

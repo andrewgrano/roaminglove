@@ -3,12 +3,12 @@ console.log 'hello there!'
 post = []
 
 $.get config.api_url, (res) ->
-  console.log(res)
+  # console.log(res)
   post = res.posts[config.static_items..]
   $('.more').removeClass('disabled')
 
 $('.more').on 'click', ->
-  console.log(post)
+  # console.log(post)
   if post.length >= 4
     $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post[1])).hide().fadeIn(),$(templates.post(post: post[2])).hide().fadeIn(),$(templates.post(post: post[3])).hide().fadeIn())
     post.splice(0, 4)
@@ -29,10 +29,10 @@ $('.more').on 'click', ->
 categories = []
 
 $.get 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/categories', (res) ->
-  console.log(res)
+  # console.log(res)
   categories = res.categories[2]
 
 $('.foobar').on 'click', ->
-  console.log(categories)
+  # console.log(categories)
   $('.postWidget__wrapper').append($(templates.category(post: categories[2])).hide().fadeIn())
   categories.splice(0, 1)

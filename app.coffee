@@ -8,9 +8,9 @@ moment       = require 'moment'
 string       = require 'string'
 config       = require 'roots-config'
 templates    = require 'client-templates'
+records      = require 'roots-records'
 
 api_url = 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100'
-api_url2 = 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/categories'
 
 module.exports =
   ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']
@@ -23,9 +23,22 @@ module.exports =
       post_types:
         post:
           template: 'views/_single.jade'
-          number: 10
+          number: 100
     config(api_url: api_url, static_items: 10),
     templates(base: 'views/templates')
+    records(
+      categories: {
+        url: 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/categories',
+        # path: 'categories',
+        hook: (data) -> data.categories,
+        template: "views/_category.jade",
+        out: (category) -> "/places/#{category.name}"
+      }
+      post: {
+        url: 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100',
+        hook: (data) -> data.posts
+      }
+    )
   ]
 
   stylus:

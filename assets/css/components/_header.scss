@@ -14,6 +14,10 @@
         height: 350px;
     }
 
+    @media screen and (max-width: $vp-sm-max) {
+        margin-bottom: 20px;
+    }
+
     @media screen and (max-width: 479px) {
         height: 280px;
     }
@@ -66,8 +70,21 @@
 
     nav {
         @include clearfix;
+        background: #2c2c2c;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        padding-top: 3px;
+        z-index: 10;
+
+        @media screen and (max-width: $vp-sm-max) {
+            bottom: -20px;
+        }
+
         ul {
             padding: 0;
+            margin: 4px;
+
             li {
                 display: inline-block;
                 margin: 0 15px;
@@ -76,6 +93,15 @@
                     font-size: 22px;
                     //background: rgba(0,0,0,0.35);
                     padding: 4px 15px;
+
+                    @media screen and (max-width: $vp-sm-max) {
+                        font-size: 18px;
+                    }
+
+                    @media screen and (max-width: 479px) {
+                        font-size: 16px;
+                    }
+
 
                     &:hover {
                         //background: rgba(0,0,0,0.6);

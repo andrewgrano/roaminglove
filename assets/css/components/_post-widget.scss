@@ -72,6 +72,38 @@
         font-size: 14px;
     }
 
+    &__categories {
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: inline-block;
+            margin-right: 10px;
+            color: #575757;
+            font-size: 12px;
+            position: relative;
+
+            &:after {
+                content: " ";
+                width: 1px;
+                height: 14px;
+                position: absolute;
+                right: -8px;
+                bottom: 1px;
+                background: #575757;;
+            }
+
+            &:last-child {
+                margin-right: 0;
+
+                &:after {
+                    display: none;
+                }
+            }
+
+        }
+    }
+
 
     pre {
         width: 200%;

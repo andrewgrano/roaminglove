@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    .container.index
+        h1.pageHeading Food
+        .postWidget__wrapper
+        for post in wordpress.post
+            - for tag in post.tags
+                if  (tag.name == "Food")
+                  include templates/post

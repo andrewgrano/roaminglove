@@ -4,11 +4,17 @@ header.header
         h1.heading
             a(href="/") Roaming Love
         a.subheading(href="/") a travel blog
+
+    nav
+        ul
+            li
+                a(href="/destinations.html") Destinations
+
         //- nav
         //-     ul
-        //-         li
-        //-             a(href="/photos.html") Photos
-        //-         li
-        //-             a(href="") Posts
+        //-        for post in wordpress.post
+        //-             for category in post.categories
+        //-                 if (category.name != "Uncategorized")
+        //-                     li= category.name
 
 

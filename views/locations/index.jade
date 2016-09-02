@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+    .container.index
+        h1.pageHeading Locations
+        .postWidget__wrapper
+
+        -for category in records.categories
+            if( category.parent == "0" & category.name != "Uncategorized")
+                p: a(href="/locations/" + category.name.replace(" ","-") + ".html")  #{category.name}
+                -for subcategory in records.categories
+                    - var subcategoryimageix = subcategory.description.replace("107.170.229.16/wp-content/uploads", "roaminglove.imgix.net")
+                    if( subcategory.parent == category.ID )
+                      a.locationWidget(href="/locations/" + subcategory.name.replace(" ","-") + ".html")
+                        h6= subcategory.name
+                        img(src="#{subcategoryimageix}?w=200&h=200&fit=crop&crop=entropy" class="")
+            //- else
+            //-     p= category.name
+
+        pre= JSON.stringify(records.categories, null, 2)
+
+
+
+
+
+
+

@@ -26,13 +26,23 @@ $('.more').on 'click', ->
     $('.more').fadeOut();
 
 # this was all stuff I was playing around with. none of it works.
-categories = []
+# categories = []
 
-$.get 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/categories', (res) ->
-  # console.log(res)
-  categories = res.categories[2]
+# $.get 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/categories', (res) ->
+#   # console.log(res)
+#   categories = res.categories[2]
 
-$('.foobar').on 'click', ->
-  # console.log(categories)
-  $('.postWidget__wrapper').append($(templates.category(post: categories[2])).hide().fadeIn())
-  categories.splice(0, 1)
+# $('.foobar').on 'click', ->
+#   # console.log(categories)
+#   $('.postWidget__wrapper').append($(templates.category(post: categories[2])).hide().fadeIn())
+#   categories.splice(0, 1)
+
+
+
+
+$ ->
+  $.get config.api_url_categories, (res) ->
+    console.log(res)
+    categories = res.categories
+
+  console.log("DOM is ready")

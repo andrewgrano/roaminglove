@@ -5,12 +5,17 @@ block content
       .postInner
           h1= post.title
           //- h1= post.categories.name
-          //- ul
-          //- - for category in post.categories
-            //- li
-              //- h4= category.name
-
           p.date= moment(post.date).format("MMMM DD, YYYY")
+          ul.categories
+            - for category in post.categories
+              if (category.name != "Uncategorized")
+                li
+                  a(href='/locations/' + category.name.replace(" ","-") + '.html')= category.name
+            - for tag in post.tags
+                li
+                  a(href='/' + tag.name.replace(" ","-") + '.html')= tag.name
+
+
           .content!= post.content
           //- img(src=post.featured_image class="img-responsive")
           br

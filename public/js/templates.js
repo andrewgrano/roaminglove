@@ -3,20 +3,70 @@
 var buf = [];
 var jade_mixins = {};
 var jade_interp;
-;var locals_for_with = (locals || {});(function (moment, post) {
-buf.push("");
+;var locals_for_with = (locals || {});(function (moment, post, undefined) {
 var imagesrc = post.featured_image
 var imgixsrc = imagesrc.replace("107.170.229.16/wp-content/uploads", "roaminglove.imgix.net")
-buf.push("<div class=\"postWidget\"><a" + (jade.attr("href", 'post/' + post.slug + '.html', true, false)) + "><div class=\"postWidget__img\">");
+buf.push("<div class=\"postWidget\"><a" + (jade.attr("href", '/post/' + post.slug + '.html', true, false)) + "><div class=\"postWidget__img\">");
 if ( post.featured_image)
 {
-buf.push("<img" + (jade.attr("src", "" + (imgixsrc) + "?h=185", true, false)) + "/>");
+buf.push("<img" + (jade.attr("src", "" + (imgixsrc) + "?w=277", true, false)) + "/>");
 }
 else
 {
 buf.push("<img src=\"http://placehold.it/350x200?text=roaming+love\" class=\"img-responsive\"/>");
 }
-buf.push("</div><div class=\"postWidget__content\"><span class=\"postWidget__title\">" + (jade.escape(null == (jade_interp = post.title) ? "" : jade_interp)) + "</span><span class=\"postWidget__date\">" + (jade.escape(null == (jade_interp = moment(post.date).format("MMMM DD, YYYY")) ? "" : jade_interp)) + "</span></div></a></div>");}.call(this,"moment" in locals_for_with?locals_for_with.moment:typeof moment!=="undefined"?moment:undefined,"post" in locals_for_with?locals_for_with.post:typeof post!=="undefined"?post:undefined));;return buf.join("");
+buf.push("</div><div class=\"postWidget__content\"><span class=\"postWidget__title\">" + (jade.escape(null == (jade_interp = post.title) ? "" : jade_interp)) + "</span><span class=\"postWidget__date\">" + (jade.escape(null == (jade_interp = moment(post.date).format("MMMM DD, YYYY")) ? "" : jade_interp)) + "</span><ul class=\"postWidget__categories\">");
+// iterate post.categories
+;(function(){
+  var $$obj = post.categories;
+  if ('number' == typeof $$obj.length) {
+
+    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
+      var category = $$obj[$index];
+
+if ( (category.name != "Uncategorized"))
+{
+buf.push("<li>" + (jade.escape(null == (jade_interp = category.name) ? "" : jade_interp)) + "</li>");
+}
+    }
+
+  } else {
+    var $$l = 0;
+    for (var $index in $$obj) {
+      $$l++;      var category = $$obj[$index];
+
+if ( (category.name != "Uncategorized"))
+{
+buf.push("<li>" + (jade.escape(null == (jade_interp = category.name) ? "" : jade_interp)) + "</li>");
+}
+    }
+
+  }
+}).call(this);
+
+// iterate post.tags
+;(function(){
+  var $$obj = post.tags;
+  if ('number' == typeof $$obj.length) {
+
+    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
+      var tag = $$obj[$index];
+
+buf.push("<li>" + (jade.escape(null == (jade_interp = tag.name) ? "" : jade_interp)) + "</li>");
+    }
+
+  } else {
+    var $$l = 0;
+    for (var $index in $$obj) {
+      $$l++;      var tag = $$obj[$index];
+
+buf.push("<li>" + (jade.escape(null == (jade_interp = tag.name) ? "" : jade_interp)) + "</li>");
+    }
+
+  }
+}).call(this);
+
+buf.push("</ul></div></a></div>");}.call(this,"moment" in locals_for_with?locals_for_with.moment:typeof moment!=="undefined"?moment:undefined,"post" in locals_for_with?locals_for_with.post:typeof post!=="undefined"?post:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
 },"category": function template(locals) {
 var buf = [];
 var jade_mixins = {};

@@ -1,5 +1,5 @@
 (function() {
-  var categories, post;
+  var post;
 
   console.log('hello there!');
 
@@ -49,17 +49,13 @@
     }
   });
 
-  categories = [];
-
-  $.get('https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/categories', function(res) {
-    return categories = res.categories[2];
-  });
-
-  $('.foobar').on('click', function() {
-    $('.postWidget__wrapper').append($(templates.category({
-      post: categories[2]
-    })).hide().fadeIn());
-    return categories.splice(0, 1);
+  $(function() {
+    $.get(config.api_url_categories, function(res) {
+      var categories;
+      console.log(res);
+      return categories = res.categories;
+    });
+    return console.log("DOM is ready");
   });
 
 }).call(this);

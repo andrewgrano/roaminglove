@@ -1,0 +1,40 @@
+.locationWidget {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin: 5px 15px;
+    border: 2px solid #ccc;
+    overflow: hidden;
+
+    &:before {
+        content: " ";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.25);
+        z-index: 1;
+    }
+
+    h6 {
+        position: absolute;
+        width: 100%;
+        top: 32%;
+        color: #fff;
+        font-size: 42px;
+        text-align: center;
+        text-decoration: none;
+        z-index: 2;
+        margin: 0;
+        font-family: $displayFont;
+        letter-spacing: 2px;
+    }
+
+    img {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}

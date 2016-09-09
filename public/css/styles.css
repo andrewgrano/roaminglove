@@ -853,6 +853,9 @@ a {
     font-size: 14px;
     font-style: italic; }
 
+.post ul li {
+  margin-bottom: 20px; }
+
 .post .categories {
   margin: 0 0 35px 0;
   padding: 0 0 25px 0;

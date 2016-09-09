@@ -7,7 +7,7 @@ block content
 
         -for category in records.categories
             if( category.parent == "0" & category.name != "Uncategorized")
-                p: a(href="/locations/" + category.name.replace(" ","-") + ".html")  #{category.name}
+                p: a(href="/places/" + category.name.replace(" ","-") + ".html")  #{category.name}
                 -for subcategory in records.categories
                     - var subcategoryimageix = subcategory.description.replace("107.170.229.16/wp-content/uploads", "roaminglove.imgix.net")
                     if( subcategory.parent == category.ID )

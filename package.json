@@ -17,7 +17,7 @@
     "roots": "^4.0.1",
     "roots-config": "0.0.2",
     "roots-records": "^0.5.1",
-    "roots-wordpress": "^0.3.1",
+    "roots-wordpress": "^0.3.2",
     "rupture": "0.6.x",
     "string": "^3.3.1",
     "stylus": "0.52.x"

@@ -3,14 +3,17 @@
 
 //- div.postWidget: a(href=post._url) <-- post._url is a roots variable that the JSON data cannot use, so we do the following instead...
 div.postWidget: a(href='/post/' + post.slug + '.html')
-  .postWidget__img
+  figure.postWidget__img
     if post.featured_image
-      img(src="#{imgixsrc}?w=277" class="")
+      //- img(src="#{imgixsrc}?w=359&h=215&fit=crop&crop=entropy" class="visible-lg")
+      //- img(src="#{imgixsrc}?w=435&h=200&fit=crop&crop=entropy" class="visible-md")
+      img(src="#{imgixsrc}?w=457&h=300&fit=crop&crop=entropy" class="")
     else
         img(src="http://placehold.it/350x200?text=roaming+love" class="img-responsive")
   .postWidget__content
-    span.postWidget__title= post.title
-    span.postWidget__date= moment(post.date).format("MMMM DD, YYYY")
+    .postWidget__title
+      span= post.title
+    //- span.postWidget__date= moment(post.date).format("MMMM DD, YYYY")
     ul.postWidget__categories
       - for category in post.categories
         if (category.name != "Uncategorized")

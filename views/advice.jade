@@ -1,10 +1,12 @@
 extends layout
 
 block content
-    .container.index
-        h1.pageHeading Advice
+    .container.advice
+        .headerContent
+            img(src="http://107.170.229.16/wp-content/uploads/2016/09/window3.jpg")
+            h1 Advice
         .postWidget__wrapper
-        for post in wordpress.post
-            - for tag in post.tags
-                if  (tag.name == "Advice")
-                  include templates/post
+            for post in wordpress.post
+                - for tag in post.tags
+                    if  (tag.name == "Advice")
+                      include templates/post

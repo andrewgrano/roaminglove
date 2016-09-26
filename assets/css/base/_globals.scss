@@ -1,18 +1,89 @@
 $white: #fff;
-$displayFont: 'Amatic SC', cursive;
+$displayFont: 'Special Elite', cursive;
 $defaultFont: 'Merriweather', serif;
 
 $offwhite: #FFFFF6;
 $black: #2C2C2C;
 $gray: #ccc;
+$light-gray: #f1f1f1;
+$dark-gray: #4F4F4F;
+$orange: #F1B870;
+$teal: #2693BB;
+$red: #b23304;
+$green: #26bb85;
 
+$primary-color: $orange;
+$secondary-color: $teal;
+$tertiary-color: $red;
+
+.hidden-sm {
+    @media screen and (max-width: $vp-sm-max) and (min-width: $vp-sm-min) {
+        display: none !important;
+    }
+}
+
+.visible-sm {
+    display: none !important;
+
+    @media screen and (max-width: $vp-sm-max) and (min-width: $vp-sm-min) {
+        display: block !important;
+    }
+}
+
+.bg-lightgray {
+    background: $light-gray;
+}
+
+.bg-orange {
+    background: $orange;
+}
+
+.rel {
+    position: relative;
+}
+
+
+hr {
+    height: 7px;
+    border: 0 none;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.section {
+    padding: 30px 20px;
+
+    @media screen and (max-width: 479px) {
+        margin-left: -25px;
+        margin-right: -25px;
+    }
+}
 
 body {
     font-family: 'Merriweather', serif;
     font-size: 18px;
     line-height: 1.7;
-    background: $offwhite;
     color: $black;
+
+    @media screen and (max-width: 479px) {
+        font-size: 15px;
+        line-height: 1.8;
+    }
 }
 
 a {
@@ -22,9 +93,21 @@ a {
 .container {
     @include outer-container;
 
-    @media screen and (max-width: 1160px) {
+    @media screen and (max-width: $vp-lg-max) {
         padding-left: 25px;
         padding-right: 25px;
+    }
+
+    @media screen and (max-width: 479px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+}
+
+h1 {
+    @media screen and (max-width: 479px) {
+        font-size: 1.75em;
     }
 }
 
@@ -36,6 +119,119 @@ a {
 
 .pageHeading {
     font-family: $displayFont;
+    font-size: 34px;
+    margin: 0 0 0.67em 0;
+
+    @media screen and (max-width: $vp-sm-max) {
+        text-align: center;
+    }
+
+    @media screen and (max-width: 479px) {
+        font-size: 26px;
+    }
+
 }
 
+.instagramLink {
+    display: inline-block;
+    height: 30px;
+    border-radius: 11px;
+    text-decoration: none;
+    background: #f1f1f1;
+    padding-right: 5px;
+    padding-top: 2px;
+
+    span {
+        font-size: 14px;
+        padding: 0 10px;
+        position: relative;
+        top: -8px;
+    }
+}
+
+
+.btn {
+    border: 1px solid;
+    border-radius: 35px;
+    padding: 8px 25px 2px;
+    font-family: $displayFont;
+    font-size: 28px;
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+    @include transition(background .1s ease-in);
+
+    @media screen and (max-width: 479px) {
+        font-size: 21px;
+    }
+
+}
+
+.btnDefault {
+    background: $light-gray;
+    color: $black;
+    border-color: $white;
+}
+
+.btnPrimary,
+.btnSecondary {
+    color: $white;
+
+    .sk-circle .sk-child:before {
+        background-color: $white;
+    }
+}
+
+.btnPrimary {
+    background: $primary-color;
+}
+
+.btnSecondary {
+    background: $secondary-color;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background: shade($secondary-color, 20%);
+
+    }
+}
+
+
+/* Underline From Center */
+.linkOverline {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        right: 50%;
+        top: 0;
+        background: $tertiary-color;
+        height: 2px;
+        -webkit-transition-property: left, right;
+        transition-property: left, right;
+        -webkit-transition-duration: 0.1s;
+        transition-duration: 0.1s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+    }
+
+    &:hover:before,
+    &:active:before {
+        left: 0;
+        right: 0;
+    }
+}
 

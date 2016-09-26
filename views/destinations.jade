@@ -1,19 +1,24 @@
 extends layout
 
 block content
-    .container.index
+    .container.destinations
+        .headerContent
+            img(src="http://107.170.229.16/wp-content/uploads/2016/09/window6.jpg")
+            h1 Destinations
+
         //- h1.pageHeading Locations
         .postWidget__wrapper
 
         -for category in records.categories
             if( category.parent == "0" & category.name != "Uncategorized")
-                p: a(href="/places/" + category.name.replace(" ","-") + ".html")  #{category.name}
-                -for subcategory in records.categories
-                    - var subcategoryimageix = subcategory.description.replace("107.170.229.16/wp-content/uploads", "roaminglove.imgix.net")
-                    if( subcategory.parent == category.ID )
-                      a.locationWidget(href="/places/" + subcategory.name.replace(" ","-") + ".html")
-                        h6= subcategory.name
-                        img(src="#{subcategoryimageix}?w=200&h=200&fit=crop&crop=entropy" class="")
+                section.countryWrapper
+                    h1.pageHeading: a(href="/places/" + category.name.replace(" ","-") + ".html")  #{category.name}
+                    -for subcategory in records.categories
+                        - var subcategoryimageix = subcategory.description.replace("107.170.229.16/wp-content/uploads", "roaminglove.imgix.net")
+                        if( subcategory.parent == category.ID )
+                          a.locationWidget(href="/places/" + subcategory.name.replace(" ","-") + ".html")
+                            h6= subcategory.name
+                            img(src="#{subcategoryimageix}?w=240&h=240&fit=crop&crop=entropy" class="")
             //- else
             //-     p= category.name
 

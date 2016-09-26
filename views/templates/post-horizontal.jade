@@ -1,0 +1,25 @@
+- var imagesrc = post.featured_image
+- var imgixsrc = imagesrc.replace("107.170.229.16/wp-content/uploads", "roaminglove.imgix.net")
+
+//- div.postWidget: a(href=post._url) <-- post._url is a roots variable that the JSON data cannot use, so we do the following instead...
+div.postWidgetHorizontal: a(href='/post/' + post.slug + '.html')
+  .postWidgetHorizontal__img
+    if post.featured_image
+      img(src="#{imgixsrc}?w=277" class="")
+    else
+        img(src="http://placehold.it/350x200?text=roaming+love" class="img-responsive")
+  .postWidgetHorizontal__content
+    span.postWidgetHorizontal__title= post.title
+    span.postWidgetHorizontal__date= moment(post.date).format("MMMM DD, YYYY")
+    ul.postWidgetHorizontal__categories
+      - for category in post.categories
+        if (category.name != "Uncategorized")
+          li= category.name
+      - for tag in post.tags
+          li= tag.name
+
+
+
+
+    //- .postWidgetHorizontal__preview!= string(post.content).truncate(50).s
+    //- pre= JSON.stringify(post, null, 2)

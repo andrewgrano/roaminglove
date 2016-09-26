@@ -3,13 +3,17 @@ extends layout
 block content
     .container
         .postInner
-            h1= item.name
+            .headerContent
+                img(src=item.description)
+                h1= item.name
+
+            //- h1= item.name
             //- .postWidget__wrapper
             .postWidget__wrapper
-            for post in records.post
-                - for category in post.categories
-                    if  (category.name == item.name)
-                      include templates/post
+                for post in records.post
+                    - for category in post.categories
+                        if  (category.name == item.name)
+                          include templates/post
 
             //- pre= JSON.stringify(item, null, 2)
             //- pre= JSON.stringify(records.post, null, 2)

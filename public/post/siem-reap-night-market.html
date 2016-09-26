@@ -6,7 +6,7 @@
     <meta name="description" content="A travel blog by Sigournee. Join me in my travels abroad as I take photographs and write posts about my adventures.">
     <meta name="author" content="Sigournee">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Merriweather:400,300,300italic,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite|Merriweather:400,300,300italic,700" rel="stylesheet" type="text/css">
     <!--title= _path-->
     <title>Roaming Love</title>
     <link rel="stylesheet" href="../css/styles.css">
@@ -14,16 +14,28 @@
   </head>
   <body>
     <header class="header">
-      <div class="patternbg"></div>
-      <div class="wrapper">
-        <h1 class="heading"><a href="/">Roaming Love</a></h1><a href="/" class="subheading">a travel blog</a>
+      <div class="container">
+        <div class="logoWrapper"><a href="/" class="logo"><img src="/img/logo.svg" class="img-responsive"></a></div>
+        <div class="navWrapper"><a href="javascript:void(0)" id="js-mobile-menu" class="nav-btn"><span class="menu-text">MENU</span>
+            <div class="hamburger hamburger--spin"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a>
+          <nav role="navigation">
+            <ul id="js-navigation-menu" class="show">
+              <li><a href="/destinations.html">destinations</a></li>
+              <li><a href="/advice.html">advice</a></li>
+              <li><a href="/food.html">food</a></li>
+              <li><a href="/hotels.html">hotels</a></li>
+              <li><a href="/contribute.html">contribute</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div id="js-parallax-window" class="parallax-window">
+          <div class="parallax-static-content">
+            <h1></h1>
+          </div>
+          <div id="js-parallax-background" class="parallax-background"></div>
+        </div>
+        <hr class="bg-orange">
       </div>
-      <nav>
-        <ul>
-          <li><a href="/destinations.html">Destinations</a></li>
-        </ul>
-        
-      </nav>
     </header>
     <div class="container post">
       <div class="postInner">
@@ -32,11 +44,15 @@
         <ul class="categories">
           <li><a href="/locations/Asia.html">Asia</a></li>
           <li><a href="/locations/Cambodia.html">Cambodia</a></li>
+          <li><a href="/Stories.html">Stories</a></li>
         </ul>
         <div class="content"><p>Our hotel in Cambodia was located a short walk from a bustling night market. After a long day at the temples, we mustered up the energy to explore the market. I am glad we did! I absolutely loved it.</p>
 <p>In Cambodia, you can haggle with any shop owner. I was able to purchase many souvenirs and gifts for my friends and family. The market sold everything from clothing, jewelry, food and various trinkets. Cambodia uses the US dollar. I don&#8217;t think I purchased anything over $3 at the night market.</p>
 <p>I would recommend a quick visit here if you have a free night in Siem Reap, Cambodia. The locals were very friendly and they love to ask where you are from. It was great talking to them while browsing their shops.</p>
 </div><br><a href="/" class="btn btn-returnhome">< &nbsp;Return Home</a>
+      </div>
+      <div class="headerContent"><img src="http://107.170.229.16/wp-content/uploads/2016/04/img_9220.jpg">
+        <h1>Siem Reap Night Market</h1>
       </div>
     </div>
     <footer class="footer">

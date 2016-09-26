@@ -32,7 +32,7 @@ module.exports =
         # path: 'categories',
         hook: (data) -> data.categories,
         template: "views/_category.jade",
-        out: (category) -> "/places/#{category.name}"
+        out: (category) -> "/places/#{category.name.replace(" ", "-")}"
       }
       post: {
         url: 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100',

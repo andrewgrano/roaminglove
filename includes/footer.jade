@@ -1,5 +1,66 @@
 footer.footer
     .container
-        p.bio Sigournee is a travel enthusiast, photographer, writer and wife
-        p.credit Website designed by&nbsp;
-            a(href="http://www.andrewgrano.com") Andrew Grano
+        .section
+            .footer__summary
+                span Roaming Love is an online community of travel storytellers. We allow readers a personal and honest look into our trips. We hope our stories inspire others to travel, see the world, and join our community.
+
+                a(class="instagramLink visible-sm" href="https://www.instagram.com/roaminglovetravel/" target="instagram")
+                    span follow us on instagram
+                    img(src="http://107.170.229.16/wp-content/uploads/2016/09/instagram-logo.svg" width="25")
+
+
+                .formNewsletter.clearfix
+                    h6.formNewsletter__title Join Our Newsletter
+                    .formNewsletter__spinner S
+                    .formNewsletter__successMessage Thank you for joining our newsletter! We'll be in contact with you soon!
+                    form(id="footer-formNewsletter" name="newsletter" netlify netlify-honeypot="botField" class="formNewsletter__form clearfix")
+                        .formNewsletter__main
+                            label(for="emailNewsletter" class="sr-only") Email
+                            input(name="emailNewsletter" id="emailNewsletter" placeholder="your email address")
+                            div.hide
+                                label(for="botField")
+                                input(name="botField" id="botField" placeholder="botField")
+                                label(for="form-name")
+                                input(name="newsletter" id="form-name" value="newsletter")
+                        button(type="submit") Join
+            .footer__links
+                nav
+                    ul.footer__list--destinations
+                        -for category in records.categories
+                            if( category.parent == "0" & category.name != "Uncategorized")
+                                li
+                                    a(href="/places/" + category.name.replace(" ","-") + ".html")  #{category.name}
+
+                    ul.footer__list--secondary
+                        li
+                            a(href="/contribute.html") contribute
+                        li
+                            a(href="/about.html") about
+                        li
+                            a(href="/contact.html") contact
+                        li
+                            a(href="/destinations.html") destinations
+
+
+                    ul.footer__list--primary
+                        li
+                            a(href="/") home
+                        //- li
+                        //-     a(href="/destinations.html") destinations
+                        li
+                            a(href="/advice.html") advice
+                        li
+                            a(href="/food.html") food
+                        li
+                            a(href="/hotels.html") hotels
+
+                a(class="instagramLink hidden-sm" href="https://www.instagram.com/roaminglovetravel/" target="instagram")
+                    span follow us on instagram
+                    img(src="http://107.170.229.16/wp-content/uploads/2016/09/instagram-logo.svg" width="25")
+
+
+
+
+        //- p.bio Sigournee is a travel enthusiast, photographer, writer and wife
+        //- p.credit Website designed by&nbsp;
+        //-     a(href="http://www.andrewgrano.com") Andrew Grano

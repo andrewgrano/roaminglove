@@ -2,33 +2,48 @@ extends layout
 
 block content
     .container.index
+        .headerContent.js--hide-on-top
+            img(src="http://107.170.229.16/wp-content/uploads/2016/09/window1.jpg")
+            h1 Whats Your Travel Story?
+        //- section.section.bg-lightgray
+        section
+            h1.pageHeading >> Recent Posts
 
-        //- ul
-        //-    for post in wordpress.post
-        //-         for category in post.categories
-        //-             if (category.name != "Uncategorized")
-        //-                 li= category.name
+            .postWidget__wrapper
+              each post, index in wordpress.post
+                if index < 6
+                    include templates/post
+            .btnWrapper
+                .more.more--3inarow.btn.btnSecondary.disabled >> More Posts
+                  .sk-circle
+                    .sk-circle1.sk-child
+                    .sk-circle2.sk-child
+                    .sk-circle3.sk-child
+                    .sk-circle4.sk-child
+                    .sk-circle5.sk-child
+                    .sk-circle6.sk-child
+                    .sk-circle7.sk-child
+                    .sk-circle8.sk-child
+                    .sk-circle9.sk-child
+                    .sk-circle10.sk-child
+                    .sk-circle11.sk-child
+                    .sk-circle12.sk-child
+        section
+            h1.pageHeading >> Top Destinations
+            a(href="/places/colombia.html" class="locationWidget")
+                h6 Colombia
+                img(src="http://roaminglove.imgix.net/2016/08/IMG_4189_opt.jpg?w=436&h=240&fit=crop&crop=entropy")
 
-        h1.pageHeading Recent Posts
+            a(href="/places/vietnam.html" class="locationWidget")
+                h6 Vietnam
+                img(src="http://roaminglove.imgix.net/2016/04/img_9601.jpg?w=436&h=240&fit=crop&crop=entropy")
 
-        .postWidget__wrapper
-          for post in wordpress.post
-            include templates/post
-        //- .more.btn.disabled &nbsp; More Posts
-        //-   .sk-circle
-        //-     .sk-circle1.sk-child
-        //-     .sk-circle2.sk-child
-        //-     .sk-circle3.sk-child
-        //-     .sk-circle4.sk-child
-        //-     .sk-circle5.sk-child
-        //-     .sk-circle6.sk-child
-        //-     .sk-circle7.sk-child
-        //-     .sk-circle8.sk-child
-        //-     .sk-circle9.sk-child
-        //-     .sk-circle10.sk-child
-        //-     .sk-circle11.sk-child
-        //-     .sk-circle12.sk-child
+            a(href="/places/italy.html" class="locationWidget")
+                h6 Italy
+                img(src="http://roaminglove.imgix.net/2016/09/IMG_6520.jpg?w=436&h=240&fit=crop&crop=entropy")
 
-
-
-
+            a(href="/places/alaska.html" class="locationWidget")
+                h6 Alaska
+                img(src="http://roaminglove.imgix.net/2016/09/IMG_0348_opt.jpg?w=436&h=240&fit=crop&crop=entropy")
+            .btnWrapper
+                a.more.btn.btnSecondary(href="/Destinations.html") >> More Destinations

@@ -1,20 +1,35 @@
 header.header
-    .patternbg
-    .wrapper
-        h1.heading
-            a(href="/") Roaming Love
-        a.subheading(href="/") a travel blog
+    .container.rel
+        .logoWrapper
+            a(href="/").logo
+                img(src="/img/logo.svg" width="500").img-responsive
+        .navWrapper
+            a(href="javascript:void(0)").nav-btn#js-mobile-menu
+                span.menu-text MENU
+                .hamburger.hamburger--spin
+                    span.hamburger-box
+                        span.hamburger-inner
 
-    nav
-        ul
-            li
-                a(href="/destinations.html") Destinations
+            a(class="instagramLink" href="https://www.instagram.com/roaminglovetravel/" target="instagram")
+                span follow us on instagram
+                img(src="http://107.170.229.16/wp-content/uploads/2016/09/instagram-logo.svg" width="25")
 
-        //- nav
-        //-     ul
-        //-        for post in wordpress.post
-        //-             for category in post.categories
-        //-                 if (category.name != "Uncategorized")
-        //-                     li= category.name
+            nav(role="navigation")
+                ul#js-navigation-menu.show
+                    li.linkOverline
+                        a(href="/destinations.html") destinations
+                    li.linkOverline
+                        a(href="/advice.html") advice
+                    li.linkOverline
+                        a(href="/food.html") food
+                    li.linkOverline
+                        a(href="/hotels.html") hotels
+                    li.linkOverline
+                        a(href="/contribute.html") contribute
 
+        #js-parallax-window.parallax-window
+            .parallax-static-content
+                h1
+            #js-parallax-background.parallax-background
 
+        hr.bg-orange

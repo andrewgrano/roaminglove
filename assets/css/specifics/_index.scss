@@ -2,7 +2,33 @@
     @include clearfix;
 }
 
+.btnWrapper {
+    text-align: right;
+
+    @media screen and (max-width: $vp-sm-max) {
+        text-align: center;
+    }
+}
+
 .index {
+
+    .headerContent h1 {
+        @media screen and (max-width: $vp-sm-max) {
+            display: none;
+        }
+    }
+
+    section {
+        padding-bottom: 75px;
+        border-bottom: 7px solid $primary-color;
+        margin-bottom: 25px;
+
+        &:last-child {
+            border-bottom: 0 none;
+            margin-bottom: 0;
+        }
+    }
+
     .more.btn {
         margin-top: 25px;
         cursor: pointer;
@@ -25,5 +51,80 @@
             height: 0;
             @include transition(opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s);
         }
+    }
+
+    .locationWidget {
+        margin: 0 2.6% 25px;
+
+        @media screen and (max-width: $vp-lg-max) {
+            margin: 0 1.5% 25px;
+            width: 22.75%;
+        }
+
+        @media screen and (max-width: $vp-md-max) {
+            width: 47%;
+            margin: 0 2% 25px;
+            max-width: 100%;
+        }
+
+        @media screen and (max-width: $vp-sm-max) {
+            width: 100%;
+            max-width: 436px;
+            margin: 25px auto;
+            display: block;
+        }
+
+        // &:first-child,
+        // &.first {
+        //     margin-left: 0;
+        // }
+
+        &:nth-child(2) {
+            margin-left: 0;
+
+            @media screen and (max-width: $vp-sm-max) {
+                margin-left: auto;
+            }
+        }
+
+        &:nth-child(3) {
+            @media screen and (max-width: $vp-md-max) {
+                margin-right: 0;
+            }
+
+            @media screen and (max-width: $vp-sm-max) {
+                margin-right: auto;
+            }
+
+        }
+
+        &:nth-child(4) {
+            @media screen and (max-width: $vp-md-max) {
+                margin-left: 0;
+            }
+
+            @media screen and (max-width: $vp-sm-max) {
+                margin-left: auto;
+            }
+
+        }
+
+
+        &:nth-child(5){
+            margin-right: 0;
+
+            @media screen and (max-width: $vp-sm-max) {
+                margin-right: auto;
+            }
+        }
+
+        img {
+            margin-left: -50%;
+
+            @media screen and (max-width: $vp-md-max) {
+                margin-left: 0;
+            }
+        }
+
     }
 }

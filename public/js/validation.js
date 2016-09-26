@@ -7,14 +7,10 @@ $(document).ready(function() {
         submitHandler: function(form) {
             var $spinner = $(form).siblings('.formNewsletter__spinner');
             var $signupmsg = $(form).siblings('.formNewsletter__successMessage');
-            $(form).fadeOut(400,function() {
-                $spinner.fadeIn();
-            });
+            $(form).fadeOut();
             var $form = $("#footer-formNewsletter");
             $.post($form.attr("action"), $form.serialize()).then(function() {
-                $spinner.fadeOut(400,function() {
-                    $signupmsg.fadeIn();
-                });
+                $signupmsg.fadeIn();
             });
 
             // form.submit();

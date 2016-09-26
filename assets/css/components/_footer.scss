@@ -101,8 +101,19 @@
                     }
                 }
             }
-        }
 
+            .sk-circle {
+                top: 45px;
+                left: 140px;
+                .sk-child:before {
+                    background-color: $white;
+
+                     @media screen and (max-width: $vp-sm-max) {
+                        background-color: $black;
+                    }
+                }
+            }
+        }
     }
 
 

@@ -1074,6 +1074,14 @@ a {
       @media screen and (max-width: 479px) {
         .footer__summary .formNewsletter__main input {
           width: 190px; } }
+      .footer__summary .formNewsletter .sk-circle {
+        top: 45px;
+        left: 140px; }
+        .footer__summary .formNewsletter .sk-circle .sk-child:before {
+          background-color: #fff; }
+          @media screen and (max-width: 767px) {
+            .footer__summary .formNewsletter .sk-circle .sk-child:before {
+              background-color: #2C2C2C; } }
   .footer__links {
     float: left;
     display: block;

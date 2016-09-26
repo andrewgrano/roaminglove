@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-    console.log("foobar3");
+    // console.log("foobar3");
 
     $("#footer-formNewsletter").validate({
         debug: true,
@@ -13,6 +13,7 @@ $(document).ready(function() {
             var $form = $("#footer-formNewsletter");
             $.post($form.attr("action"), $form.serialize()).then(function() {
                 $spinner.fadeOut(400,function() {
+                    var $spinner = $(form).siblings('.formNewsletter__successMessage');
                     $signupmsg.fadeIn();
                 });
             });

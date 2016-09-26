@@ -1,4 +1,4 @@
-console.log 'hello there!'
+# console.log 'hello there!'
 
 
 $(document).ready ->
@@ -167,4 +167,4 @@ $ ->
     # console.log(res)
     categories = res.categories
 
-  console.log("DOM is ready")
+  # console.log("DOM is ready")

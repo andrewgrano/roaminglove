@@ -1,8 +1,6 @@
 (function() {
   var parallax, post;
 
-  console.log('hello there!');
-
   $(document).ready(function() {
     var menuToggle;
     menuToggle = $('#js-mobile-menu').unbind();
@@ -205,11 +203,10 @@
   });
 
   $(function() {
-    $.get(config.api_url_categories, function(res) {
+    return $.get(config.api_url_categories, function(res) {
       var categories;
       return categories = res.categories;
     });
-    return console.log("DOM is ready");
   });
 
 }).call(this);

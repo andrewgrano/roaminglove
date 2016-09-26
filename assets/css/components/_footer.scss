@@ -206,10 +206,11 @@
 
         @media screen and (max-width: $vp-xs-max) {
             float: none;
-            width: 210px;
+            width: 100%;
             margin-left: auto;
             margin-right: auto;
             display: block;
+            text-align: center;
         }
 
         span {

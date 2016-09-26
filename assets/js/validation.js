@@ -13,7 +13,6 @@ $(document).ready(function() {
             var $form = $("#footer-formNewsletter");
             $.post($form.attr("action"), $form.serialize()).then(function() {
                 $spinner.fadeOut(400,function() {
-                    var $spinner = $(form).siblings('.formNewsletter__successMessage');
                     $signupmsg.fadeIn();
                 });
             });

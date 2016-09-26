@@ -26,10 +26,14 @@ footer.footer
             .footer__links
                 nav
                     ul.footer__list--destinations
-                        -for category in records.categories
-                            if( category.parent == "0" & category.name != "Uncategorized")
-                                li
-                                    a(href="/places/" + category.name.replace(" ","-") + ".html")  #{category.name}
+                        li
+                            a(href="/places/asia.html") asia
+                        li
+                            a(href="/places/europe.html") europe
+                        li
+                            a(href="/places/north-america.html") north america
+                        li
+                            a(href="/places/south-america.html") south america
 
                     ul.footer__list--secondary
                         li

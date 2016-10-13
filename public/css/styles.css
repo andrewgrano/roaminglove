@@ -517,7 +517,7 @@ textarea:focus,
 select:focus,
 option:focus,
 button:focus {
-  background-color: gainsboro;
+  background-color: #fafafa;
   border-color: #c8c8c8; }
 
 input[type="checkbox"]:focus,
@@ -679,7 +679,8 @@ a {
 .btnSecondary {
   background: #2693BB; }
   .btnSecondary:hover, .btnSecondary:active, .btnSecondary:focus {
-    background: #1e7696; }
+    background: #1e7696;
+    color: #fff; }
 
 /* Underline From Center */
 .linkOverline {
@@ -739,6 +740,24 @@ a {
 
 .text-center {
   text-align: center; }
+
+.formDefault input[type="text"], .formDefault input[type="email"], .formDefault input[type="password"], .formDefault input[type="search"], .formDefault input[type="color"], .formDefault input[type="date"], .formDefault input[type="datetime-local"], .formDefault input[type="month"], .formDefault input[type="number"], .formDefault input[type="tel"], .formDefault input[type="time"], .formDefault input[type="url"], .formDefault input[type="week"], .formDefault input[list], .formDefault input, .formDefault textarea {
+  margin-bottom: 25px;
+  margin-top: 0; }
+
+.formDefault label {
+  margin-bottom: 1px; }
+
+.formDefault label.error {
+  color: #b23304;
+  font-size: 14px;
+  font-style: italic;
+  position: relative;
+  top: -15px; }
+
+.formDefault input.error,
+.formDefault textarea.error {
+  border-color: #b23304; }
 
 .header {
   padding: 25px 0; }
@@ -901,6 +920,9 @@ a {
     position: absolute;
     right: 0px;
     top: -24px; }
+    .header .instagramLink:hover, .header .instagramLink:active, .header .instagramLink:focus {
+      background: #F1B870;
+      color: #fff; }
     @media screen and (max-width: 1199px) {
       .header .instagramLink {
         right: 20px; } }
@@ -986,13 +1008,20 @@ a {
     .footer {
       margin-top: 200px;
       margin-bottom: 0; } }
+  .footer hr {
+    background: #F1B870; }
+    @media screen and (max-width: 479px) {
+      .footer hr {
+        display: none; } }
   .footer .section {
     background: #4F4F4F;
-    border-top: 7px solid #F1B870;
     color: #fff;
     max-width: 1140px;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    margin-top: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px; }
     .footer .section::after {
       clear: both;
       content: "";
@@ -1003,6 +1032,9 @@ a {
         margin-right: -25px; } }
   .footer a {
     color: #F1B870; }
+    .footer a:hover, .footer a:active, .footer a:focus {
+      color: #fff;
+      border-bottom: 1px solid; }
   .footer__summary {
     float: left;
     display: block;
@@ -1156,6 +1188,8 @@ a {
     margin-top: 20px;
     margin-right: 15px;
     color: #2C2C2C; }
+    .footer .instagramLink:hover, .footer .instagramLink:active, .footer .instagramLink:focus {
+      background: #F1B870; }
     @media screen and (max-width: 991px) {
       .footer .instagramLink {
         margin-right: 55px; } }
@@ -1812,7 +1846,7 @@ a {
       margin-top: 0; } }
 
 .post .date {
-  color: #ccc;
+  color: #999;
   padding-top: 0;
   margin-top: 0;
   font-style: italic;
@@ -1871,7 +1905,32 @@ a {
         display: none; }
     .post .categories li a {
       color: #575757;
-      text-decoration: none; }
+      text-decoration: none;
+      color: #2693BB; }
+      .post .categories li a:hover, .post .categories li a:active, .post .categories li a:focus {
+        border-bottom: 1px solid; }
+
+.post .authorBlock {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  padding: 25px 10px; }
+  .post .authorBlock__desc {
+    font-style: italic;
+    max-width: 700px; }
+  .post .authorBlock__link a {
+    color: #2693BB;
+    position: relative;
+    margin-right: 15px; }
+    .post .authorBlock__link a:last-child:after {
+      display: none; }
+    .post .authorBlock__link a:after {
+      content: " ";
+      position: absolute;
+      right: -10px;
+      top: 1px;
+      width: 1px;
+      height: 20px;
+      background: #2C2C2C; }
 
 @media screen and (max-width: 767px) {
   .post .headerContent {
@@ -1884,7 +1943,8 @@ a {
 
 .destinations {
   margin-top: -32px;
-  background: #fff; }
+  background: #fff;
+  position: relative; }
   @media screen and (max-width: 991px) {
     .destinations {
       margin-top: 0; } }
@@ -1924,3 +1984,43 @@ a {
       margin: 0 0 30px 0; }
       .destinations .countryWrapper .pageHeading a {
         text-decoration: none; }
+
+.formContribute {
+  background: #f1f1f1;
+  padding: 35px 15px;
+  border-top: 6px solid #2693BB;
+  margin-top: 50px; }
+  .formContribute fieldset {
+    margin-bottom: 35px;
+    background: #fff; }
+    .formContribute fieldset.formContribute__bio, .formContribute fieldset.formContribute__photos {
+      float: left;
+      display: block;
+      margin-right: 2.55507%;
+      width: 48.72247%;
+      min-height: 525px; }
+      .formContribute fieldset.formContribute__bio:last-child, .formContribute fieldset.formContribute__photos:last-child {
+        margin-right: 0; }
+    .formContribute fieldset.formContribute__photos {
+      margin-right: 0; }
+    .formContribute fieldset.formContribute__story {
+      width: 100%; }
+    .formContribute fieldset legend {
+      position: relative;
+      top: -6px;
+      font-family: "Special Elite", cursive;
+      font-size: 24px; }
+  .formContribute button[type="submit"] {
+    width: 100%; }
+  .formContribute textarea {
+    max-width: 100%; }
+  .formContribute .formContribute__guidelines {
+    font-size: 16px;
+    margin-bottom: 35px;
+    background: white;
+    display: block;
+    border-radius: 5px;
+    padding: 10px 30px;
+    border: 1px solid #c8c8c8;
+    margin-left: auto;
+    margin-right: auto; }

@@ -173,6 +173,13 @@
         right: 0px;
         top: -24px;
 
+        &:hover,
+        &:active,
+        &:focus {
+            background: $primary-color;
+            color: #fff;
+        }
+
         @media screen and (max-width: $vp-lg-max) {
             right: 20px;
         }

@@ -1,0 +1,68 @@
+extends layout
+
+block content
+    .container.contribute
+            .headerContent
+                img(src="http://107.170.229.16/wp-content/uploads/2016/09/window5.jpg")
+                h1 Contribute
+
+            section
+                h1 Tell us your travel story!
+                p Do you have a travel story to tell? Contribute to our online community! You don't need to be a professional writer to tell a good story.
+
+                p Guidelines to consider when submitting your travel story to Roaming Love:
+                ul
+                    li We want a first-hand account of your experiences
+                    li We do not want blog posts that have already been posted on another site. Please submit original content only
+                    li Please only submit photos that you own
+                    li Please caption photos (if applicable)
+                    li Please check grammar and spelling before sending your story to Roaming Love
+
+                form(id="form-contribute" name="contribute" netlify netlify-honeypot="botField" class="formDefault formContribute")
+                    fieldset.formContribute__story
+                        legend Your Story
+                        label(for="title") Story Title
+                        input(name="title" id="title")
+                        label(for="story") Your Story
+                        textarea(name="story" id="story" rows="10")
+
+                    .clearfix
+                        fieldset.formContribute__bio
+                            legend Your Bio
+                            label(for="fullName") Full Name
+                            input(name="fullName" id="fullName")
+                            label(for="email") Email Address (we won't publish this)
+                            input(name="email" id="email")
+                            label(for="website") Your Website (optional)
+                            input(name="website" id="website")
+                            label(for="instagram") Your Instagram (optional)
+                            input(name="instagram" id="instagram")
+                            label(for="bio") Short Bio (optional)
+                            input(name="bio" id="bio")
+
+                        fieldset.formContribute__photos
+                            legend Your Photos
+                            label(for="image1") Your Photo #1
+                            input(name="image1" id="image1" type="file")
+                            label(for="image2") Your Photo #2
+                            input(name="image2" id="image2" type="file")
+                            label(for="image3") Your Photo #3
+                            input(name="image3" id="image3" type="file")
+                            label(for="image4") Your Photo #4
+                            input(name="image4" id="image4" type="file")
+
+                    div.hide
+                        label(for="botField")
+                        input(name="botField" id="botField" placeholder="botField")
+
+                    div.formContribute__guidelines
+                        p By submitting your story to us, you agree with our policies:
+                        ul
+                            li Roaming Love does not have to post your story after submission
+                            li You must own the content you are submitting
+                            li You will keep all rights to your media after submitting
+                            li Roaming Love does not pay for contributor posts
+                            li You are not an employee of Roaming Love after contributing posts
+                        //- p Thanks for sharing your stories with our community!
+
+                    button(type="submit" class="btnSecondary") Submit Your Story

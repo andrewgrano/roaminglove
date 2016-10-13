@@ -1,6 +1,7 @@
 .destinations {
     margin-top: -32px;
     background: $white;
+    position: relative;
 
     @media screen and (max-width: $vp-md-max) {
         margin-top: 0;

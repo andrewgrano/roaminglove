@@ -5,7 +5,8 @@ block content
       .postInner
           h1= post.title
           //- h1= post.categories.name
-          p.date= moment(post.date).format("MMMM DD, YYYY")
+          //- p.date= moment(post.date).format("MMMM DD, YYYY")
+          p.date By #{post.author.name} on #{moment(post.date).format("MMMM DD, YYYY")}
           ul.categories
             - for category in post.categories
               if (category.name != "Uncategorized")
@@ -17,6 +18,14 @@ block content
 
 
           .content!= post.content
+
+          .authorBlock
+            .authorBlock__name Contributed by #{post.author.name}
+            //- .authorBlock__link!= post.author.first_name.replace(/\[a/g, "<a").replace(/\]/g,">").replace(/\[\/a/g,"</a").replace(/%5D/g,">")
+            .authorBlock__desc!= post.author.last_name
+
+
+            //- http://[start][a%20href=[q]google.com[q]%20target=[q]blank[q]]google.com[/a%5D
           //- img(src=post.featured_image class="img-responsive")
           //- br
           //- a.btn.btn-returnhome(href="/")< &nbsp;Return Home

@@ -1,0 +1,24 @@
+.formDefault {
+	input[type="text"], input[type="email"], input[type="password"], input[type="search"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="month"], input[type="number"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], input[list], input, textarea {
+		margin-bottom: 25px;
+		margin-top: 0;
+	}
+
+	label {
+		margin-bottom: 1px;
+	}
+
+	label.error {
+		color: $red;
+		font-size: 14px;
+		font-style: italic;
+		position: relative;
+    	top: -15px;
+	}
+
+	input.error,
+	textarea.error {
+		border-color: $red;
+	}
+
+}

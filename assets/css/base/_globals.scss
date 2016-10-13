@@ -193,7 +193,7 @@ h1 {
     &:active,
     &:focus {
         background: shade($secondary-color, 20%);
-
+        color: $white;
     }
 }
 

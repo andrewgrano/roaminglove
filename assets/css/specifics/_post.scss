@@ -41,7 +41,7 @@
     }
 
     .date {
-        color: $gray;
+        color: #999;
         padding-top: 0;
         margin-top: 0;
         font-style: italic;
@@ -122,6 +122,49 @@
             a {
                 color: #575757;
                 text-decoration: none;
+                color: $secondary-color;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    border-bottom: 1px solid;
+                }
+            }
+        }
+    }
+
+    .authorBlock {
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        padding: 25px 10px;
+
+        &__desc {
+            font-style: italic;
+            max-width: 700px;
+        }
+
+        &__link {
+
+            a {
+                color: $teal;
+                position: relative;
+                margin-right: 15px;
+
+                &:last-child {
+                    &:after {
+                        display: none;
+                    }
+                }
+
+                &:after {
+                    content: " ";
+                    position: absolute;
+                    right: -10px;
+                    top: 1px;
+                    width: 1px;
+                    height: 20px;
+                    background: $black;
+                }
             }
         }
     }

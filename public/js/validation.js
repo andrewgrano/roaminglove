@@ -35,4 +35,28 @@ $(document).ready(function() {
             }
         },
     });
+
+
+    $("#form-contribute").validate({
+        debug: true,
+        submitHandler: function(form) {
+            form.submit();
+        },
+        rules: {
+            title: {
+                required: true
+            },
+            story: {
+                required: true
+            },
+            name: {
+
+            },
+            email: {
+                required: true,
+                email: true
+            }
+        }
+    });
+
 });

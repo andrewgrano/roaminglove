@@ -3,7 +3,7 @@
     background: $white;
     position: relative;
 
-    @media screen and (max-width: $vp-md-max) {
+    @media screen and (max-width: $vp-sm-max) {
         margin-top: 0;
     }
 
@@ -55,6 +55,14 @@
 
         &:nth-child(even) {
             @include omega();
+        }
+
+        &--NorthAmerica {
+            margin-top: -275px;
+
+            @media screen and (max-width: $vp-md-max) {
+                margin-top: 0;
+            }
         }
 
         .pageHeading {

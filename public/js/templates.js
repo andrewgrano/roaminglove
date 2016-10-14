@@ -5,7 +5,7 @@ var jade_mixins = {};
 var jade_interp;
 ;var locals_for_with = (locals || {});(function (post, undefined) {
 var imagesrc = post.featured_image
-var imgixsrc = imagesrc.replace("107.170.229.16/wp-content/uploads", "roaminglove.imgix.net")
+var imgixsrc = imagesrc.replace("http://107.170.229.16/wp-content/uploads", "https://roaminglove.imgix.net")
 buf.push("<div class=\"postWidget\"><a" + (jade.attr("href", '/post/' + post.slug + '.html', true, false)) + "><figure class=\"postWidget__img\">");
 if ( post.featured_image)
 {
@@ -67,19 +67,13 @@ buf.push("<li>" + (jade.escape(null == (jade_interp = tag.name) ? "" : jade_inte
 }).call(this);
 
 buf.push("</ul></div></a></div>");}.call(this,"post" in locals_for_with?locals_for_with.post:typeof post!=="undefined"?post:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
-},"category": function template(locals) {
-var buf = [];
-var jade_mixins = {};
-var jade_interp;
-;var locals_for_with = (locals || {});(function (post) {
-buf.push("<div class=\"postWidget\"><span class=\"postWidget__title\">" + (jade.escape(null == (jade_interp = post.name) ? "" : jade_interp)) + "</span></div>");}.call(this,"post" in locals_for_with?locals_for_with.post:typeof post!=="undefined"?post:undefined));;return buf.join("");
 },"post-horizontal": function template(locals) {
 var buf = [];
 var jade_mixins = {};
 var jade_interp;
 ;var locals_for_with = (locals || {});(function (moment, post, undefined) {
 var imagesrc = post.featured_image
-var imgixsrc = imagesrc.replace("107.170.229.16/wp-content/uploads", "roaminglove.imgix.net")
+var imgixsrc = imagesrc.replace("http://107.170.229.16/wp-content/uploads", "https://roaminglove.imgix.net")
 buf.push("<div class=\"postWidgetHorizontal\"><a" + (jade.attr("href", '/post/' + post.slug + '.html', true, false)) + "><div class=\"postWidgetHorizontal__img\">");
 if ( post.featured_image)
 {
@@ -141,5 +135,11 @@ buf.push("<li>" + (jade.escape(null == (jade_interp = tag.name) ? "" : jade_inte
 }).call(this);
 
 buf.push("</ul></div></a></div>");}.call(this,"moment" in locals_for_with?locals_for_with.moment:typeof moment!=="undefined"?moment:undefined,"post" in locals_for_with?locals_for_with.post:typeof post!=="undefined"?post:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
+},"category": function template(locals) {
+var buf = [];
+var jade_mixins = {};
+var jade_interp;
+;var locals_for_with = (locals || {});(function (post) {
+buf.push("<div class=\"postWidget\"><span class=\"postWidget__title\">" + (jade.escape(null == (jade_interp = post.name) ? "" : jade_interp)) + "</span></div>");}.call(this,"post" in locals_for_with?locals_for_with.post:typeof post!=="undefined"?post:undefined));;return buf.join("");
 }};
 });

@@ -1028,8 +1028,8 @@ a {
       display: block; }
     @media screen and (max-width: 479px) {
       .footer .section {
-        margin-left: -25px;
-        margin-right: -25px; } }
+        margin-left: -20px;
+        margin-right: -20px; } }
   .footer a {
     color: #F1B870; }
     .footer a:hover, .footer a:active, .footer a:focus {
@@ -1502,6 +1502,14 @@ a {
     margin: 0;
     font-family: "Special Elite", cursive;
     letter-spacing: 2px; }
+    @media screen and (max-width: 1199px) and (min-width: 992px) {
+      .locationWidget h6 {
+        font-size: 31px; } }
+    .locationWidget h6.longName {
+      font-size: 32px; }
+      @media screen and (max-width: 1199px) and (min-width: 992px) {
+        .locationWidget h6.longName {
+          font-size: 27px; } }
   .locationWidget img {
     position: absolute;
     left: 0;
@@ -1945,7 +1953,7 @@ a {
   margin-top: -32px;
   background: #fff;
   position: relative; }
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 767px) {
     .destinations {
       margin-top: 0; } }
   @media screen and (max-width: 479px) {
@@ -1977,6 +1985,11 @@ a {
         margin-bottom: 0; } }
     .destinations .countryWrapper:nth-child(even) {
       margin-right: 0; }
+    .destinations .countryWrapper--NorthAmerica {
+      margin-top: -275px; }
+      @media screen and (max-width: 991px) {
+        .destinations .countryWrapper--NorthAmerica {
+          margin-top: 0; } }
     .destinations .countryWrapper .pageHeading {
       text-align: center;
       background: #fff;

@@ -1,5 +1,10 @@
 extends layout
 
+block meta
+  title #{post.title} - Roaming Love
+  meta(name='description', content='#{post.content.substring(0,150)}')
+  meta(name='author', content= "#{post.author.name}")
+
 block content
   .container.post
       .postInner
@@ -30,7 +35,7 @@ block content
           //- br
           //- a.btn.btn-returnhome(href="/")< &nbsp;Return Home
 
-        - var featimgixsrc = post.featured_image.replace("107.170.229.16/wp-content/uploads", "roaminglove.imgix.net")
+        - var featimgixsrc = post.featured_image.replace("http://107.170.229.16/wp-content/uploads", "https://roaminglove.imgix.net")
 
         .headerContent.js--hide-on-top
             img(src="#{featimgixsrc}?w=1140&h=400&fit=crop&crop=entropy")

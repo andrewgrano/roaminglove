@@ -43,6 +43,19 @@
         margin: 0;
         font-family: $displayFont;
         letter-spacing: 2px;
+
+        @media screen and (max-width:$vp-lg-max) and (min-width: $vp-lg-min) {
+            font-size: 31px;
+        }
+
+        &.longName {
+            font-size: 32px;
+            
+            @media screen and (max-width:$vp-lg-max) and (min-width: $vp-lg-min) {
+                font-size: 27px;
+            }
+
+        }
     }
 
     img {

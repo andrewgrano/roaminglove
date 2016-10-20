@@ -7,7 +7,7 @@ block meta
 block content
     .container.destinations
         .headerContent
-            img(src="http://107.170.229.16/wp-content/uploads/2016/09/window6.jpg")
+            img(src="https://www.adminroaminglove.com/wp-content/uploads/2016/09/window6.jpg")
             h1 Destinations
 
         //- h1.pageHeading Locations
@@ -19,7 +19,7 @@ block content
                     section(class="countryWrapper countryWrapper--#{categoryNameNoSpace}") 
                         h1.pageHeading: a(href="/places/" + category.name.replace(" ","-") + ".html")  #{category.name}
                         -for subcategory in records.categories
-                            - var subcategoryimageix = subcategory.description.replace("http://107.170.229.16/wp-content/uploads", "https://roaminglove.imgix.net")
+                            - var subcategoryimageix = subcategory.description.replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
                             if( subcategory.parent == category.ID )
                               a.locationWidget(href="/places/" + subcategory.name.replace(" ","-") + ".html")
                                 if( subcategory.name.length > 10 )

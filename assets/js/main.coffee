@@ -47,7 +47,6 @@ $(document).ready ->
     headerImg = $(".headerContent").children("img").attr("src")
     headerTitle = $(".headerContent").children("h1").text()
     headerContent = $(".parallax-static-content")
-
     $(".header .parallax-background").css("background-image", "url(" + headerImg + ")")
     $(".header .parallax-static-content h1").html(headerTitle)
 

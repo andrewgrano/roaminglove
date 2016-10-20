@@ -28,14 +28,14 @@ block content
             .authorBlock__name Contributed by #{post.author.name}
             //- .authorBlock__link!= post.author.first_name.replace(/\[a/g, "<a").replace(/\]/g,">").replace(/\[\/a/g,"</a").replace(/%5D/g,">")
             .authorBlock__desc!= post.author.last_name
-
+                                
 
             //- http://[start][a%20href=[q]google.com[q]%20target=[q]blank[q]]google.com[/a%5D
           //- img(src=post.featured_image class="img-responsive")
           //- br
           //- a.btn.btn-returnhome(href="/")< &nbsp;Return Home
 
-        - var featimgixsrc = post.featured_image.replace("http://107.170.229.16/wp-content/uploads", "https://roaminglove.imgix.net")
+        - var featimgixsrc = post.featured_image.replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
 
         .headerContent.js--hide-on-top
             img(src="#{featimgixsrc}?w=1140&h=400&fit=crop&crop=entropy")

@@ -1985,11 +1985,6 @@ a {
         margin-bottom: 0; } }
     .destinations .countryWrapper:nth-child(even) {
       margin-right: 0; }
-    .destinations .countryWrapper--NorthAmerica {
-      margin-top: -275px; }
-      @media screen and (max-width: 991px) {
-        .destinations .countryWrapper--NorthAmerica {
-          margin-top: 0; } }
     .destinations .countryWrapper .pageHeading {
       text-align: center;
       background: #fff;

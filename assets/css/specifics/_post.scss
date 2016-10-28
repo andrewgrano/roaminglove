@@ -90,7 +90,7 @@
         padding: 0 0 25px 0;
         border-bottom: 1px solid #ccc;
 
-        @media screen and (max-width: 479) {
+        @media screen and (max-width: 479px) {
             padding-bottom: 15px;
         }
 
@@ -137,6 +137,11 @@
         border-top: 1px solid;
         border-bottom: 1px solid;
         padding: 25px 10px;
+        margin-bottom: 100px;
+
+        @media screen and (max-width: 479px) {
+            margin-bottom: 60px;
+        }
 
         &__desc {
             font-style: italic;

@@ -28,12 +28,26 @@ block content
             .authorBlock__name Contributed by #{post.author.name}
             .authorBlock__link!= post.author.first_name.replace(/\[a/g, "<a").replace(/\]/g,">").replace(/\[\/a/g,"</a").replace(/%5D/g,">")
             .authorBlock__desc!= post.author.last_name
-                              
+          #disqus_thread
+          script
+            :uglify-js
+              var postID = "#{post.ID}"
+              var postURL = "https://roaminglove.com/post/" + "#{post.title}".replace(/ /g,"-").replace(/:/g,"");
 
-            //- http://[start][a%20href=[q]google.com[q]%20target=[q]blank[q]]google.com[/a%5D
-          //- img(src=post.featured_image class="img-responsive")
-          //- br
-          //- a.btn.btn-returnhome(href="/")< &nbsp;Return Home
+              /**
+              *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+              *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+              var disqus_config = function () {
+                this.page.url = postURL;  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = postID; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+              };
+              (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = '//roaminglove.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+              })(); 
+
 
         - var featimgixsrc = post.featured_image.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
 
@@ -52,5 +66,5 @@ block content
 
 
 
-  //- pre= JSON.stringify(post, null, 2)
+  // pre= JSON.stringify(post, null, 2)
 

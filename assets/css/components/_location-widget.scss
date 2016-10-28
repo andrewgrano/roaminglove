@@ -20,6 +20,10 @@
         width: 100%;
     }
 
+    &:hover:before {
+        background: rgba(0,0,0,0.0);
+    }
+
     &:before {
         content: " ";
         position: absolute;
@@ -29,6 +33,7 @@
         left: 0;
         background: rgba(0,0,0,0.2);
         z-index: 1;
+        @include transition(all 0.3s linear);
     }
 
     h6 {

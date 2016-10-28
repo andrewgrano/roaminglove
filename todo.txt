@@ -1,11 +1,10 @@
 TO DO
 
-- enable https via netlify admin
 - build contribute form
-- google pagespeedinsights - .section is too wide by 5px
+- google pagespeedinsights - various improvements 
 - mask email address via mailgun
 - minified CSS and JS
-- add comments via disqus
+- add sitemap & other SEO improvements
 - hover effects for widgets (velocity?) & all links
 - index header carousel:  most recent 3-4 posts. Use featured image, title and date. (Use moment.js to display      "today", "yesterday", "2 days ago", etc.)
 - contribute form: remember users typed entries on-refresh (cookies? jquery cookies?)

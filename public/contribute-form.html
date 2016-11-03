@@ -103,17 +103,25 @@
           </div>
           <button type="submit" class="btnSecondary">Submit Your Story</button>
         </form>
+        <!-- form(id="formContributePhotos" name="contribute2" netlify netlify-honeypot="botField" class="formDefault formContributePhotos dropzone" action="#")-->
+        <!--     #dropzone-->
+        <!--         .dz-default.dz-message-->
+        <!--             span Drop files here to upload-->
+        <!--     //- div.fallback -->
+        <!--     //-     input(type="file" name="file")-->
+        <!--     input(type="text" name="foo" id="foo" placeholder="foo") -->
+        <!--     div.hide-->
+        <!--         label(for="botField")-->
+        <!--         input(name="botField" id="botField" placeholder="botField")-->
+        <!--     button(type="submit" class="btnSecondary" id="submitformContributePhotos") Submit-->
+        
         <form id="formContributePhotos" name="contribute2" netlify netlify-honeypot="botField" action="#" class="formDefault formContributePhotos dropzone">
-          <div id="dropzone">
-            <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
-          </div>
-          <input type="text" name="foo" id="foo" placeholder="foo">
           <div class="hide">
             <label for="botField"></label>
             <input name="botField" id="botField" placeholder="botField">
           </div>
-          <button type="submit" id="submitformContributePhotos" class="btnSecondary">Submit</button>
         </form>
+        <button id="submit-all" class="btnSecondary">Submit</button>
         <div id="preview-template" style="display:none;">
           <div class="dz-preview dz-file-preview">
             <div class="dz-image"><img data-dz-thumbnail></div>
@@ -209,7 +217,7 @@
       
     </script><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100","static_items":10}</script><script src='/js/main.js'></script>
     <script src="/js/dropzone.min.js"></script>
-    <script>Dropzone.options.formContributePhotos={previewTemplate:document.getElementById("preview-template").innerHTML,previewsContainer:"#dropzone",clickable:"#dropzone",autoProcessQueue:!1,uploadMultiple:!0,parallelUploads:100,maxFiles:100,init:function(){var t=this;this.element.querySelector("button[type=submit]").addEventListener("click",function(e){e.preventDefault(),e.stopPropagation(),t.processQueue()}),this.on("sendingmultiple",function(){}),this.on("successmultiple",function(){}),this.on("errormultiple",function(){})}};
+    <script>Dropzone.options.formContributePhotos={autoProcessQueue:!1,init:function(){var t=document.querySelector("#submit-all");myDropzone=this,t.addEventListener("click",function(){myDropzone.processQueue()}),this.on("addedfile",function(){})}};
     </script>
   </body>
 </html>

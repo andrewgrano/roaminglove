@@ -74,17 +74,25 @@ block content
 
                     button(type="submit" class="btnSecondary") Submit Your Story
 
+                // form(id="formContributePhotos" name="contribute2" netlify netlify-honeypot="botField" class="formDefault formContributePhotos dropzone" action="#")
+                //     #dropzone
+                //         .dz-default.dz-message
+                //             span Drop files here to upload
+                //     //- div.fallback 
+                //     //-     input(type="file" name="file")
+                //     input(type="text" name="foo" id="foo" placeholder="foo") 
+                //     div.hide
+                //         label(for="botField")
+                //         input(name="botField" id="botField" placeholder="botField")
+                //     button(type="submit" class="btnSecondary" id="submitformContributePhotos") Submit
+
+
                 form(id="formContributePhotos" name="contribute2" netlify netlify-honeypot="botField" class="formDefault formContributePhotos dropzone" action="#")
-                    #dropzone
-                        .dz-default.dz-message
-                            span Drop files here to upload
-                    //- div.fallback 
-                    //-     input(type="file" name="file")
-                    input(type="text" name="foo" id="foo" placeholder="foo") 
+ 
                     div.hide
                         label(for="botField")
                         input(name="botField" id="botField" placeholder="botField")
-                    button(type="submit" class="btnSecondary" id="submitformContributePhotos") Submit
+                button(class="btnSecondary" id="submit-all") Submit
 
                 div(id="preview-template" style="display:none;")
                     .dz-preview.dz-file-preview
@@ -146,40 +154,65 @@ block JS
             //     }
 
             // });
+
+            
+            // Dropzone.options.formContributePhotos = {
+            //   previewTemplate: document.getElementById('preview-template').innerHTML,
+            //   previewsContainer:  "#dropzone",
+            //   clickable: "#dropzone",
+            //   autoProcessQueue: false,
+            //   uploadMultiple: true,
+            //   parallelUploads: 100,
+            //   maxFiles: 100,
+
+            //   // The setting up of the dropzone
+            //   init: function() {
+            //     var myDropzone = this;
+
+            //     // First change the button to actually tell Dropzone to process the queue.
+            //     this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
+            //       // Make sure that the form isn't actually being sent.
+            //       e.preventDefault();
+            //       e.stopPropagation();
+            //       myDropzone.processQueue();
+            //     });
+
+            //     // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
+            //     // of the sending event because uploadMultiple is set to true.
+            //     this.on("sendingmultiple", function() {
+            //       // Gets triggered when the form is actually being sent.
+            //       // Hide the success button or the complete form.
+            //     });
+            //     this.on("successmultiple", function(files, response) {
+            //       // Gets triggered when the files have successfully been sent.
+            //       // Redirect user or notify of success.
+            //     });
+            //     this.on("errormultiple", function(files, response) {
+            //       // Gets triggered when there was an error sending the files.
+            //       // Maybe show form again, and notify user of error
+            //     });
+            //   }
+            // };
+
             Dropzone.options.formContributePhotos = {
-              previewTemplate: document.getElementById('preview-template').innerHTML,
-              previewsContainer:  "#dropzone",
-              clickable: "#dropzone",
+
+              // Prevents Dropzone from uploading dropped files immediately
               autoProcessQueue: false,
-              uploadMultiple: true,
-              parallelUploads: 100,
-              maxFiles: 100,
 
-              // The setting up of the dropzone
               init: function() {
-                var myDropzone = this;
+                var submitButton = document.querySelector("#submit-all")
+                    myDropzone = this; // closure
 
-                // First change the button to actually tell Dropzone to process the queue.
-                this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
-                  // Make sure that the form isn't actually being sent.
-                  e.preventDefault();
-                  e.stopPropagation();
-                  myDropzone.processQueue();
+                submitButton.addEventListener("click", function() {
+                  myDropzone.processQueue(); // Tell Dropzone to process all queued files.
                 });
 
-                // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
-                // of the sending event because uploadMultiple is set to true.
-                this.on("sendingmultiple", function() {
-                  // Gets triggered when the form is actually being sent.
-                  // Hide the success button or the complete form.
+                // You might want to show the submit button only when 
+                // files are dropped here:
+                this.on("addedfile", function() {
+                  // Show submit button here and/or inform user to click it.
                 });
-                this.on("successmultiple", function(files, response) {
-                  // Gets triggered when the files have successfully been sent.
-                  // Redirect user or notify of success.
-                });
-                this.on("errormultiple", function(files, response) {
-                  // Gets triggered when there was an error sending the files.
-                  // Maybe show form again, and notify user of error
-                });
+
               }
             };
+

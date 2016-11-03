@@ -220,7 +220,7 @@
       
     </script><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100","static_items":10}</script><script src='/js/main.js'></script>
     <script src="/js/dropzone.min.js"></script>
-    <script>Dropzone.options.formContributePhotos={autoProcessQueue:!1,init:function(){var t=document.querySelector("#submit-all");myDropzone=this,t.addEventListener("click",function(){myDropzone.processQueue()}),this.on("addedfile",function(){})}};
+    <script>Dropzone.options.formContributePhotos={previewTemplate:document.getElementById("preview-template").innerHTML,autoProcessQueue:!1,init:function(){var t=document.querySelector("#submit-all");myDropzone=this,t.addEventListener("click",function(){myDropzone.processQueue()}),this.on("addedfile",function(){})}};
     </script>
   </body>
 </html>

@@ -2068,12 +2068,12 @@ a {
     margin-left: auto;
     margin-right: auto; }
 
-.formContributePhotos .dropzone .dz-preview .dz-image {
+.formContributePhotos.dropzone .dz-preview .dz-image {
   margin: 0 auto 20px auto; }
 
-.formContributePhotos .dropzone .dz-preview .dz-success-mark,
-.formContributePhotos .dropzone .dz-preview .dz-error-mark {
+.formContributePhotos.dropzone .dz-preview .dz-success-mark,
+.formContributePhotos.dropzone .dz-preview .dz-error-mark {
   top: 33%; }
 
-.formContributePhotos .dropzone .dz-preview input {
+.formContributePhotos.dropzone .dz-preview input {
   margin-bottom: 0; }

@@ -57,16 +57,16 @@
 }
 
 .formContributePhotos {
-	.dropzone .dz-preview .dz-image {
+	&.dropzone .dz-preview .dz-image {
 		margin: 0 auto 20px auto;
 	}
 
-	.dropzone .dz-preview .dz-success-mark, 
-	.dropzone .dz-preview .dz-error-mark {
+	&.dropzone .dz-preview .dz-success-mark, 
+	&.dropzone .dz-preview .dz-error-mark {
 		top: 33%;
 	}
 
-	.dropzone .dz-preview input {
+	&.dropzone .dz-preview input {
 		margin-bottom: 0;
 	}
 

@@ -196,8 +196,7 @@ block JS
             // };
 
             Dropzone.options.formContributePhotos = {
-
-              // Prevents Dropzone from uploading dropped files immediately
+              previewTemplate: document.getElementById('preview-template').innerHTML,
               autoProcessQueue: false,
 
               init: function() {

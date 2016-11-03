@@ -88,7 +88,8 @@ block content
 
 
                 form(id="formContributePhotos" name="formContributePhotos" netlify netlify-honeypot="botField" class="formDefault formContributePhotos dropzone" action="#")
- 
+                    div.fallback 
+                        input(type="file" name="file")
                     div.hide
                         label(for="botField")
                         input(name="botField" id="botField" placeholder="botField")
@@ -155,7 +156,7 @@ block JS
 
             // });
 
-            
+
             // Dropzone.options.formContributePhotos = {
             //   previewTemplate: document.getElementById('preview-template').innerHTML,
             //   previewsContainer:  "#dropzone",

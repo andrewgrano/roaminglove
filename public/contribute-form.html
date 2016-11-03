@@ -116,6 +116,9 @@
         <!--     button(type="submit" class="btnSecondary" id="submitformContributePhotos") Submit-->
         
         <form id="formContributePhotos" name="formContributePhotos" netlify netlify-honeypot="botField" action="#" class="formDefault formContributePhotos dropzone">
+          <div class="fallback"> 
+            <input type="file" name="file">
+          </div>
           <div class="hide">
             <label for="botField"></label>
             <input name="botField" id="botField" placeholder="botField">

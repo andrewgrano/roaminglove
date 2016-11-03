@@ -207,7 +207,7 @@
       
     </script><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100","static_items":10}</script><script src='/js/main.js'></script>
     <script src="/js/dropzone.min.js"></script>
-    <script>Dropzone.autoDiscover=!1,$("#dropzone").dropzone({url:" ",previewTemplate:document.getElementById("preview-template").innerHTML,autoProcessQueue:!1,uploadMultiple:!0,parallelUploads:100,maxFiles:100,init:function(){var t=this;document.getElementById("submitformContributePhotos").addEventListener("click",function(e){e.preventDefault(),e.stopPropagation(),t.processQueue()}),this.on("sendingmultiple",function(){}),this.on("successmultiple",function(){}),this.on("errormultiple",function(){})}});
+    <script>Dropzone.autoDiscover=!1,$("#dropzone").dropzone({url:$("#formContributePhotos").attr("action"),previewTemplate:document.getElementById("preview-template").innerHTML,autoProcessQueue:!1,uploadMultiple:!0,parallelUploads:100,maxFiles:100,init:function(){var t=this;document.getElementById("submitformContributePhotos").addEventListener("click",function(e){e.preventDefault(),e.stopPropagation(),t.processQueue()}),this.on("sendingmultiple",function(){}),this.on("successmultiple",function(){}),this.on("errormultiple",function(){})}});
     </script>
   </body>
 </html>

@@ -34,8 +34,10 @@ block JS
 				if (typeof FormSubmission === 'object' && typeof FormSubmission.data === 'object'
 					&& FormSubmission.data.source) {
 					source = FormSubmission.data.source;
+					console.log("a")
 				} else if (getQueryVariable("prefill.source")) {
 					source = getQueryVariable("prefill.source");
+					console.log("b")
 				}
 				if (source) {
 					console.log(source)
@@ -44,7 +46,7 @@ block JS
 				}
 			});
 
-			$(window).load(function() {
-				var data = FormSubmission.data;
-				console.log(data);
-			});
+			// $(window).load(function() {
+			// 	var data = FormSubmission.data;
+			// 	console.log(data);
+			// });

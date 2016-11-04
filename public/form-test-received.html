@@ -120,7 +120,7 @@
       ga('send', 'pageview');
       
     </script><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100","static_items":10}</script><script src='/js/main.js'></script>
-    <script>$(window).load(function(){var t=FormSubmission.data;console.log(t),$("<div>Hi "+t.NAME+"</div>").appendTo("#anchor")});
+    <script>$(window).load(function(){var t;"object"==typeof FormSubmission&&"object"==typeof FormSubmission.data&&FormSubmission.data.source?t=FormSubmission.data.source:getQueryVariable("prefill.source")&&(t=getQueryVariable("prefill.source")),t?console.log(t):console.log("nope")}),$(window).load(function(){var t=FormSubmission.data;console.log(t)});
     </script>
   </body>
 </html>

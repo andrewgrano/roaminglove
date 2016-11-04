@@ -12,7 +12,20 @@ block JS
 	script
 		:uglify-js
 			$(window).load(function() {
+				var source;
+				if (typeof FormSubmission === 'object' && typeof FormSubmission.data === 'object' && FormSubmission.data.source) {
+					source = FormSubmission.data.source;
+				} else if (getQueryVariable("prefill.source")) {
+					source = getQueryVariable("prefill.source");
+				}
+				if (source) {
+					console.log(source)
+				} else {
+					console.log("nope")
+				}
+			});
+
+			$(window).load(function() {
 				var data = FormSubmission.data;
 				console.log(data);
-				$("<div>Hi " + data.NAME + "</div>").appendTo("#anchor");
 			});

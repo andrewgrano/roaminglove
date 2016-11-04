@@ -1,0 +1,37 @@
+extends layout
+
+block meta
+  title Contribue - Roaming Love
+  meta(name='description', content='Do you have a travel story to tell? Contribute to our online community! You do not need to be a professional writer to tell a good story.')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css')
+  
+
+
+block content
+    .container
+        section
+            h1 What Is Your Name?
+
+            form(id="testForm1" name="testForm1" netlify netlify-honeypot="botField" class="formDefault" action="form-test-received")
+                label(for="name") Your Name
+                input(name="name" id="name")
+
+                div.hide
+                    label(for="botField")
+                    input(name="botField" id="botField" placeholder="botField")
+
+                button(type="submit" class="btnSecondary") Submit
+block JS
+    script
+        :uglify-js
+            $("#testForm1").validate({
+                debug: true,
+                submitHandler: function(form) {
+                    form.submit();
+                },
+                rules: {
+                    name: {
+                        required: true
+                    }
+                }
+            });    

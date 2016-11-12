@@ -48,8 +48,8 @@
       headerImg = $(".headerContent").children("img").attr("src");
       headerTitle = $(".headerContent").children("h1").text();
       headerContent = $(".parallax-static-content");
-      $(".header .parallax-background").css("background-image", "url(" + headerImg + ")");
-      $(".header .parallax-static-content h1").html(headerTitle);
+      $(".headerWindow .parallax-background").css("background-image", "url(" + headerImg + ")");
+      $(".headerWindow .parallax-static-content h1").html(headerTitle);
       distanceHeadertoScreenTop = headerContent.offset().top;
       $(window).scroll(function(e) {
         var MathVar, MathVar2, MathVar3, offset, scrollTop, scrollTopReset, scrollTopReset2, scrollTopResetSlow;

@@ -5,7 +5,6 @@ TO DO
 - mask email address via mailgun
 - minified CSS and JS
 - add sitemap & other SEO improvements
-- hover effects for widgets (velocity?) & all links
 - index header carousel:  most recent 3-4 posts. Use featured image, title and date. (Use moment.js to display      "today", "yesterday", "2 days ago", etc.)
 - contribute form: remember users typed entries on-refresh (cookies? jquery cookies?)
 - LONGSHOT: at the end of an article, add section for "on this trip, I also went to...". Similar to bottom of this article: https://scotch.io/bar-talk/the-complete-visual-guide-to-sublime-text-3-themes-color-schemes-and-cool-features

@@ -5,6 +5,7 @@ block meta
 	meta(name='description', content='Do you have a travel story to tell? Contribute to our online community! You do not need to be a professional writer to tell a good story.')
 
 block content
+	include ../includes/header-window.jade
 	.container
 		section
 			h1#anchor Thanks for your submission
@@ -44,6 +45,8 @@ block JS
 				} else {
 					console.log("nope")
 				}
+
+				
 			});
 
 			$(window).load(function() {

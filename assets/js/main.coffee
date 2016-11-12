@@ -47,8 +47,8 @@ $(document).ready ->
     headerImg = $(".headerContent").children("img").attr("src")
     headerTitle = $(".headerContent").children("h1").text()
     headerContent = $(".parallax-static-content")
-    $(".header .parallax-background").css("background-image", "url(" + headerImg + ")")
-    $(".header .parallax-static-content h1").html(headerTitle)
+    $(".headerWindow .parallax-background").css("background-image", "url(" + headerImg + ")")
+    $(".headerWindow .parallax-static-content h1").html(headerTitle)
 
 # text-shadow: 0 6px 10px rgba(0,0,0,0.9)
     distanceHeadertoScreenTop = headerContent.offset().top

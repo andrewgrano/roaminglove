@@ -1,9 +1,5 @@
 .header {
-    padding: 25px 0;
-
-    @media screen and (max-width: 479px) {
-      padding-bottom: 0;
-    }
+    padding: 25px 0 0 0;
 
     .logoWrapper {
         @include span-columns(4);
@@ -24,7 +20,7 @@
             display: inline-block;
             margin-bottom: 12px;
             position: relative;
-            z-index: 99;
+            z-index: 99; 
         }
     }
 
@@ -148,22 +144,6 @@
                     }
                 }
             }
-        }
-    }
-
-    .parallax-window {
-        margin-bottom: 20px;
-
-        @media screen and (max-width: $vp-sm-max) {
-          border-top: 7px solid $primary-color;
-        }
-    }
-
-    hr {
-        margin: 0;
-
-        @media screen and (max-width: $vp-sm-max) {
-          display: none;
         }
     }
 
@@ -320,4 +300,29 @@ $hamburger-hover-filter    : opacity(50%) !default;
     }
   }
 }
+}
+
+.headerWindow {
+  padding-bottom: 25px;
+
+  @media screen and (max-width: 479px) {
+    padding-bottom: 0;
+  }
+
+
+    .parallax-window {
+        margin-bottom: 20px;
+
+        @media screen and (max-width: $vp-sm-max) {
+          border-top: 7px solid $primary-color;
+        }
+    }
+
+    hr {
+        margin: 0;
+
+        @media screen and (max-width: $vp-sm-max) {
+          display: none;
+        }
+    }
 }

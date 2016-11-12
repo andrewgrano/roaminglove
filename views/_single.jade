@@ -6,6 +6,7 @@ block meta
   meta(name='author', content= "#{post.author.name}")
 
 block content
+  include ../includes/header-window.jade
   .container.post
       .postInner
           h1= post.title
@@ -51,8 +52,8 @@ block content
 
         - var featimgixsrc = post.featured_image.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
 
-        .headerContent.js--hide-on-top
-            img(src="#{featimgixsrc}?w=1140&h=400&fit=crop&crop=entropy")
+        .headerContent
+            img(src="#{featimgixsrc}?w=1140&h=400&fit=crop&crop=focalpoint")
             h1
                - for category in post.categories
                 if (category.name != "Uncategorized")

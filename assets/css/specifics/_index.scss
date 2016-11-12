@@ -12,6 +12,143 @@
 
 .index {
 
+    .indexHeader {
+        margin-bottom: 25px;
+
+        .owl-carousel.owl-theme {
+            @media screen and (max-width: 479px) {
+                display: none;
+            }
+
+            .owl-item {
+                widows: 1140px;
+                height: 400px;
+                position: relative;
+
+                @media screen and (max-width: $vp-lg-max) {
+                    height: 331px;
+                }
+
+                @media screen and (max-width: $vp-sm-max) {
+                    height: 252px;
+                }
+
+                .itemLink {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 10;
+
+                    &:before {
+                        content: " ";
+                        background: -moz-linear-gradient(25deg,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.0) 90%);
+                        background: -webkit-linear-gradient(25deg,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 90%);
+                        background: linear-gradient(25deg,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 90%);
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#1a000000',GradientType=1 );
+                        position: absolute;
+                        z-index: 2;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                    }
+
+                    img {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+
+                        // @media screen and (max-width: $vp-lg-max) {
+                        //     width: 942px;
+                        // }
+
+                        @media screen and (max-width: $vp-md-max) {
+                           height: 331px;
+                           width: auto;
+                        }
+
+                        @media screen and (max-width: $vp-sm-max) {
+                            height: 252px;
+                        }
+                    }  
+
+                    .itemContent {
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        z-index: 5;
+                        color: #fff;
+                        padding: 35px 20px;
+
+                        @media screen and (max-width: $vp-sm-max) {
+                            padding: 25px 15px;
+                        }
+
+                        h4 {
+                            margin: 0;
+                            font-size: 28px;
+
+                            @media screen and (max-width: $vp-sm-max) {
+                                font-size: 24px;
+                            }
+                        }
+
+                        p {
+                            margin: 0;
+                                @media screen and (max-width: $vp-sm-max) {
+                                    font-size: 16px;
+                                }
+                        }
+                    }      
+                }
+            }
+
+            .owl-nav {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                display: none;
+            }
+
+            .owl-dots {
+                position: relative;
+                z-index: 5;
+                text-align: right;
+                padding-right: 15px;
+                top: -15px;
+                margin-top: -20px;
+
+                @media screen and (max-width: $vp-sm-max) {
+                    padding-right: 10px;
+                    top: -225px;
+                }
+
+                .owl-dot {
+                    span {
+                        width: 15px;
+                        height: 15px;
+
+                        @media screen and (max-width: $vp-sm-max) {
+                            width: 13px;
+                            height: 13px;
+                            box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
+                        }
+                    }
+
+                    &.active {
+                        span {
+                            background: $primary-color;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
     .headerContent h1 {
         @media screen and (max-width: $vp-sm-max) {
             display: none;

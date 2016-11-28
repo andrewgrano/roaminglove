@@ -1416,9 +1416,13 @@ a {
     max-width: 110%;
     margin-left: -5%;
     margin-top: -10%; }
+    @media screen and (max-width: 991px) {
+      .postWidget:hover .postWidget__img img {
+        margin-left: 0;
+        margin-top: -5%; } }
   .postWidget:hover .postWidget__img:before {
     background: rgba(255, 255, 255, 0.3); }
-  .postWidget:hover .postWidget__title > span {
+  .postWidget:hover .postWidget__title {
     text-decoration: underline; }
   .postWidget a {
     max-width: 1140px;
@@ -1491,20 +1495,25 @@ a {
     height: 141px;
     overflow: hidden;
     border-bottom: 9px solid #fff; }
-  .postWidget__title {
-    font-weight: 700;
-    font-size: 20px;
-    display: block;
+  .postWidget__main {
     margin-bottom: 10px;
     height: 78px;
     display: table;
     width: 100%; }
-    @media screen and (max-width: 1199px) {
-      .postWidget__title {
-        font-size: 18px; } }
-    .postWidget__title > span {
+    .postWidget__main > div {
       display: table-cell;
       vertical-align: middle; }
+    .postWidget__main .postWidget__title {
+      font-weight: 700;
+      font-size: 20px; }
+      @media screen and (max-width: 1199px) {
+        .postWidget__main .postWidget__title {
+          font-size: 18px; } }
+    .postWidget__main .postWidget__author {
+      display: block;
+      font-weight: 400;
+      font-size: 12px;
+      margin-top: 5px; }
   .postWidget__categories {
     margin: 0;
     padding: 0; }
@@ -1705,6 +1714,64 @@ a {
     position: absolute;
     left: 0;
     top: 0; }
+  .locationWidget span {
+    border: 2px solid;
+    padding: 10px 14px 4px;
+    display: inline-block;
+    line-height: 1;
+    background: rgba(0, 0, 0, 0.4);
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -spec-transition: all 0.3s linear;
+    transition: all 0.3s linear; }
+    @media screen and (max-width: 479px) {
+      .locationWidget span {
+        border: 0;
+        background: none; } }
+  .locationWidget.locationWidget--lg {
+    width: 49%;
+    max-width: none;
+    margin: 0 1% 25px; }
+    @media screen and (max-width: 991px) {
+      .locationWidget.locationWidget--lg {
+        width: 100%; } }
+    @media screen and (max-width: 767px) {
+      .locationWidget.locationWidget--lg {
+        height: 190px; } }
+    .locationWidget.locationWidget--lg:before {
+      background: none; }
+      @media screen and (max-width: 479px) {
+        .locationWidget.locationWidget--lg:before {
+          background: rgba(0, 0, 0, 0.4); } }
+    .locationWidget.locationWidget--lg:hover:before {
+      background: rgba(0, 0, 0, 0.4); }
+      @media screen and (max-width: 479px) {
+        .locationWidget.locationWidget--lg:hover:before {
+          background: transparent; } }
+    .locationWidget.locationWidget--lg:hover span {
+      border-left: 0 none;
+      border-right: 0 none;
+      border-top: 0 none;
+      background: transparent; }
+    @media screen and (max-width: 767px) {
+      .locationWidget.locationWidget--lg h6 {
+        font-size: 30px; } }
+    .locationWidget.locationWidget--lg:nth-child(odd) {
+      margin-right: 0; }
+    .locationWidget.locationWidget--lg:nth-child(even) {
+      margin-left: 0; }
+    .locationWidget.locationWidget--lg img {
+      height: 240px; }
+      @media screen and (max-width: 991px) {
+        .locationWidget.locationWidget--lg img {
+          display: inline-block;
+          max-width: 100%;
+          height: auto; } }
+      @media screen and (max-width: 479px) {
+        .locationWidget.locationWidget--lg img {
+          height: 290px;
+          max-width: none;
+          margin-left: -53%; } }
 
 /*
  *  Usage:
@@ -2022,6 +2089,10 @@ a {
     border-bottom: 0 none;
     margin-bottom: 0; }
 
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .index .postWidget:last-child {
+    display: none; } }
+
 .index .more.btn {
   margin-top: 25px;
   cursor: pointer; }
@@ -2041,51 +2112,6 @@ a {
     -moz-transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s;
     -spec-transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s;
     transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s; }
-
-.index .locationWidget {
-  margin: 0 2.6% 25px; }
-  @media screen and (max-width: 1199px) {
-    .index .locationWidget {
-      margin: 0 1.5% 25px;
-      width: 22.75%; } }
-  @media screen and (max-width: 991px) {
-    .index .locationWidget {
-      width: 47%;
-      margin: 0 2% 25px;
-      max-width: 100%; } }
-  @media screen and (max-width: 767px) {
-    .index .locationWidget {
-      width: 100%;
-      max-width: 436px;
-      margin: 25px auto;
-      display: block; } }
-  .index .locationWidget:nth-child(2) {
-    margin-left: 0; }
-    @media screen and (max-width: 767px) {
-      .index .locationWidget:nth-child(2) {
-        margin-left: auto; } }
-  @media screen and (max-width: 991px) {
-    .index .locationWidget:nth-child(3) {
-      margin-right: 0; } }
-  @media screen and (max-width: 767px) {
-    .index .locationWidget:nth-child(3) {
-      margin-right: auto; } }
-  @media screen and (max-width: 991px) {
-    .index .locationWidget:nth-child(4) {
-      margin-left: 0; } }
-  @media screen and (max-width: 767px) {
-    .index .locationWidget:nth-child(4) {
-      margin-left: auto; } }
-  .index .locationWidget:nth-child(5) {
-    margin-right: 0; }
-    @media screen and (max-width: 767px) {
-      .index .locationWidget:nth-child(5) {
-        margin-right: auto; } }
-  .index .locationWidget img {
-    margin-left: -50%; }
-    @media screen and (max-width: 991px) {
-      .index .locationWidget img {
-        margin-left: 0; } }
 
 .post .postInner {
   float: left;
@@ -2274,6 +2300,11 @@ a {
         margin-bottom: 0; } }
     .destinations .countryWrapper:nth-child(even) {
       margin-right: 0; }
+    .destinations .countryWrapper--UnitedStates {
+      margin-top: -275px; }
+      @media screen and (max-width: 991px) {
+        .destinations .countryWrapper--UnitedStates {
+          margin-top: 0; } }
     .destinations .countryWrapper .pageHeading {
       text-align: center;
       background: #fff;

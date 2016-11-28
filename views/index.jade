@@ -15,7 +15,18 @@ block content
                             img(src="#{featimgixsrc}?w=1140&h=400&fit=crop&crop=focalpoint")
                             .itemContent
                                 h4= post.title
-                                p by #{post.author.name} &nbsp; / &nbsp; #{moment(post.date).fromNow()}
+                                //- p by #{post.author.name} &nbsp; / &nbsp; #{moment(post.date).fromNow()}
+                                p by #{post.author.name} &nbsp; / &nbsp;
+                                    - for category in post.categories
+                                        if (category.name != "Uncategorized")
+                                        if( category.parent != "0")
+                                            span  #{category.name},
+                                    - for category in post.categories
+                                        if (category.name != "Uncategorized")
+                                        if( category.parent == "0")
+                                            span  #{category.name}
+
+
             hr.bg-orange
 
         //- .headerContent.js--hide-on-top
@@ -46,25 +57,63 @@ block content
                     .sk-circle10.sk-child
                     .sk-circle11.sk-child
                     .sk-circle12.sk-child
+        //- section
+        //-     h1.pageHeading >> Top Destinations
+        //-     a(href="/places/colombia.html" class="locationWidget")
+        //-         h6 Colombia
+        //-         img(src="https://roaminglove.imgix.net/2016/08/IMG_4189_opt.jpg?w=436&h=240&fit=crop&crop=entropy")
+
+        //-     a(href="/places/vietnam.html" class="locationWidget")
+        //-         h6 Vietnam
+        //-         img(src="https://roaminglove.imgix.net/2016/04/img_9601.jpg?w=436&h=240&fit=crop&crop=entropy")
+
+        //-     a(href="/places/italy.html" class="locationWidget")
+        //-         h6 Italy
+        //-         img(src="https://roaminglove.imgix.net/2016/09/IMG_6520.jpg?w=436&h=240&fit=crop&crop=entropy")
+
+        //-     a(href="/places/alaska.html" class="locationWidget")
+        //-         h6 Alaska
+        //-         img(src="https://roaminglove.imgix.net/2016/09/IMG_0348_opt.jpg?w=436&h=240&fit=crop&crop=entropy")
+        //-     .btnWrapper
+        //-         a.more.btn.btnSecondary(href="/Destinations.html") >> More Destinations
+
+
         section
-            h1.pageHeading >> Top Destinations
-            a(href="/places/colombia.html" class="locationWidget")
-                h6 Colombia
-                img(src="https://roaminglove.imgix.net/2016/08/IMG_4189_opt.jpg?w=436&h=240&fit=crop&crop=entropy")
+            h1.pageHeading >> Destinations
+            a(href="/places/asia.html" class="locationWidget locationWidget--lg")
+                h6
+                    span Asia
+                img(src="https://roaminglove.imgix.net/2016/04/img_8855.jpg?w=935&h=406&fit=crop&crop=entropy")
 
-            a(href="/places/vietnam.html" class="locationWidget")
-                h6 Vietnam
-                img(src="https://roaminglove.imgix.net/2016/04/img_9601.jpg?w=436&h=240&fit=crop&crop=entropy")
+            a(href="/places/africa.html" class="locationWidget locationWidget--lg")
+                h6
+                    span Africa
+                img(src="https://roaminglove.imgix.net/2016/11/rsz_babithehope-trueafrica-10.jpg?w=935&h=406&fit=crop&crop=entropy")
 
-            a(href="/places/italy.html" class="locationWidget")
-                h6 Italy
-                img(src="https://roaminglove.imgix.net/2016/09/IMG_6520.jpg?w=436&h=240&fit=crop&crop=entropy")
+            a(href="/places/europe.html" class="locationWidget locationWidget--lg")
+                h6
+                    span Europe
+                img(src="https://roaminglove.imgix.net/2016/09/IMG_6767.jpg?w=935&h=406&fit=crop&crop=entropy")
 
-            a(href="/places/alaska.html" class="locationWidget")
-                h6 Alaska
-                img(src="https://roaminglove.imgix.net/2016/09/IMG_0348_opt.jpg?w=436&h=240&fit=crop&crop=entropy")
+            a(href="/places/Latin-America.html" class="locationWidget locationWidget--lg")
+                h6
+                    span Latin America
+                img(src="https://roaminglove.imgix.net/2016/08/IMG_4026_opt.jpg?w=935&h=406&fit=crop&crop=entropy")
+
+            a(href="/places/united-states.html" class="locationWidget locationWidget--lg")
+                h6
+                    span United States
+                img(src="https://roaminglove.imgix.net/2016/09/IMG_0231_opt.jpg?w=935&h=406&fit=crop&crop=entropy")
+
+            a(href="/places/oceania.html" class="locationWidget locationWidget--lg")
+                h6
+                    span Oceania
+                img(src="https://roaminglove.imgix.net/2016/10/aussie.jpg?w=935&h=406&fit=crop&crop=entropy")
+
             .btnWrapper
-                a.more.btn.btnSecondary(href="/Destinations.html") >> More Destinations
+                a.more.btn.btnSecondary(href="/Destinations.html") >> All Destinations
+
+
 
 block JS
     script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js")

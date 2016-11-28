@@ -15,7 +15,7 @@ else
 {
 buf.push("<img src=\"http://placehold.it/350x200?text=roaming+love\" class=\"img-responsive\"/>");
 }
-buf.push("</figure><div class=\"postWidget__content\"><div class=\"postWidget__title\"><span>" + (jade.escape(null == (jade_interp = post.title) ? "" : jade_interp)) + "</span></div><ul class=\"postWidget__categories\">");
+buf.push("</figure><div class=\"postWidget__content\"><div class=\"postWidget__main\"><div><span class=\"postWidget__title\">" + (jade.escape(null == (jade_interp = post.title) ? "" : jade_interp)) + "</span><span class=\"postWidget__author\">by " + (jade.escape((jade_interp = post.author.name) == null ? '' : jade_interp)) + "</span></div></div><ul class=\"postWidget__categories\">");
 // iterate post.categories
 ;(function(){
   var $$obj = post.categories;
@@ -67,12 +67,6 @@ buf.push("<li>" + (jade.escape(null == (jade_interp = tag.name) ? "" : jade_inte
 }).call(this);
 
 buf.push("</ul></div></a></div>");}.call(this,"post" in locals_for_with?locals_for_with.post:typeof post!=="undefined"?post:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
-},"category": function template(locals) {
-var buf = [];
-var jade_mixins = {};
-var jade_interp;
-;var locals_for_with = (locals || {});(function (post) {
-buf.push("<div class=\"postWidget\"><span class=\"postWidget__title\">" + (jade.escape(null == (jade_interp = post.name) ? "" : jade_interp)) + "</span></div>");}.call(this,"post" in locals_for_with?locals_for_with.post:typeof post!=="undefined"?post:undefined));;return buf.join("");
 },"post-horizontal": function template(locals) {
 var buf = [];
 var jade_mixins = {};
@@ -141,5 +135,11 @@ buf.push("<li>" + (jade.escape(null == (jade_interp = tag.name) ? "" : jade_inte
 }).call(this);
 
 buf.push("</ul></div></a></div>");}.call(this,"moment" in locals_for_with?locals_for_with.moment:typeof moment!=="undefined"?moment:undefined,"post" in locals_for_with?locals_for_with.post:typeof post!=="undefined"?post:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
+},"category": function template(locals) {
+var buf = [];
+var jade_mixins = {};
+var jade_interp;
+;var locals_for_with = (locals || {});(function (post) {
+buf.push("<div class=\"postWidget\"><span class=\"postWidget__title\">" + (jade.escape(null == (jade_interp = post.name) ? "" : jade_interp)) + "</span></div>");}.call(this,"post" in locals_for_with?locals_for_with.post:typeof post!=="undefined"?post:undefined));;return buf.join("");
 }};
 });

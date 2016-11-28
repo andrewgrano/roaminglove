@@ -57,13 +57,13 @@
             @include omega();
         }
 
-        // &--NorthAmerica {
-        //     margin-top: -275px;
+        &--UnitedStates {
+            margin-top: -275px;
 
-        //     @media screen and (max-width: $vp-md-max) {
-        //         margin-top: 0;
-        //     }
-        // }
+            @media screen and (max-width: $vp-md-max) {
+                margin-top: 0;
+            }
+        }
 
         .pageHeading {
             text-align: center;

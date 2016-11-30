@@ -2007,10 +2007,6 @@ a {
       z-index: 10; }
       .index .indexHeader .owl-carousel.owl-theme .owl-item .itemLink:before {
         content: " ";
-        background: -moz-linear-gradient(25deg, rgba(0, 0, 0, 0.8) 0%, transparent 90%);
-        background: -webkit-linear-gradient(25deg, rgba(0, 0, 0, 0.8) 0%, transparent 90%);
-        background: linear-gradient(25deg, rgba(0, 0, 0, 0.8) 0%, transparent 90%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#1a000000',GradientType=1 );
         position: absolute;
         z-index: 2;
         width: 100%;
@@ -2029,15 +2025,16 @@ a {
           .index .indexHeader .owl-carousel.owl-theme .owl-item .itemLink img {
             height: 252px; } }
       .index .indexHeader .owl-carousel.owl-theme .owl-item .itemLink .itemContent {
+        background: -moz-linear-gradient(10deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.1) 100%);
+        background: -webkit-linear-gradient(10deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.1) 100%);
+        background: linear-gradient(10deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#1a000000',GradientType=1 );
         position: absolute;
         bottom: 0;
         left: 0;
         z-index: 5;
         color: #fff;
-        padding: 35px 20px; }
-        @media screen and (max-width: 767px) {
-          .index .indexHeader .owl-carousel.owl-theme .owl-item .itemLink .itemContent {
-            padding: 25px 15px; } }
+        padding: 22px 20px 37px 20px; }
         .index .indexHeader .owl-carousel.owl-theme .owl-item .itemLink .itemContent h4 {
           margin: 0;
           font-size: 28px; }
@@ -2058,14 +2055,11 @@ a {
   .index .indexHeader .owl-carousel.owl-theme .owl-dots {
     position: relative;
     z-index: 5;
-    text-align: right;
+    text-align: left;
     padding-right: 15px;
-    top: -15px;
+    padding-left: 15px;
+    top: -13px;
     margin-top: -20px; }
-    @media screen and (max-width: 767px) {
-      .index .indexHeader .owl-carousel.owl-theme .owl-dots {
-        padding-right: 10px;
-        top: -225px; } }
     .index .indexHeader .owl-carousel.owl-theme .owl-dots .owl-dot span {
       width: 15px;
       height: 15px; }

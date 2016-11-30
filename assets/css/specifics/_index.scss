@@ -43,10 +43,6 @@
 
                     &:before {
                         content: " ";
-                        background: -moz-linear-gradient(25deg,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.0) 90%);
-                        background: -webkit-linear-gradient(25deg,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 90%);
-                        background: linear-gradient(25deg,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.0) 90%);
-                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#1a000000',GradientType=1 );
                         position: absolute;
                         z-index: 2;
                         width: 100%;
@@ -75,15 +71,21 @@
                     }  
 
                     .itemContent {
+                        background: -moz-linear-gradient(10deg,  rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.1) 100%);
+                        background: -webkit-linear-gradient(10deg,  rgba(0,0,0,0.95) 0%,rgba(0,0,0,0.1) 100%);
+                        background: linear-gradient(10deg,  rgba(0,0,0,0.95) 0%,rgba(0,0,0,0.1) 100%);
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#1a000000',GradientType=1 );
                         position: absolute;
                         bottom: 0;
                         left: 0;
                         z-index: 5;
                         color: #fff;
-                        padding: 35px 20px;
+                        padding: 22px 20px 37px 20px;
+             
+
 
                         @media screen and (max-width: $vp-sm-max) {
-                            padding: 25px 15px;
+                            
                         }
 
                         h4 {
@@ -116,15 +118,12 @@
             .owl-dots {
                 position: relative;
                 z-index: 5;
-                text-align: right;
+                text-align: left;
                 padding-right: 15px;
-                top: -15px;
+                padding-left: 15px;
+                top: -13px;
                 margin-top: -20px;
 
-                @media screen and (max-width: $vp-sm-max) {
-                    padding-right: 10px;
-                    top: -225px;
-                }
 
                 .owl-dot {
                     span {

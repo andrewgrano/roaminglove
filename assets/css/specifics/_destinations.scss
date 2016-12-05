@@ -57,8 +57,17 @@
             @include omega();
         }
 
-        &--UnitedStates {
+        &--Oceania {
             margin-top: -550px;
+
+            @media screen and (max-width: $vp-md-max) {
+                margin-top: 0;
+            }
+        }
+
+
+        &--UnitedStates {
+            margin-top: -125px;
 
             @media screen and (max-width: $vp-md-max) {
                 margin-top: 0;

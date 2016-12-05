@@ -2294,8 +2294,13 @@ a {
         margin-bottom: 0; } }
     .destinations .countryWrapper:nth-child(even) {
       margin-right: 0; }
-    .destinations .countryWrapper--UnitedStates {
+    .destinations .countryWrapper--Oceania {
       margin-top: -550px; }
+      @media screen and (max-width: 991px) {
+        .destinations .countryWrapper--Oceania {
+          margin-top: 0; } }
+    .destinations .countryWrapper--UnitedStates {
+      margin-top: -125px; }
       @media screen and (max-width: 991px) {
         .destinations .countryWrapper--UnitedStates {
           margin-top: 0; } }

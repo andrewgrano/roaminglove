@@ -29,6 +29,18 @@ block content
             .authorBlock__name Contributed by #{post.author.name}
             .authorBlock__link!= post.author.first_name.replace(/\[a/g, "<a").replace(/\]/g,">").replace(/\[\/a/g,"</a").replace(/%5D/g,">")
             .authorBlock__desc!= post.author.last_name
+
+
+          //- - for category in post.categories
+          //-   if (category.name != "Uncategorized")
+          //-     h2 More Posts About #{category.name}
+          //- .postWidget__wrapper
+          //-   - for item in records.post
+          //-     item.title
+          //- ul.foo
+          //-   -for category in records.categories
+          //-     li= category.name
+
           #disqus_thread
           script
             :uglify-js

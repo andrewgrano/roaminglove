@@ -871,6 +871,20 @@ a {
     left: 0;
     right: 0; }
 
+.video-wrapper {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative; }
+  .video-wrapper embed,
+  .video-wrapper object,
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%; }
+
 .img-responsive {
   display: inline-block;
   max-width: 100%;

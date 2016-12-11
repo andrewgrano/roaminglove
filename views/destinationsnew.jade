@@ -1,0 +1,86 @@
+extends layout
+
+block meta
+  title Destinations - Roaming Love
+  meta(name='description', content='Sort by continent or country to read first-hand stories written by real travelers.')
+
+block content
+    .container.destinationsnew
+        .destinationsnew__sidebar
+            ul.sidebarList.nav.nav-tabs
+                -for category in records.categories
+                    if( category.parent == "0" & category.name != "Uncategorized")
+                        - var categoryNameNoSpace = category.name.replace(" ", "")
+                        li
+                            a(href="#destinationsnewCountry--#{categoryNameNoSpace}") #{category.name}
+                            ul.nav
+                                li
+                                    a(href="/places/" + category.name.replace(" ","-") + ".html") View All #{category.name}
+                                -for subcategory in records.categories
+                                    if( subcategory.parent == category.ID )
+                                        li
+                                            a(href="/places/" + subcategory.name.replace(" ","-") + ".html") #{subcategory.name}
+
+        .destinationsnew__main
+            -for category in records.categories
+                if( category.parent == "0" & category.name != "Uncategorized")
+                    - var categoryNameNoSpace = category.name.replace(" ", "")
+                    - var categoryimageix = category.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+                    section(class="destinationsnewCountry destinationsnewCountry--#{categoryNameNoSpace} clearfix" id="destinationsnewCountry--#{categoryNameNoSpace}") 
+                        img(src="#{categoryimageix}?w=823&h=350&fit=crop&crop=focalpoint" class="destinationsnewCountry__img")
+                        h1.destinationsnewCountry__heading
+                            span= category.name
+                            a(href="/places/" + category.name.replace(" ","-") + ".html")  View All #{category.name} Posts >>
+
+                        .locationWidgetnewWrapper
+                            -for subcategory in records.categories
+                                - var subcategoryimageix = subcategory.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+                                if( subcategory.parent == category.ID )
+                                  a.locationWidgetnew(href="/places/" + subcategory.name.replace(" ","-") + ".html")
+                                    img(src="#{subcategoryimageix}?w=247&h=247&fit=crop&crop=entropy" class="")
+                                    if( subcategory.name.length > 10 )
+                                        h6.longName= subcategory.name
+                                    else 
+                                        h6= subcategory.name 
+                                
+
+            //- else
+            //-     p= category.name
+
+        //- pre= JSON.stringify(records.categories, null, 2)
+
+block JS
+    script(src="/js/bootstrap-scrollspy.js")
+    script
+        :uglify-js
+            $(function() {
+
+                $('body').scrollspy({ target: '.destinationsnew__sidebar' })
+                    
+                var sidebarOffset = $(".destinationsnew__sidebar").offset().top
+                var sidebarWidth = $(".destinationsnew__sidebar").width();
+
+                $(".sidebarList").css("width",sidebarWidth)
+                
+                function setSidebarHeight() {
+                    var pageHeight = $(".destinationsnew").outerHeight(true);
+                    console.log( pageHeight );
+                    $(".destinationsnew__sidebar").css("height",pageHeight);
+                }
+
+                setSidebarHeight();
+
+                setTimeout(function(){ 
+                    setSidebarHeight();
+                }, 1000);
+
+                $(window).scroll(function() {
+                    if( $(window).scrollTop() >= sidebarOffset ) {
+                        $(".sidebarList").addClass("is--sticky")
+                    } else {
+                        $(".sidebarList").removeClass("is--sticky")
+                    }
+                });
+
+
+            });

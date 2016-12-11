@@ -6,4 +6,7 @@ TO DO
 - minified CSS and JS
 - add sitemap & other SEO improvements
 - contribute form: remember users typed entries on-refresh (cookies? jquery cookies?)
+- email blast
+- second-level destinations need breadcrumbs at top
+- first-level destinations need widgets/links to their children
 - LONGSHOT: at the end of an article, add section for "on this trip, I also went to...". Similar to bottom of this article: https://scotch.io/bar-talk/the-complete-visual-guide-to-sublime-text-3-themes-color-schemes-and-cool-features

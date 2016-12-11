@@ -57,7 +57,7 @@
             @include omega();
         }
 
-        &--Oceania {
+        &--LatinAmerica {
             margin-top: -550px;
 
             @media screen and (max-width: $vp-md-max) {
@@ -65,9 +65,20 @@
             }
         }
 
+        &--MiddleEast {
+            margin-top: -125px;
+            margin-right: 2.55507% !important;
+            
+            @media screen and (max-width: $vp-md-max) {
+                margin-top: 0;
+                margin-right: 0;
+            }
+
+        }
+
 
         &--UnitedStates {
-            margin-top: -125px;
+            margin-top: -275px;
 
             @media screen and (max-width: $vp-md-max) {
                 margin-top: 0;
@@ -86,3 +97,109 @@
         }
     }
 }
+
+.destinationsnew {
+    border-top: 7px solid $secondary-color;
+
+    a {
+        color: #3C3C3C;
+    }
+
+    &__sidebar {
+        @include span-columns(3 of 10);
+        background: #F1F1F1;
+        padding: 35px 0;
+
+        ul.sidebarList {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            & > li {
+                margin-bottom: 10px;
+
+                a {
+                    text-decoration: none;
+                    font-size: 24px;
+                    margin-left: 35px;
+                }
+
+                & > ul {
+                    font-size: 15px;
+                    list-style: none;
+                    display: none;
+                    padding: 15px 0 10px 25px;
+                    margin: 0;
+
+
+                    li {
+                        margin-bottom: 5px;
+
+                        a {
+                            font-size: 18px;
+                        }
+                    }
+                }
+
+                &.active {
+                    & > ul {
+                        display: block;
+                        background: #E3E3E3;
+                    }
+                }
+            }
+
+            &.is--sticky {
+                position: fixed;
+                top: 35px;
+            }  
+        }
+
+    }
+
+    &__main {
+        @include span-columns(7 of 10);
+        @include omega();
+
+        .locationWidgetnewWrapper {
+
+            .locationWidgetnew {
+                @include span-columns(4 of 12);
+
+                &:nth-child(3) {
+                    @include omega();
+                }
+            }
+        }
+    }
+
+    &Country {
+        &__img {
+            margin-left: -35px;
+            border-top: 7px solid #2693BB;
+
+            &:first-child {
+                margin-top: -7px;
+            }
+        }
+
+        &__heading {
+            font-size: 32px;
+            color: #3C3C3C;
+            border-bottom: 1px solid;
+
+            a {
+                font-size: 18px;
+                float: right;
+                font-weight: 400;
+                margin-top: 17px;
+                text-decoration: none;
+                color: $secondary-color;
+            }
+
+        }
+    }
+}
+
+

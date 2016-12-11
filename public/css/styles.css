@@ -741,7 +741,8 @@ body {
   font-family: 'Merriweather', serif;
   font-size: 18px;
   line-height: 1.7;
-  color: #2C2C2C; }
+  color: #2C2C2C;
+  position: relative; }
   @media screen and (max-width: 479px) {
     body {
       font-size: 15px;
@@ -1773,6 +1774,16 @@ a {
           max-width: none;
           margin-left: -53%; } }
 
+.locationWidgetnew {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 50px; }
+  .locationWidgetnew h6 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0; }
+
 /*
  *  Usage:
  *
@@ -2294,13 +2305,20 @@ a {
         margin-bottom: 0; } }
     .destinations .countryWrapper:nth-child(even) {
       margin-right: 0; }
-    .destinations .countryWrapper--Oceania {
+    .destinations .countryWrapper--LatinAmerica {
       margin-top: -550px; }
       @media screen and (max-width: 991px) {
-        .destinations .countryWrapper--Oceania {
+        .destinations .countryWrapper--LatinAmerica {
           margin-top: 0; } }
+    .destinations .countryWrapper--MiddleEast {
+      margin-top: -125px;
+      margin-right: 2.55507% !important; }
+      @media screen and (max-width: 991px) {
+        .destinations .countryWrapper--MiddleEast {
+          margin-top: 0;
+          margin-right: 0; } }
     .destinations .countryWrapper--UnitedStates {
-      margin-top: -125px; }
+      margin-top: -275px; }
       @media screen and (max-width: 991px) {
         .destinations .countryWrapper--UnitedStates {
           margin-top: 0; } }
@@ -2311,6 +2329,80 @@ a {
       margin: 0 0 30px 0; }
       .destinations .countryWrapper .pageHeading a {
         text-decoration: none; }
+
+.destinationsnew {
+  border-top: 7px solid #2693BB; }
+  .destinationsnew a {
+    color: #3C3C3C; }
+  .destinationsnew__sidebar {
+    float: left;
+    display: block;
+    margin-right: 3.08183%;
+    width: 27.84272%;
+    background: #F1F1F1;
+    padding: 35px 0; }
+    .destinationsnew__sidebar:last-child {
+      margin-right: 0; }
+    .destinationsnew__sidebar ul.sidebarList {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      list-style: none; }
+      .destinationsnew__sidebar ul.sidebarList > li {
+        margin-bottom: 10px; }
+        .destinationsnew__sidebar ul.sidebarList > li a {
+          text-decoration: none;
+          font-size: 24px;
+          margin-left: 35px; }
+        .destinationsnew__sidebar ul.sidebarList > li > ul {
+          font-size: 15px;
+          list-style: none;
+          display: none;
+          padding: 15px 0 10px 25px;
+          margin: 0; }
+          .destinationsnew__sidebar ul.sidebarList > li > ul li {
+            margin-bottom: 5px; }
+            .destinationsnew__sidebar ul.sidebarList > li > ul li a {
+              font-size: 18px; }
+        .destinationsnew__sidebar ul.sidebarList > li.active > ul {
+          display: block;
+          background: #E3E3E3; }
+      .destinationsnew__sidebar ul.sidebarList.is--sticky {
+        position: fixed;
+        top: 35px; }
+  .destinationsnew__main {
+    float: left;
+    display: block;
+    margin-right: 3.08183%;
+    width: 69.07545%;
+    margin-right: 0; }
+    .destinationsnew__main:last-child {
+      margin-right: 0; }
+    .destinationsnew__main .locationWidgetnewWrapper .locationWidgetnew {
+      float: left;
+      display: block;
+      margin-right: 2.55507%;
+      width: 31.62996%; }
+      .destinationsnew__main .locationWidgetnewWrapper .locationWidgetnew:last-child {
+        margin-right: 0; }
+      .destinationsnew__main .locationWidgetnewWrapper .locationWidgetnew:nth-child(3) {
+        margin-right: 0; }
+  .destinationsnewCountry__img {
+    margin-left: -35px;
+    border-top: 7px solid #2693BB; }
+    .destinationsnewCountry__img:first-child {
+      margin-top: -7px; }
+  .destinationsnewCountry__heading {
+    font-size: 32px;
+    color: #3C3C3C;
+    border-bottom: 1px solid; }
+    .destinationsnewCountry__heading a {
+      font-size: 18px;
+      float: right;
+      font-weight: 400;
+      margin-top: 17px;
+      text-decoration: none;
+      color: #2693BB; }
 
 .formContribute {
   background: #f1f1f1;

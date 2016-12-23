@@ -99,7 +99,17 @@
 }
 
 .destinationsnew {
-    border-top: 7px solid $secondary-color;
+
+    // @media screen and (max-width: $vp-lg-max) {
+    //     1199px
+    //     background: red;
+    // }
+
+    // @media screen and (max-width: $vp-md-max) {
+    //     991px
+    //     background: blue;
+    // }
+
 
     a {
         color: #3C3C3C;
@@ -109,6 +119,12 @@
         @include span-columns(3 of 10);
         background: #F1F1F1;
         padding: 35px 0;
+        // border-top: 7px solid $secondary-color;
+        position: relative;
+
+        @media screen and (max-width: $vp-sm-max) {
+            display: none;
+        }
 
         ul.sidebarList {
             position: relative;
@@ -116,28 +132,71 @@
             padding: 0;
             list-style: none;
 
+            a:hover,
+            a:active,
+            a:focus {
+                color: $secondary-color;
+            }
+
+
             & > li {
                 margin-bottom: 10px;
 
-                a {
+                & > a {
                     text-decoration: none;
                     font-size: 24px;
                     margin-left: 35px;
+
+                    @media screen and (max-width: $vp-md-max) {
+                        font-size: 22px;
+                        margin-left: 25px;
+                    }
+                }
+
+                &.active {
+                    & > a {
+                        color: $secondary-color;
+                    }
                 }
 
                 & > ul {
                     font-size: 15px;
                     list-style: none;
                     display: none;
-                    padding: 15px 0 10px 25px;
+                    padding: 25px 10px 5px 25px;
                     margin: 0;
 
 
                     li {
-                        margin-bottom: 5px;
+                        margin-bottom: 18px;
+
+                        @media screen and (max-width: $vp-md-max) {
+                            margin-bottom: 15px;
+                        }
 
                         a {
                             font-size: 18px;
+                            margin-left: 35px;
+                            text-decoration: none;
+                            display: block;
+                            line-height: 1.2;
+                            position: relative;
+
+                            @media screen and (max-width: $vp-md-max) {
+                                font-size: 17px;
+                                margin-left: 15px;
+                            }
+
+                            &:before {
+                                content: " ";
+                                position: absolute;
+                                left: -18px;
+                                top: 7px;
+                                width: 4px;
+                                height: 4px;
+                                background: $secondary-color;
+                                border-radius: 15px;
+                            }                            
                         }
                     }
                 }
@@ -153,6 +212,12 @@
             &.is--sticky {
                 position: fixed;
                 top: 35px;
+
+                &.is--bottom {
+                    position: absolute;
+                    top: initial;
+                    bottom: 0;
+                }
             }  
         }
 
@@ -162,32 +227,195 @@
         @include span-columns(7 of 10);
         @include omega();
 
+        @media screen and (max-width: $vp-sm-max) {
+            width: 100%;
+            float: none;
+            margin-right: 0;
+        }
+
+
         .locationWidgetnewWrapper {
 
             .locationWidgetnew {
                 @include span-columns(4 of 12);
 
-                &:nth-child(3) {
-                    @include omega();
+                @media screen and (min-width: 581px) {
+                    &:nth-child(3n) {
+                        @include omega();
+                    }
                 }
+
+                @media screen and (max-width: 580px) {
+                    @include span-columns(6 of 12);
+
+                    &:nth-child(even) {
+                        @include omega();
+                    }
+                }
+
+                @media screen and (max-width: 380px) {
+                    @include span-columns(12 of 12);
+                    margin-left: auto;
+                    margin-right: auto;
+                    float: none;
+
+                    &:nth-child(even),
+                    &:last-child {
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                }
+            
+                // &.locationWidgetnew--viewAll {
+                //     @media screen and (max-width: 380px) {
+                //         display: none;
+                //     }
+                // }
             }
         }
     }
 
     &Country {
-        &__img {
-            margin-left: -35px;
-            border-top: 7px solid #2693BB;
+        padding-bottom: 100px;
 
-            &:first-child {
-                margin-top: -7px;
+        @media screen and (max-width: $vp-lg-max) {
+            padding-bottom: 75px;
+        }
+
+        @media screen and (max-width: $vp-md-max) {
+            padding-bottom: 60px;
+        }
+
+        // &__img {
+        //     margin-left: -35px;
+        //     border-top: 7px solid #2693BB;
+
+        //     @media screen and (max-width: $vp-lg-max) {
+        //         margin-left: -4.6%;
+        //         max-width: 104.6%;
+        //         height: auto;
+        //         display: inline-block;
+        //     }
+
+        //     @media screen and (max-width: $vp-sm-max) {
+        //         display: none;
+        //     }
+
+        // }
+
+        &__header {
+            border-top: 7px solid #2693BB;
+            margin-bottom: 45px;
+            position: relative;
+            text-shadow: 0 0.3em 10px rgba(0, 0, 0, 0.9);
+
+            @media screen and (max-width: $vp-sm-max) {
+                height: 185px;
+                overflow: hidden;
+            }
+            
+            @media screen and (max-width: 580px) {
+                margin-bottom: 10px;
+                padding-top: 5px;
+                height: auto;
+            }
+
+            // &:after {
+            //     content: " ";
+            //     position: absolute;
+            //     left: 0;
+            //     top: 0;
+            //     width: 100%;
+            //     height: 100%;
+            //     background: rgba(0, 0, 0, 0.3);
+            // }
+
+            &.parallax-window {
+                opacity: 1;
+
+                @media screen and (max-width: 580px) {
+                    display: none;
+                }
+
+                .parallax-static-content {
+                    @media screen and (max-width: $vp-sm-max) { 
+                        display: block !important;
+                    }
+                }
+            }
+
+            h1 {
+                position: absolute;
+                width: 100%;
+                top: 35%;
+                color: #fff;
+                font-size: 58px;
+                margin: 0;
+                font-family: $displayFont;
+                letter-spacing: 2px;
+                text-align: center;
+                z-index: 2;
+
+                @media screen and (max-width: $vp-md-max) {
+                    font-size: 52px;
+                    top: 30%;
+                }
+
+                @media screen and (max-width: $vp-sm-max) { 
+                    font-size: 48px;
+                    top: 35%;
+                }
+
+                // span {
+                //     color: #3c3c3c;
+                //     padding: 10px 14px 4px;
+                //     display: inline-block;
+                //     line-height: 1;
+                //     background: rgba(255,255,255,0.92);
+
+                //     @media screen and (max-width: 580px) {
+                //         background: none;
+                //     }
+                // }
+            }
+
+            img {
+                margin-bottom: -10px;
+
+                // @media screen and (max-width: 580px) {
+                //     display: none;
+                // }       
             }
         }
+
+
+        .destinationsnewCountry__header--mobile {
+            display: none;
+
+            @media screen and (max-width: 580px) {
+                display: block;
+                border-top: 7px solid $secondary-color;
+                font-size: 36px;
+                // font-family: $displayFont;
+                text-align: center;
+                margin: 0 0 10px 0;
+                padding: 10px 5px;                
+            }
+           
+            @media screen and (max-width: 380px) {
+                font-size: 30px;
+            }
+        }
+
 
         &__heading {
             font-size: 32px;
             color: #3C3C3C;
             border-bottom: 1px solid;
+
+            @media screen and (max-width: $vp-md-max) {
+                font-size: 29px;
+            }
 
             a {
                 font-size: 18px;
@@ -196,9 +424,27 @@
                 margin-top: 17px;
                 text-decoration: none;
                 color: $secondary-color;
-            }
 
+                @media screen and (max-width: $vp-md-max) {
+                    margin-top: 14px;
+                    font-size: 17px;
+                }
+
+                @media screen and (max-width: $vp-sm-max) {
+                    display: none;
+                }
+            }
         }
+
+        // a.destinationsnewCountry__viewAll {
+        //     color: $secondary-color;
+        //     display: none;
+        //     text-align: center;
+
+        //     @media screen and (max-width: 380px) {
+        //         display: block;
+        //     }
+        // }
     }
 }
 

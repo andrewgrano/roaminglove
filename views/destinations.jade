@@ -5,30 +5,152 @@ block meta
   meta(name='description', content='Sort by continent or country to read first-hand stories written by real travelers.')
 
 block content
-    include ../includes/header-window.jade
-    .container.destinations
-        .headerContent
-            img(src="https://adminroaminglove.com/wp-content/uploads/2016/09/window6.jpg")
-            h1 Destinations
+    .container.destinationsnew
+        .destinationsnew__sidebar
+            ul.sidebarList.nav.nav-tabs
+                -for category in records.categories
+                    if( category.parent == "0" & category.name != "Uncategorized")
+                        - var categoryNameNoSpace = category.name.replace(" ", "")
+                        li
+                            a(href="##{categoryNameNoSpace}") #{category.name}
+                            ul.nav
+                                -for subcategory in records.categories
+                                    if( subcategory.parent == category.ID )
+                                        li
+                                            a(href="/places/" + subcategory.name.replace(" ","-") + ".html") #{subcategory.name}
+                                   li
+                                        a(href="/places/" + category.name.replace(" ","-") + ".html") View All #{category.name} 
 
-        //- h1.pageHeading Locations
-        .postWidget__wrapper
-
+        .destinationsnew__main
             -for category in records.categories
                 if( category.parent == "0" & category.name != "Uncategorized")
                     - var categoryNameNoSpace = category.name.replace(" ", "")
-                    section(class="countryWrapper countryWrapper--#{categoryNameNoSpace}") 
-                        h1.pageHeading: a(href="/places/" + category.name.replace(" ","-") + ".html")  #{category.name}
-                        -for subcategory in records.categories
-                            - var subcategoryimageix = subcategory.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
-                            if( subcategory.parent == category.ID )
-                              a.locationWidget(href="/places/" + subcategory.name.replace(" ","-") + ".html")
-                                if( subcategory.name.length > 10 )
-                                    h6.longName= subcategory.name
-                                else 
-                                    h6= subcategory.name
-                                img(src="#{subcategoryimageix}?w=240&h=240&fit=crop&crop=entropy" class="")
+                    - var categoryimageix = category.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+                    section(class="destinationsnewCountry destinationsnewCountry--#{categoryNameNoSpace} clearfix" id="#{categoryNameNoSpace}") 
+                        h1.destinationsnewCountry__header--mobile= category.name
+
+                        .destinationsnewCountry__header.parallax-window
+                            .parallax-static-content
+                                h1= category.name
+                            .parallax-background(style="background-image:url(#{categoryimageix}?w=788&h=400&fit=crop&crop=focalpoint)")
+                            
+                        // h1.destinationsnewCountry__heading
+                        //     span= category.name
+                        //     a(href="/places/" + category.name.replace(" ","-") + ".html")  View All #{category.name} Posts >>
+
+                        .locationWidgetnewWrapper.clearfix
+                            -for subcategory in records.categories
+                                - var subcategoryimageix = subcategory.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+                                if( subcategory.parent == category.ID )
+                                  a.locationWidgetnew(href="/places/" + subcategory.name.replace(" ","-") + ".html")
+                                    img(src="#{subcategoryimageix}?w=250&h=250&fit=crop&crop=entropy" class="img-responsive")
+                                    h6
+                                        div
+                                            span= subcategory.name 
+
+                            a.locationWidgetnew.locationWidgetnew--viewAll(href="/places/" + category.name.replace(" ","-") + ".html")
+                                img(src="https://roaminglove.imgix.net/2016/12/logo-square-dark.jpg?w=250&h=250" class="img-responsive")
+                                h6
+                                    div
+                                        span View All #{category.name} Stories
+                        // a(class="destinationsnewCountry__viewAll" href="/places/" + category.name.replace(" ","-") + ".html")  View All #{category.name} Stories >>
+                                
+
             //- else
             //-     p= category.name
 
         //- pre= JSON.stringify(records.categories, null, 2)
+
+block JS
+    script(src="/js/bootstrap-scrollspy.js")
+    script
+        :uglify-js
+            $(function() {
+                $(document).ready(function() {
+                    parallaxWindows();
+                });
+
+                $(window).scroll(function(e) {
+                    parallaxWindows();
+                });
+
+                function parallaxWindows(){
+                    $(".parallax-window").each(function() {
+                        var plxBackground = $(this).children(".parallax-background");
+                        var plxWindow = $(this);
+
+                        var plxWindowTopToPageTop = $(plxWindow).offset().top;
+                        var windowTopToPageTop = $(window).scrollTop();
+                        var plxWindowTopToWindowTop = plxWindowTopToPageTop - windowTopToPageTop;
+
+                        var plxBackgroundTopToPageTop = $(plxBackground).offset().top;
+                        var windowInnerHeight = window.innerHeight;
+                        var plxBackgroundTopToWindowTop = plxBackgroundTopToPageTop - windowTopToPageTop;
+                        var plxBackgroundTopToWindowBottom = windowInnerHeight - plxBackgroundTopToWindowTop;
+                        var plxSpeed = 0.35;
+
+
+                        if ( windowTopToPageTop > (plxWindowTopToPageTop - 150) ) {
+                            plxBackground.css('top', - (plxWindowTopToWindowTop * plxSpeed) + 'px');
+                        } else {
+                            plxBackground.css('top', '-52px');
+                        }
+                    });
+                }
+
+                $('body').scrollspy({ target: '.destinationsnew__sidebar' })
+                
+                var pageHeight = $(".destinationsnew").outerHeight(true);
+                var sidebarOffset = $(".destinationsnew__sidebar").offset().top
+                
+
+                function setSidebarWidth() {
+                    var sidebarWidth = $(".destinationsnew__sidebar").width();
+                    $(".sidebarList").css("width",sidebarWidth)
+                }
+
+                function setSidebarHeight() {
+                    pageHeight = $(".destinationsnew").outerHeight(true);
+                    // console.log( pageHeight );
+                    $(".destinationsnew__sidebar").css("height",pageHeight);
+                }
+
+                function stickySidebar() {
+                    if( $(window).scrollTop() >= sidebarOffset ) {
+                        $(".sidebarList").addClass("is--sticky")
+                    } else {
+                        $(".sidebarList").removeClass("is--sticky")
+                    }
+
+                    if( $(window).scrollTop() >= (pageHeight - $(".sidebarList").outerHeight() ) ) {
+                        $(".sidebarList").addClass("is--bottom")
+                    } else {
+                        $(".sidebarList").removeClass("is--bottom")
+                    }
+                }
+
+
+                setSidebarHeight();
+                setSidebarWidth();
+                stickySidebar();
+
+                setTimeout(function(){ 
+                    setSidebarHeight();
+                    stickySidebar();
+                }, 1000);
+
+                var resizeTimer;
+                $(window).on('resize', function(e) {
+                  clearTimeout(resizeTimer);
+                  resizeTimer = setTimeout(function() {
+                    // console.log("resizing has stopped")
+                    setSidebarHeight();
+                    setSidebarWidth();   
+                  },250);
+                });
+
+                $(window).scroll(function() {
+                    stickySidebar();
+                });
+
+            });

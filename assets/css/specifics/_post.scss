@@ -23,32 +23,34 @@
              @include omega();
         }
 
+        
         .two-images {
             @extend .clearfix;
 
-            & > img:first-child,
-            & > p > img:first-child {
-                float: left;
-                width: 48%;
-            }
+            @media screen and (min-width: $vp-md-min) {
+                & > img:first-child,
+                & > p > img:first-child {
+                    float: left;
+                    width: 48%;
+                }
 
-            & > img:nth-child(2),
-            & > p > img:nth-child(2) {
-                float: right;
-                width: 48%;
-            }
+                & > img:nth-child(2),
+                & > p > img:nth-child(2) {
+                    float: right;
+                    width: 48%;
+                }
 
-            & > figure:first-child {
-                float: left;
-                width: 48% !important;
-            }
+                & > figure:first-child {
+                    float: left;
+                    width: 48% !important;
+                }
 
-            & > figure:nth-child(2) {
-                float: right;
-                width: 48% !important;
+                & > figure:nth-child(2) {
+                    float: right;
+                    width: 48% !important;
+                }
             }
         }
-
     }
 
     h1 {

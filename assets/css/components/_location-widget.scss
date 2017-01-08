@@ -55,7 +55,7 @@
 
         &.longName {
             font-size: 32px;
-            
+
             @media screen and (max-width:$vp-lg-max) and (min-width: $vp-lg-min) {
                 font-size: 27px;
             }
@@ -70,11 +70,11 @@
     }
 
     span {
-        border: 2px solid;
+        // border: 2px solid;
         padding: 10px 14px 4px;
         display: inline-block;
         line-height: 1;
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,0);
         @include transition(all 0.3s linear);
 
         @media screen and (max-width: 479px) {
@@ -97,33 +97,24 @@
         }
 
         &:before {
-            background: none;
-
-            @media screen and (max-width: 479px) {
-                background: rgba(0,0,0,0.4);  
-            }
+            background: rgba(0,0,0,0.4);
         }
-       
+
         &:hover {
 
             &:before {
-                background: rgba(0,0,0,0.4); 
-
-                @media screen and (max-width: 479px) {
-                    background: rgba(0,0,0,0);  
-                }
-
-            }  
+                background: rgba(0,0,0,0);
+            }
 
             span {
-                border-left: 0 none;
-                border-right: 0 none;
-                border-top: 0 none;
-                background: rgba(0,0,0,0.0);
+                border: 1px solid;
+                background: rgba(0,0,0,0.4);
             }
         }
 
         h6 {
+            font-size: 44px;
+
             @media screen and (max-width: $vp-sm-max) {
                 font-size: 30px;
             }

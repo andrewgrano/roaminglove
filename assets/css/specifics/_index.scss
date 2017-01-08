@@ -3,17 +3,13 @@
 }
 
 .btnWrapper {
-    text-align: right;
-
-    @media screen and (max-width: $vp-sm-max) {
-        text-align: center;
-    }
+    text-align: center;
 }
 
 .index {
 
     .indexHeader {
-        margin-bottom: 25px;
+        margin-bottom: 40px;
 
         .owl-carousel.owl-theme {
             @media screen and (max-width: 479px) {
@@ -68,7 +64,7 @@
                         @media screen and (max-width: $vp-sm-max) {
                             height: 252px;
                         }
-                    }  
+                    }
 
                     .itemContent {
                         background: -moz-linear-gradient(10deg,  rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.1) 100%);
@@ -81,11 +77,11 @@
                         z-index: 5;
                         color: #fff;
                         padding: 22px 20px 37px 20px;
-             
+
 
 
                         @media screen and (max-width: $vp-sm-max) {
-                            
+
                         }
 
                         h4 {
@@ -103,7 +99,7 @@
                                     font-size: 16px;
                                 }
                         }
-                    }      
+                    }
                 }
             }
 
@@ -157,7 +153,7 @@
     section {
         padding-bottom: 75px;
         border-bottom: 7px solid $primary-color;
-        margin-bottom: 25px;
+        margin-bottom: 40px;
 
         &:last-child {
             border-bottom: 0 none;
@@ -176,6 +172,7 @@
     .more.btn {
         margin-top: 25px;
         cursor: pointer;
+        min-width: 33%;
 
         &.disabled {
             cursor: no-drop;
@@ -194,6 +191,134 @@
             width: 0;
             height: 0;
             @include transition(opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s);
+        }
+    }
+
+    .indexAbout {
+        @include span-columns(9);
+        @include omega();
+        margin-top: -50px;
+        padding-top: 50px;
+
+        @media screen and (max-width: $vp-lg-max) {
+             @include span-columns(10);
+             @include omega();
+        }
+
+        @media screen and (max-width: $vp-md-max) {
+             @include span-columns(11);
+             @include omega();
+        }
+
+        @media screen and (max-width: $vp-sm-max) {
+             @include span-columns(12);
+             @include omega();
+        }
+    }
+
+    .polaroidWrapper {
+        @include span-columns(12);
+        @include omega();
+        margin-top: 40px;
+        margin-bottom: 80px;
+        text-align: center;
+
+        & > div {
+            background: #FAFAF8;
+            display: inline-block;
+            margin: 0;
+            padding: 10px 10px 25px;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,.3);
+            @include transition(all .15s linear);
+            z-index:0;
+            position:relative;
+
+            @media screen and (max-width: $vp-sm-max) {
+                width: 49%;
+                max-width: 220px;
+            }
+
+            &:first-child {
+                @include transform(rotate(-8deg));
+            }
+
+            &:nth-child(2) {
+                @include transform(rotate(5deg));
+                z-index: 3;
+                margin-left: -5px;
+
+                @media screen and (max-width: $vp-lg-max) {
+                    display: none;
+                }
+            }
+
+            &:nth-child(3n) {
+                @include transform(rotate(-2deg));
+            }
+
+            &:nth-child(4n) {
+                @include transform(rotate(-9deg));
+                margin-left: -5px;
+
+                @media screen and (max-width: $vp-sm-max) {
+                    margin-left: 0;
+                }
+            }
+
+            &:nth-child(5n) {
+                @include transform(rotate(8deg));
+            }
+
+            // &:hover {
+            //     @include transform(rotate(0deg));
+            //     @include transform(scale(1.2));
+            //     z-index:10;
+            //     box-shadow: 0 10px 20px rgba(0,0,0,.7);
+            // }
+
+            img {
+                display: block;
+                width: inherit;
+
+                @media screen and (max-width: 945px) {
+                    width: 155px;
+                }
+
+                @media screen and (max-width: $vp-sm-max) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .indexContribute {
+        @include span-columns(9);
+        @include shift(1.5);
+        @include omega();
+        padding-bottom: 75px;
+
+        @media screen and (max-width: $vp-lg-max) {
+             @include span-columns(10);
+             @include shift(1);
+             @include omega();
+        }
+
+        @media screen and (max-width: $vp-md-max) {
+             @include span-columns(11);
+             @include shift(0.5);
+             @include omega();
+        }
+
+        @media screen and (max-width: $vp-sm-max) {
+             @include span-columns(12);
+             @include shift(0);
+             @include omega();
+        }
+
+        .more.btn {
+            margin-top: 40px;
         }
     }
 

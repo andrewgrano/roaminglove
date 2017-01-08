@@ -124,6 +124,36 @@ block content
             .btnWrapper
                 a.more.btn.btnSecondary(href="/Destinations.html") >> All Destinations
 
+        section
+            .indexAbout#about
+                h1.pageHeading >> What is Roaming Love?
+                p Travel is for everyone, and so is Roaming Love.
+                p We created this community after seeing too many social media celebrities make travel appear elite, glamourous and inaccessible.
+                p We allow people from around the world to contribute their travel stories and photographs for online publication. We hope these stories inspire others to travel, see the world, and join our community.
+            .polaroidWrapper
+                div
+                    img(src="https://roaminglove.imgix.net/2016/11/unnamed-4_opt.jpg?w=200&h=215&fit=crop&crop=faces")
+                div
+                    img(src="https://roaminglove.imgix.net/2016/12/1_opt-1-1024x768.jpg?w=200&h=215&fit=crop&crop=entropy")
+                div
+                    img(src="https://roaminglove.imgix.net/2017/01/barcelona-skyline-full.jpg?w=200&h=215&fit=crop&crop=entropy")
+                div
+                    img(src="https://roaminglove.imgix.net/2016/12/IMG_2450_opt.jpg?w=200&h=215&fit=crop&crop=faces")
+                div
+                    img(src="https://roaminglove.imgix.net/2016/04/IMG_2329_opt.jpg?w=200&h=215&fit=crop&crop=faces")
+
+
+
+            .indexContribute
+                h1.pageHeading >> Want to be featured on Roaming Love?
+                p Do you have a travel story to tell?  Have you been somewhere that you LOVED?
+                p Contribute to our online community! You don’t need to be a professional writer or blogger to tell a good story and inspire others.
+                p Others want to hear about where you’ve been and what you thought of it!
+                .btnWrapper
+                    a.more.btn.btnSecondary(href="/contribute.html") >> Contribute Your Story Now
+
+
+
 
 
 block JS
@@ -139,4 +169,9 @@ block JS
                     dots: true,
                     autoplay:true
                 })
+
+                $("a[href='/#about']").on("click", function(e){
+                  $("html, body").animate({ scrollTop: $('#about').offset().top }, 800);
+                  e.preventDefault();
+                });
             });

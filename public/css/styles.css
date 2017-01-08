@@ -780,7 +780,8 @@ a {
 .pageHeading {
   font-family: "Special Elite", cursive;
   font-size: 34px;
-  margin: 0 0 0.67em 0; }
+  margin: 0 0 1em 0;
+  line-height: 1.2; }
   @media screen and (max-width: 767px) {
     .pageHeading {
       text-align: center; } }
@@ -1730,11 +1731,10 @@ a {
     left: 0;
     top: 0; }
   .locationWidget span {
-    border: 2px solid;
     padding: 10px 14px 4px;
     display: inline-block;
     line-height: 1;
-    background: rgba(0, 0, 0, 0.4);
+    background: transparent;
     -webkit-transition: all 0.3s linear;
     -moz-transition: all 0.3s linear;
     -spec-transition: all 0.3s linear;
@@ -1754,23 +1754,17 @@ a {
       .locationWidget.locationWidget--lg {
         height: 190px; } }
     .locationWidget.locationWidget--lg:before {
-      background: none; }
-      @media screen and (max-width: 479px) {
-        .locationWidget.locationWidget--lg:before {
-          background: rgba(0, 0, 0, 0.4); } }
-    .locationWidget.locationWidget--lg:hover:before {
       background: rgba(0, 0, 0, 0.4); }
-      @media screen and (max-width: 479px) {
-        .locationWidget.locationWidget--lg:hover:before {
-          background: transparent; } }
-    .locationWidget.locationWidget--lg:hover span {
-      border-left: 0 none;
-      border-right: 0 none;
-      border-top: 0 none;
+    .locationWidget.locationWidget--lg:hover:before {
       background: transparent; }
-    @media screen and (max-width: 767px) {
-      .locationWidget.locationWidget--lg h6 {
-        font-size: 30px; } }
+    .locationWidget.locationWidget--lg:hover span {
+      border: 1px solid;
+      background: rgba(0, 0, 0, 0.4); }
+    .locationWidget.locationWidget--lg h6 {
+      font-size: 44px; }
+      @media screen and (max-width: 767px) {
+        .locationWidget.locationWidget--lg h6 {
+          font-size: 30px; } }
     .locationWidget.locationWidget--lg:nth-child(odd) {
       margin-right: 0; }
     .locationWidget.locationWidget--lg:nth-child(even) {
@@ -2044,13 +2038,10 @@ a {
   display: block; }
 
 .btnWrapper {
-  text-align: right; }
-  @media screen and (max-width: 767px) {
-    .btnWrapper {
-      text-align: center; } }
+  text-align: center; }
 
 .index .indexHeader {
-  margin-bottom: 25px; }
+  margin-bottom: 40px; }
   @media screen and (max-width: 479px) {
     .index .indexHeader .owl-carousel.owl-theme {
       display: none; } }
@@ -2144,7 +2135,7 @@ a {
 .index section {
   padding-bottom: 75px;
   border-bottom: 7px solid #F1B870;
-  margin-bottom: 25px; }
+  margin-bottom: 40px; }
   .index section:last-child {
     border-bottom: 0 none;
     margin-bottom: 0; }
@@ -2155,7 +2146,8 @@ a {
 
 .index .more.btn {
   margin-top: 25px;
-  cursor: pointer; }
+  cursor: pointer;
+  min-width: 33%; }
   .index .more.btn.disabled {
     cursor: no-drop; }
     .index .more.btn.disabled .sk-circle {
@@ -2172,6 +2164,170 @@ a {
     -moz-transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s;
     -spec-transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s;
     transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s; }
+
+.index .indexAbout {
+  float: left;
+  display: block;
+  margin-right: 2.55507%;
+  width: 74.36123%;
+  margin-right: 0;
+  margin-top: -50px;
+  padding-top: 50px; }
+  .index .indexAbout:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 1199px) {
+    .index .indexAbout {
+      float: left;
+      display: block;
+      margin-right: 2.55507%;
+      width: 82.90749%;
+      margin-right: 0; }
+      .index .indexAbout:last-child {
+        margin-right: 0; } }
+  @media screen and (max-width: 991px) {
+    .index .indexAbout {
+      float: left;
+      display: block;
+      margin-right: 2.55507%;
+      width: 91.45374%;
+      margin-right: 0; }
+      .index .indexAbout:last-child {
+        margin-right: 0; } }
+  @media screen and (max-width: 767px) {
+    .index .indexAbout {
+      float: left;
+      display: block;
+      margin-right: 2.55507%;
+      width: 100%;
+      margin-right: 0; }
+      .index .indexAbout:last-child {
+        margin-right: 0; } }
+
+.index .polaroidWrapper {
+  float: left;
+  display: block;
+  margin-right: 2.55507%;
+  width: 100%;
+  margin-right: 0;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  text-align: center; }
+  .index .polaroidWrapper:last-child {
+    margin-right: 0; }
+  .index .polaroidWrapper > div {
+    background: #FAFAF8;
+    display: inline-block;
+    margin: 0;
+    padding: 10px 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    -webkit-transition: all 0.15s linear;
+    -moz-transition: all 0.15s linear;
+    -spec-transition: all 0.15s linear;
+    transition: all 0.15s linear;
+    z-index: 0;
+    position: relative; }
+    @media screen and (max-width: 767px) {
+      .index .polaroidWrapper > div {
+        width: 49%;
+        max-width: 220px; } }
+    .index .polaroidWrapper > div:first-child {
+      -webkit-transform: rotate(-8deg);
+      -moz-transform: rotate(-8deg);
+      -ms-transform: rotate(-8deg);
+      -o-transform: rotate(-8deg);
+      -spec-transform: rotate(-8deg);
+      transform: rotate(-8deg); }
+    .index .polaroidWrapper > div:nth-child(2) {
+      -webkit-transform: rotate(5deg);
+      -moz-transform: rotate(5deg);
+      -ms-transform: rotate(5deg);
+      -o-transform: rotate(5deg);
+      -spec-transform: rotate(5deg);
+      transform: rotate(5deg);
+      z-index: 3;
+      margin-left: -5px; }
+      @media screen and (max-width: 1199px) {
+        .index .polaroidWrapper > div:nth-child(2) {
+          display: none; } }
+    .index .polaroidWrapper > div:nth-child(3n) {
+      -webkit-transform: rotate(-2deg);
+      -moz-transform: rotate(-2deg);
+      -ms-transform: rotate(-2deg);
+      -o-transform: rotate(-2deg);
+      -spec-transform: rotate(-2deg);
+      transform: rotate(-2deg); }
+    .index .polaroidWrapper > div:nth-child(4n) {
+      -webkit-transform: rotate(-9deg);
+      -moz-transform: rotate(-9deg);
+      -ms-transform: rotate(-9deg);
+      -o-transform: rotate(-9deg);
+      -spec-transform: rotate(-9deg);
+      transform: rotate(-9deg);
+      margin-left: -5px; }
+      @media screen and (max-width: 767px) {
+        .index .polaroidWrapper > div:nth-child(4n) {
+          margin-left: 0; } }
+    .index .polaroidWrapper > div:nth-child(5n) {
+      -webkit-transform: rotate(8deg);
+      -moz-transform: rotate(8deg);
+      -ms-transform: rotate(8deg);
+      -o-transform: rotate(8deg);
+      -spec-transform: rotate(8deg);
+      transform: rotate(8deg); }
+    .index .polaroidWrapper > div img {
+      display: block;
+      width: inherit; }
+      @media screen and (max-width: 945px) {
+        .index .polaroidWrapper > div img {
+          width: 155px; } }
+      @media screen and (max-width: 767px) {
+        .index .polaroidWrapper > div img {
+          width: 100%; } }
+
+.index .indexContribute {
+  float: left;
+  display: block;
+  margin-right: 2.55507%;
+  width: 74.36123%;
+  margin-left: 12.81938%;
+  margin-right: 0;
+  padding-bottom: 75px; }
+  .index .indexContribute:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 1199px) {
+    .index .indexContribute {
+      float: left;
+      display: block;
+      margin-right: 2.55507%;
+      width: 82.90749%;
+      margin-left: 8.54626%;
+      margin-right: 0; }
+      .index .indexContribute:last-child {
+        margin-right: 0; } }
+  @media screen and (max-width: 991px) {
+    .index .indexContribute {
+      float: left;
+      display: block;
+      margin-right: 2.55507%;
+      width: 91.45374%;
+      margin-left: 4.27313%;
+      margin-right: 0; }
+      .index .indexContribute:last-child {
+        margin-right: 0; } }
+  @media screen and (max-width: 767px) {
+    .index .indexContribute {
+      float: left;
+      display: block;
+      margin-right: 2.55507%;
+      width: 100%;
+      margin-left: 0%;
+      margin-right: 0; }
+      .index .indexContribute:last-child {
+        margin-right: 0; } }
+  .index .indexContribute .more.btn {
+    margin-top: 40px; }
 
 .post .postInner {
   float: left;

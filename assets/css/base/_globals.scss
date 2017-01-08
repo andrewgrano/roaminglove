@@ -121,7 +121,8 @@ h1 {
 .pageHeading {
     font-family: $displayFont;
     font-size: 34px;
-    margin: 0 0 0.67em 0;
+    margin: 0 0 1em 0;
+    line-height: 1.2;
 
     @media screen and (max-width: $vp-sm-max) {
         text-align: center;

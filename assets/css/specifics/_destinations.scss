@@ -68,7 +68,7 @@
         &--MiddleEast {
             margin-top: -125px;
             margin-right: 2.55507% !important;
-            
+
             @media screen and (max-width: $vp-md-max) {
                 margin-top: 0;
                 margin-right: 0;
@@ -196,7 +196,7 @@
                                 height: 4px;
                                 background: $secondary-color;
                                 border-radius: 15px;
-                            }                            
+                            }
                         }
                     }
                 }
@@ -218,7 +218,7 @@
                     top: initial;
                     bottom: 0;
                 }
-            }  
+            }
         }
 
     }
@@ -265,7 +265,7 @@
                         margin-right: auto;
                     }
                 }
-            
+
                 // &.locationWidgetnew--viewAll {
                 //     @media screen and (max-width: 380px) {
                 //         display: none;
@@ -313,7 +313,7 @@
                 height: 185px;
                 overflow: hidden;
             }
-            
+
             @media screen and (max-width: 580px) {
                 margin-bottom: 10px;
                 padding-top: 5px;
@@ -338,7 +338,7 @@
                 }
 
                 .parallax-static-content {
-                    @media screen and (max-width: $vp-sm-max) { 
+                    @media screen and (max-width: $vp-sm-max) {
                         display: block !important;
                     }
                 }
@@ -361,7 +361,7 @@
                     top: 30%;
                 }
 
-                @media screen and (max-width: $vp-sm-max) { 
+                @media screen and (max-width: $vp-sm-max) {
                     font-size: 48px;
                     top: 35%;
                 }
@@ -384,7 +384,7 @@
 
                 // @media screen and (max-width: 580px) {
                 //     display: none;
-                // }       
+                // }
             }
         }
 
@@ -399,9 +399,9 @@
                 // font-family: $displayFont;
                 text-align: center;
                 margin: 0 0 10px 0;
-                padding: 10px 5px;                
+                padding: 10px 5px;
             }
-           
+
             @media screen and (max-width: 380px) {
                 font-size: 30px;
             }
@@ -449,3 +449,36 @@
 }
 
 
+.locationWidgetnewWrapper.locationWidgetnewWrapper--fullWidth {
+
+    .locationWidgetnew {
+        @include span-columns(3 of 12);
+
+        @media screen and (min-width: 581px) {
+            &:nth-child(4n) {
+                @include omega();
+            }
+        }
+
+        @media screen and (max-width: 580px) {
+            @include span-columns(6 of 12);
+
+            &:nth-child(even) {
+                @include omega();
+            }
+        }
+
+        @media screen and (max-width: 380px) {
+            @include span-columns(12 of 12);
+            margin-left: auto;
+            margin-right: auto;
+            float: none;
+
+            &:nth-child(even),
+            &:last-child {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+}

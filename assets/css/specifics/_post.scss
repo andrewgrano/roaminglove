@@ -23,7 +23,7 @@
              @include omega();
         }
 
-        
+
         .two-images {
             @extend .clearfix;
 
@@ -34,8 +34,8 @@
                     width: 48%;
                 }
 
-                & > img:nth-child(2),
-                & > p > img:nth-child(2) {
+                & > img:last-child,
+                & > p > img:last-child {
                     float: right;
                     width: 48%;
                 }
@@ -45,10 +45,15 @@
                     width: 48% !important;
                 }
 
-                & > figure:nth-child(2) {
+                & > figure:last-child {
                     float: right;
                     width: 48% !important;
                 }
+
+                & > br {
+                    display: none;
+                }
+
             }
         }
     }

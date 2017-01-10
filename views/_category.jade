@@ -12,21 +12,66 @@ block content
             .headerContent
                 img(src=item.description)
                 h1= item.name
+            ul.breadcrumbs
+                li
+                    a(href="/destinations.html") Destinations
+                -if( item.parent != "0" )
+                    li
+                        -for category in records.categories
+                            if( category.ID == item.parent)
+                                a(href="/places/" + category.name.replace(" ","-") + ".html") #{category.name}
+                li
+                    span= item.name
 
-            //- h1= item.name
-            //- .postWidget__wrapper
+            h1.pageHeading >> All #{item.name} Stories
             .postWidget__wrapper
                 for post in records.post
                     - for category in post.categories
                         if  (category.name == item.name)
                           include templates/post
 
-            //- if( item.parent == "0" & item.name != "Uncategorized")
-            //-     p here are specific destinations in #{item.name} 
-            //-     if (records.categories.name = item.name)
-                    
-            //-         p= records.categories.name 
-               
+            -if( item.parent == "0" )
+                hr.bg-orange
+                br
+                h1.pageHeading >> Destinations in #{item.name}
+                .locationWidgetnewWrapper.locationWidgetnewWrapper--fullWidth.clearfix
+                    -for category in records.categories
+                        - var categoryimageix = category.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+                        if (category.parent == item.ID)
+                          a.locationWidgetnew(href="/places/" + category.name.replace(" ","-") + ".html")
+                            img(src="#{categoryimageix}?w=257&h=257&fit=crop&crop=entropy" class="img-responsive")
+                            h6
+                                div
+                                    span= category.name
+
+            -if( item.parent != "0" )
+                -var index = 0
+                each category in records.categories
+                    if (category.parent == item.parent)
+                        if(category.name != item.name)
+                            -while( index < 1 )
+                                -index++
+                                hr.bg-orange
+                                br
+                                //- h1.pageHeading >> Other Destinations Near #{item.name}
+                                -if( item.parent != "0" )
+                                    -for category in records.categories
+                                        if( category.ID == item.parent)
+                                                h1.pageHeading >> Other Destinations in #{category.name}
+                .locationWidgetnewWrapper.locationWidgetnewWrapper--fullWidth.clearfix
+                    -for category in records.categories
+                        - var categoryimageix = category.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+                        if (category.parent == item.parent)
+                            if(category.name != item.name)
+                              a.locationWidgetnew(href="/places/" + category.name.replace(" ","-") + ".html")
+                                img(src="#{categoryimageix}?w=257&h=257&fit=crop&crop=entropy" class="img-responsive")
+                                h6
+                                    div
+                                        span= category.name
+
+
+
+
 
             //- pre= JSON.stringify(item, null, 2)
             //- pre= JSON.stringify(records.post, null, 2)

@@ -76,6 +76,9 @@ $(document).ready ->
         #   scrollTopResetAgain = scrollTopReset - 100
         #   MathVar = (100 - scrollTopResetAgain) * 0.01
         #   headerContent.css("opacity", MathVar)
+      else
+        headerContent.css("background", "rgba(0,0,0,0.3)");
+        headerContent.css("text-shadow", "0 0.3em 10px rgba(0,0,0,0.9)");
 
 
 

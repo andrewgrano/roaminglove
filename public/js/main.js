@@ -66,6 +66,9 @@
             MathVar3 = (90 - scrollTopReset2) * 0.01;
             return headerContent.css("text-shadow", "0 " + MathVar2 + "em 10px rgba(0,0,0," + MathVar3 + "");
           }
+        } else {
+          headerContent.css("background", "rgba(0,0,0,0.3)");
+          return headerContent.css("text-shadow", "0 0.3em 10px rgba(0,0,0,0.9)");
         }
       });
       if ($(".headerContent").hasClass("js--hide-on-top")) {

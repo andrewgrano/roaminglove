@@ -9,8 +9,9 @@ block content
     include ../includes/header-window.jade
     .container
         .postInner
+            -var itemimgix = item.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
             .headerContent
-                img(src=item.description)
+                img(src="#{itemimgix}?w=1140&h=400&fit=crop&crop=focalpoint")
                 h1= item.name
             ul.breadcrumbs
                 li

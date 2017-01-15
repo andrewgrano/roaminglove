@@ -49,7 +49,8 @@ block content
                                             span= subcategory.name
 
                             a.locationWidgetnew.locationWidgetnew--viewAll(href="/places/" + category.name.replace(" ","-") + ".html")
-                                img(src="https://roaminglove.imgix.net/2016/12/logo-square-dark.jpg?w=250&h=250" class="img-responsive")
+                                //- img(src="https://roaminglove.imgix.net/2016/12/logo-square-dark.jpg?w=250&h=250" class="img-responsive")
+                                img(src="#{categoryimageix}?w=250&h=250&fit=crop&crop=entropy" class="img-responsive")
                                 h6
                                     div
                                         span View All #{category.name} Stories

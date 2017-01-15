@@ -37,13 +37,15 @@ $parallax-background-height--xs: $parallax-window-height--xs * 2;
   position: relative;
   z-index: 9;
   display: table;
+  line-height: 1.1;
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.3);
   text-shadow: 0 0.3em 10px rgba(0,0,0,0.9);
 
   @media screen and (max-width: $vp-sm-max) {
-    display: none !important;
+    background: rgba(0,0,0,0.53) !important;
+    // display: none !important;
   }
 
   h1 {
@@ -53,6 +55,17 @@ $parallax-background-height--xs: $parallax-window-height--xs * 2;
     color: #fff;
     font-size: 58px;
     letter-spacing: 0.05em;
+
+    @media screen and (max-width: $vp-sm-max) {
+      font-size: 50px;
+    }
+
+    @media screen and (max-width: $vp-sm-max) {
+      font-size: 32px;
+      letter-spacing: 0.05em;
+      line-height: 1;
+      padding-top: 6px;
+    }
   }
 }
 
@@ -70,9 +83,9 @@ $parallax-background-height--xs: $parallax-window-height--xs * 2;
         font-family: $displayFont;
     }
 
-    @media screen and (max-width: $vp-sm-max) {
-        display: block;
-    }
+    // @media screen and (max-width: $vp-sm-max) {
+    //     display: block;
+    // }
 }
 
 .parallax-background {

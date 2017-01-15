@@ -24,7 +24,7 @@ block content
                 li
                     span= item.name
 
-            h1.pageHeading >> All #{item.name} Stories
+            h1.pageHeading <span class="chevronsRight">>></span> All #{item.name} Stories
             .postWidget__wrapper
                 for post in records.post
                     - for category in post.categories
@@ -34,7 +34,7 @@ block content
             -if( item.parent == "0" )
                 hr.bg-orange
                 br
-                h1.pageHeading >> Destinations in #{item.name}
+                h1.pageHeading <span class="chevronsRight">>></span> Destinations in #{item.name}
                 .locationWidgetnewWrapper.locationWidgetnewWrapper--fullWidth.clearfix
                     -for category in records.categories
                         - var categoryimageix = category.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
@@ -54,11 +54,11 @@ block content
                                 -index++
                                 hr.bg-orange
                                 br
-                                //- h1.pageHeading >> Other Destinations Near #{item.name}
+                                //- h1.pageHeading <span class="chevronsRight">>></span> Other Destinations Near #{item.name}
                                 -if( item.parent != "0" )
                                     -for category in records.categories
                                         if( category.ID == item.parent)
-                                                h1.pageHeading >> Other Destinations in #{category.name}
+                                                h1.pageHeading <span class="chevronsRight">>></span> Other Destinations in #{category.name}
                 .locationWidgetnewWrapper.locationWidgetnewWrapper--fullWidth.clearfix
                     -for category in records.categories
                         - var categoryimageix = category.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")

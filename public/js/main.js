@@ -75,7 +75,7 @@
         if ($(window).scrollTop() < 15) {
           headerContent.hide();
         }
-        return $(window).scroll(function(e) {
+        $(window).scroll(function(e) {
           var pos;
           pos = $(window).scrollTop();
           headerContent = $(".parallax-static-content");
@@ -85,6 +85,9 @@
             return headerContent.fadeIn();
           }
         });
+      }
+      if ($(".headerContent").hasClass("is--post")) {
+        return $(".headerWindow").addClass("is--post");
       }
     }
   });

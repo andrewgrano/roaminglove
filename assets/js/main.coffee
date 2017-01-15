@@ -92,6 +92,9 @@ $(document).ready ->
           headerContent.fadeOut();
         else
           headerContent.fadeIn();
+
+    if $(".headerContent").hasClass("is--post")
+      $(".headerWindow").addClass("is--post")
     # else
     #   $(".header .parallax-static-content").css("background", "rgba(0,0,0,0)");
 

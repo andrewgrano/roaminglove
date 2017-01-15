@@ -9,7 +9,8 @@ block content
   include ../includes/header-window.jade
   .container.post
       .postInner
-          h1= post.title
+          h1
+            span= post.title
           //- h1= post.categories.name
           //- p.date= moment(post.date).format("MMMM DD, YYYY")
           p.date By #{post.author.name} on #{moment(post.date).format("MMMM DD, YYYY")}
@@ -59,12 +60,12 @@ block content
                 s.src = '//roaminglove.disqus.com/embed.js';
                 s.setAttribute('data-timestamp', +new Date());
                 (d.head || d.body).appendChild(s);
-              })(); 
+              })();
 
 
         - var featimgixsrc = post.featured_image.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
 
-        .headerContent
+        .headerContent.is--post
             img(src="#{featimgixsrc}?w=1140&h=400&fit=crop&crop=focalpoint")
             h1
                - for category in post.categories

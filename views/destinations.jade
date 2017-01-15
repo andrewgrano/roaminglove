@@ -19,24 +19,24 @@ block content
                                         li
                                             a(href="/places/" + subcategory.name.replace(" ","-") + ".html") #{subcategory.name}
                                    li
-                                        a(href="/places/" + category.name.replace(" ","-") + ".html") View All #{category.name} 
+                                        a(href="/places/" + category.name.replace(" ","-") + ".html") View All #{category.name}
 
         .destinationsnew__main
             -for category in records.categories
                 if( category.parent == "0" & category.name != "Uncategorized")
                     - var categoryNameNoSpace = category.name.replace(" ", "")
                     - var categoryimageix = category.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
-                    section(class="destinationsnewCountry destinationsnewCountry--#{categoryNameNoSpace} clearfix" id="#{categoryNameNoSpace}") 
+                    section(class="destinationsnewCountry destinationsnewCountry--#{categoryNameNoSpace} clearfix" id="#{categoryNameNoSpace}")
                         h1.destinationsnewCountry__header--mobile= category.name
 
                         .destinationsnewCountry__header.parallax-window
                             .parallax-static-content
                                 h1= category.name
                             .parallax-background(style="background-image:url(#{categoryimageix}?w=788&h=400&fit=crop&crop=focalpoint)")
-                            
+
                         // h1.destinationsnewCountry__heading
                         //     span= category.name
-                        //     a(href="/places/" + category.name.replace(" ","-") + ".html")  View All #{category.name} Posts >>
+                        //     a(href="/places/" + category.name.replace(" ","-") + ".html")  View All #{category.name} Posts <span class="chevronsRight">>></span>
 
                         .locationWidgetnewWrapper.clearfix
                             -for subcategory in records.categories
@@ -46,15 +46,15 @@ block content
                                     img(src="#{subcategoryimageix}?w=250&h=250&fit=crop&crop=entropy" class="img-responsive")
                                     h6
                                         div
-                                            span= subcategory.name 
+                                            span= subcategory.name
 
                             a.locationWidgetnew.locationWidgetnew--viewAll(href="/places/" + category.name.replace(" ","-") + ".html")
                                 img(src="https://roaminglove.imgix.net/2016/12/logo-square-dark.jpg?w=250&h=250" class="img-responsive")
                                 h6
                                     div
                                         span View All #{category.name} Stories
-                        // a(class="destinationsnewCountry__viewAll" href="/places/" + category.name.replace(" ","-") + ".html")  View All #{category.name} Stories >>
-                                
+                        // a(class="destinationsnewCountry__viewAll" href="/places/" + category.name.replace(" ","-") + ".html")  View All #{category.name} Stories <span class="chevronsRight">>></span>
+
 
             //- else
             //-     p= category.name
@@ -99,10 +99,10 @@ block JS
                 }
 
                 $('body').scrollspy({ target: '.destinationsnew__sidebar' })
-                
+
                 var pageHeight = $(".destinationsnew").outerHeight(true);
                 var sidebarOffset = $(".destinationsnew__sidebar").offset().top
-                
+
 
                 function setSidebarWidth() {
                     var sidebarWidth = $(".destinationsnew__sidebar").width();
@@ -134,7 +134,7 @@ block JS
                 setSidebarWidth();
                 stickySidebar();
 
-                setTimeout(function(){ 
+                setTimeout(function(){
                     setSidebarHeight();
                     stickySidebar();
                 }, 1000);
@@ -145,7 +145,7 @@ block JS
                   resizeTimer = setTimeout(function() {
                     // console.log("resizing has stopped")
                     setSidebarHeight();
-                    setSidebarWidth();   
+                    setSidebarWidth();
                   },250);
                 });
 

@@ -8,11 +8,20 @@
     padding: 10px 15px 7px;
     margin: 0 0 35px 0;
 
+    @media screen and (max-width: $vp-sm-max) {
+        font-size: 16px;
+        margin-top: -20px;
+    }
+
     li {
         display: inline-block;
         list-style: none;
         position: relative;
         padding-right: 25px;
+
+        @media screen and (max-width: $vp-sm-max) {
+            padding-right: 7px;
+        }
 
         &:last-child {
             padding-right: 0;
@@ -29,6 +38,12 @@
             top: 4px;
             letter-spacing: -3px;
             font-size: 13px;
+
+            @media screen and (max-width: $vp-sm-max) {
+                right: -1px;
+                letter-spacing: -2px;
+                font-size: 10px;
+            }
         }
 
         a {

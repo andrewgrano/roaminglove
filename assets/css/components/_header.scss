@@ -20,7 +20,7 @@
             display: inline-block;
             margin-bottom: 12px;
             position: relative;
-            z-index: 99; 
+            z-index: 99;
         }
     }
 
@@ -324,5 +324,19 @@ $hamburger-hover-filter    : opacity(50%) !default;
         @media screen and (max-width: $vp-sm-max) {
           display: none;
         }
+    }
+
+    &.is--post {
+      .parallax-static-content {
+        @media screen and (max-width: $vp-sm-max) {
+          background: rgba(0, 0, 0, 0.3) !important
+        }
+
+        h1 {
+          @media screen and (max-width: $vp-sm-max) {
+            display: none;
+          }
+        }
+      }
     }
 }

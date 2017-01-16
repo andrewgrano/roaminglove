@@ -7,7 +7,7 @@ div.postWidget: a(href='/post/' + post.slug + '.html')
     if post.featured_image
       //- img(src="#{imgixsrc}?w=359&h=215&fit=crop&crop=entropy" class="visible-lg")
       //- img(src="#{imgixsrc}?w=435&h=200&fit=crop&crop=entropy" class="visible-md")
-      img(src="#{imgixsrc}?w=457&h=300&fit=crop&crop=entropy" class="")
+      img(src="#{imgixsrc}?w=457&h=300&fit=crop&crop=entropy&auto=format&q=55" class="")
     else
         img(src="http://placehold.it/350x200?text=roaming+love" class="img-responsive")
   .postWidget__content
@@ -15,7 +15,7 @@ div.postWidget: a(href='/post/' + post.slug + '.html')
       div
         span.postWidget__title= post.title
         span.postWidget__author by #{post.author.name}
-      
+
     //- span.postWidget__date= moment(post.date).format("MMMM DD, YYYY")
     ul.postWidget__categories
       - for category in post.categories

@@ -1,9 +1,42 @@
 extends layout
 
 block meta
+  - var featimgixsrc = post.featured_image.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+
+  if (post.title == "Playa Blanca")
+    -var description = "We found a driver to take us to Playa Blanca one afternoon. I was excited to relax on a beach and play in the warm water."
+  else if (post.title == "Food In Italy: Part 2")
+    -var description = "I now realize that we ate a lot of pasta in Italy. I do not think that is a bad thing. Go to Italy and try all of the pasta!"
+  else if (post.title == "The Pena Palace, Sintra: A Day in a Fairy Tale")
+    -var description = "The Pena Palace, as we see it today, was projected in 1863 by King Ferdinand II. The man was a genius, I say!! It was used as a summer residence..."
+  else
+    -var description = post.content.substring(0,150).replace(/<p>/g,'').replace(/<\/p>/g,'').replace(/<div>/g,'').replace(/<\/div>/g,'').replace(/&#8217;/g,'\'').replace(/&#8220;/g,'\'').replace(/&#8221;/g,'\'').replace(/&#8230;/g,'...') + "..."
+
   title #{post.title} - Roaming Love
-  meta(name='description', content='#{post.content.substring(0,150)}')
+  meta(name='description', content ="#{description}")
   meta(name='author', content= "#{post.author.name}")
+
+  //- twitter card data
+  meta(name="twitter:card" content="summary_large_image")
+  meta(name="twitter:site" content="Roaming Love")
+  meta(name="twitter:title" content="#{post.title}")
+  meta(name="twitter:description" content="#{description}")
+  meta(name="twitter:creator" content="#{post.author.name}")
+  meta(name="twitter:image:src" content="#{featimgixsrc}")
+
+  //- open graph data
+  meta(property="og:title" content="#{post.title}")
+  meta(property="og:type" content="article")
+  meta(property="og:url" content="http://www.roaminglove.com/post/#{post.slug}")
+  meta(property="og:image" content="#{featimgixsrc}")
+  meta(property="og:description" content="#{description}")
+  meta(property="og:site_name" content="Roaming Love")
+  //- meta(property="fb:admins" content="Facebook numeric ID")
+
+  //- schema.org markup for google+
+  meta(itemprop="name" content="#{post.title}")
+  meta(itemprop="description" content="#{description}")
+  meta(itemprop="image" content="#{featimgixsrc}")
 
 block content
   include ../includes/header-window.jade
@@ -46,8 +79,7 @@ block content
           script
             :uglify-js
               var postID = "#{post.ID}"
-              var postURL = "https://roaminglove.com/post/" + "#{post.title}".replace(/ /g,"-").replace(/:/g,"");
-
+              var postURL = "http://www.roaminglove.com/post/#{post.slug}"
               /**
               *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
               *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
@@ -80,5 +112,5 @@ block content
 
 
 
-  // pre= JSON.stringify(post, null, 2)
+  //- pre= JSON.stringify(post, null, 2)
 

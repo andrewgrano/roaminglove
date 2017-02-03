@@ -6,13 +6,13 @@ block meta
 
 
 block content
-    include ../includes/header-window.jade
-    .container
+    //- include ../includes/header-window.jade
+    .container.category
         .postInner
             -var itemimgix = item.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
-            .headerContent
-                img(src="#{itemimgix}?w=1140&h=400&fit=crop&crop=focalpoint")
-                h1= item.name
+            //- .headerContent
+            //-     img(src="#{itemimgix}?w=1140&h=400&fit=crop&crop=focalpoint&blend=2693BB&bm=lighten")
+            //-     h1= item.name
             ul.breadcrumbs
                 li
                     a(href="/destinations.html") Destinations

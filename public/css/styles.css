@@ -2939,3 +2939,6 @@ a {
 
 .formContributePhotos.dropzone .dz-preview input {
   margin-bottom: 0; }
+
+.category {
+  border-top: 7px solid #F1B870; }

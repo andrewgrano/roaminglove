@@ -9,7 +9,5 @@ TO DO
 - email blast
 - LONGSHOT: at the end of an article, add section for "on this trip, I also went to...". Similar to bottom of this article: https://scotch.io/bar-talk/the-complete-visual-guide-to-sublime-text-3-themes-color-schemes-and-cool-features
 - postWidget__categories: vertical line has cross-browser issues
-- 404 page
 - 301 redirects for posts that have had their title changed (also check disqus url)
-- in all titles, replace ">>" with Unicode Character 'RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK' (U+00BB)
 - replace admin front-end (www.adminroaminglove.com) with "coming soon" page

@@ -7,7 +7,7 @@ div.postWidget: a(href='/post/' + post.slug + '.html')
     if post.featured_image
       //- img(src="#{imgixsrc}?w=359&h=215&fit=crop&crop=entropy" class="visible-lg")
       //- img(src="#{imgixsrc}?w=435&h=200&fit=crop&crop=entropy" class="visible-md")
-      img(src="#{imgixsrc}?w=457&h=300&fit=crop&crop=entropy&auto=format&q=45" class="")
+      img(src="#{imgixsrc}?w=457&h=300&fit=crop&crop=entropy&auto=compress,format" class="")
     else
         img(src="http://placehold.it/350x200?text=roaming+love" class="img-responsive")
   .postWidget__content

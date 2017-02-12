@@ -1,0 +1,6 @@
+.postWidget__wrapper
+  each post, index in wordpress.post
+    if index < 9
+        //- pre= JSON.stringify(post, null, 2)
+        //- p= post.title
+        include ../views/templates/post

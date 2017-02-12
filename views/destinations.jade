@@ -4,6 +4,27 @@ block meta
   title Destinations - Roaming Love
   meta(name='description', content='Sort by continent or country to read first-hand stories written by real travelers.')
 
+  //- twitter card data
+  meta(name="twitter:card" content="summary_large_image")
+  meta(name="twitter:site" content="Roaming Love")
+  meta(name="twitter:title" content="Destinations - Roaming Love")
+  meta(name="twitter:description" content="Sort by continent or country to read first-hand stories written by real travelers.")
+  meta(name="twitter:creator" content="Roaming Love")
+  meta(name="twitter:image:src" content="https://roaminglove.imgix.net/2016/11/rsz_babithehope-trueafrica-10.jpg?w=788&h=400&fit=crop&crop=focalpoint&auto=compress,format")
+
+  //- open graph data
+  meta(property="og:title" content="Destinations - Roaming Love")
+  meta(property="og:type" content="article")
+  meta(property="og:url" content="http://www.roaminglove.com/destinations")
+  meta(property="og:image" content="https://roaminglove.imgix.net/2016/11/rsz_babithehope-trueafrica-10.jpg?w=788&h=400&fit=crop&crop=focalpoint&auto=compress,format")
+  meta(property="og:description" content="Sort by continent or country to read first-hand stories written by real travelers.")
+  meta(property="og:site_name" content="Roaming Love")
+  //- meta(property="fb:admins" content="Facebook numeric ID")
+
+  //- schema.org markup for google+
+  meta(itemprop="name" content="Destinations - Roaming Love")
+  meta(itemprop="description" content="Sort by continent or country to read first-hand stories written by real travelers.")
+  meta(itemprop="image" content="https://roaminglove.imgix.net/2016/11/rsz_babithehope-trueafrica-10.jpg?w=788&h=400&fit=crop&crop=focalpoint&auto=compress,format")
 block content
     .container.destinationsnew
         .destinationsnew__sidebar
@@ -17,9 +38,9 @@ block content
                                 -for subcategory in records.categories
                                     if( subcategory.parent == category.ID )
                                         li
-                                            a(href="/places/" + subcategory.name.replace(" ","-") + ".html") #{subcategory.name}
+                                            a(href="/places/" + subcategory.name.replace(/ /g,"-") + ".html") #{subcategory.name}
                                    li
-                                        a(href="/places/" + category.name.replace(" ","-") + ".html") View All #{category.name}
+                                        a(href="/places/" + category.name.replace(/ /g,"-") + ".html") View All #{category.name}
 
         .destinationsnew__main
             -for category in records.categories
@@ -32,7 +53,7 @@ block content
                         .destinationsnewCountry__header.parallax-window
                             .parallax-static-content
                                 h1= category.name
-                            .parallax-background(style="background-image:url(#{categoryimageix}?w=788&h=400&fit=crop&crop=focalpoint)")
+                            .parallax-background(style="background-image:url(#{categoryimageix}?w=788&h=400&fit=crop&crop=focalpoint&blend=2693BB&bm=lighten&auto=compress,format)")
 
                         // h1.destinationsnewCountry__heading
                         //     span= category.name
@@ -42,15 +63,15 @@ block content
                             -for subcategory in records.categories
                                 - var subcategoryimageix = subcategory.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
                                 if( subcategory.parent == category.ID )
-                                  a.locationWidgetnew(href="/places/" + subcategory.name.replace(" ","-") + ".html")
-                                    img(src="#{subcategoryimageix}?w=250&h=250&fit=crop&crop=entropy" class="img-responsive")
+                                  a.locationWidgetnew(href="/places/" + subcategory.name.replace(/ /g,"-") + ".html")
+                                    img(src="#{subcategoryimageix}?w=250&h=250&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
                                     h6
                                         div
                                             span= subcategory.name
 
-                            a.locationWidgetnew.locationWidgetnew--viewAll(href="/places/" + category.name.replace(" ","-") + ".html")
+                            a.locationWidgetnew.locationWidgetnew--viewAll(href="/places/" + category.name.replace(/ /g,"-") + ".html")
                                 //- img(src="https://roaminglove.imgix.net/2016/12/logo-square-dark.jpg?w=250&h=250" class="img-responsive")
-                                img(src="#{categoryimageix}?w=250&h=250&fit=crop&crop=entropy" class="img-responsive")
+                                img(src="#{categoryimageix}?w=250&h=250&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
                                 h6
                                     div
                                         span View All #{category.name} Stories

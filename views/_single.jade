@@ -65,6 +65,7 @@ block content
             .authorBlock__desc!= post.author.last_name
 
 
+
           //- - for category in post.categories
           //-   if (category.name != "Uncategorized")
           //-     h2 More Posts About #{category.name}
@@ -98,7 +99,7 @@ block content
         - var featimgixsrc = post.featured_image.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
 
         .headerContent.is--post
-            img(src="#{featimgixsrc}?w=1140&h=400&fit=crop&crop=focalpoint&blend=2693BB&bm=lighten")
+            img(src="#{featimgixsrc}?w=1140&h=400&fit=crop&crop=focalpoint&blend=2693BB&bm=lighten&auto=compress,format")
             h1
                - for category in post.categories
                 if (category.name != "Uncategorized")

@@ -1,8 +1,38 @@
 extends layout
 
 block meta
+  - var featimgixsrc = item.description.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+
+  - var url = item.name.replace(" ","-") + ".html"
+
   title #{item.name} - Roaming Love
   meta(name='description', content='Read first-hand stories about #{item.name} written by real travelers.')
+
+  meta(name='description', content ="Read first-hand stories about #{item.name} written by real travelers.")
+  meta(name='author', content= "Roaming Love")
+
+  //- twitter card data
+  meta(name="twitter:card" content="summary_large_image")
+  meta(name="twitter:site" content="Roaming Love")
+  meta(name="twitter:title" content="#{item.name} - Roaming Love")
+  meta(name="twitter:description" content="Read first-hand stories about #{item.name} written by real travelers.")
+  meta(name="twitter:creator" content="Roaming Love")
+  meta(name="twitter:image:src" content="#{featimgixsrc}")
+
+  //- open graph data
+  meta(property="og:title" content="#{item.name} - Roaming Love")
+  meta(property="og:type" content="article")
+  meta(property="og:url" content="http://www.roaminglove.com/places/#{url}")
+  meta(property="og:image" content="#{featimgixsrc}")
+  meta(property="og:description" content="Read first-hand stories about #{item.name} written by real travelers.")
+  meta(property="og:site_name" content="Roaming Love")
+  //- meta(property="fb:admins" content="Facebook numeric ID")
+
+  //- schema.org markup for google+
+  meta(itemprop="name" content="#{item.name} - Roaming Love")
+  meta(itemprop="description" content="Read first-hand stories about #{item.name} written by real travelers.")
+  meta(itemprop="image" content="#{featimgixsrc}")
+
 
 
 block content
@@ -40,7 +70,7 @@ block content
                         - var categoryimageix = category.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
                         if (category.parent == item.ID)
                           a.locationWidgetnew(href="/places/" + category.name.replace(" ","-") + ".html")
-                            img(src="#{categoryimageix}?w=257&h=257&fit=crop&crop=entropy" class="img-responsive")
+                            img(src="#{categoryimageix}?w=257&h=257&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
                             h6
                                 div
                                     span= category.name
@@ -65,7 +95,7 @@ block content
                         if (category.parent == item.parent)
                             if(category.name != item.name)
                               a.locationWidgetnew(href="/places/" + category.name.replace(" ","-") + ".html")
-                                img(src="#{categoryimageix}?w=257&h=257&fit=crop&crop=entropy" class="img-responsive")
+                                img(src="#{categoryimageix}?w=257&h=257&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
                                 h6
                                     div
                                         span= category.name

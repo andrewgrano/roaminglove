@@ -11,3 +11,4 @@ TO DO
 - postWidget__categories: vertical line has cross-browser issues
 - 301 redirects for posts that have had their title changed (also check disqus url)
 - replace admin front-end (www.adminroaminglove.com) with "coming soon" page
+- add instagram feed to footer

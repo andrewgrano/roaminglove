@@ -4,13 +4,35 @@ block meta
   title Contribute - Roaming Love
   meta(name='description', content='Do you have a travel story to tell? Contribute to our online community! You do not need to be a professional writer to tell a good story.')
 
+  //- twitter card data
+  meta(name="twitter:card" content="summary_large_image")
+  meta(name="twitter:site" content="Roaming Love")
+  meta(name="twitter:title" content="Contribute - Roaming Love")
+  meta(name="twitter:description" content="Do you have a travel story to tell? Contribute to our online community! You do not need to be a professional writer to tell a good story.")
+  meta(name="twitter:creator" content="Roaming Love")
+  meta(name="twitter:image:src" content="https://www.adminroaminglove.com/wp-content/uploads/2016/09/logo.svg")
+
+  //- open graph data
+  meta(property="og:title" content="Contribute - Roaming Love")
+  meta(property="og:type" content="article")
+  meta(property="og:url" content="http://www.roaminglove.com")
+  meta(property="og:image" content="https://www.adminroaminglove.com/wp-content/uploads/2016/09/logo.svg")
+  meta(property="og:description" content="Do you have a travel story to tell? Contribute to our online community! You do not need to be a professional writer to tell a good story.")
+  meta(property="og:site_name" content="Roaming Love")
+  //- meta(property="fb:admins" content="Facebook numeric ID")
+
+  //- schema.org markup for google+
+  meta(itemprop="name" content="Contribute - Roaming Love")
+  meta(itemprop="description" content="Do you have a travel story to tell? Contribute to our online community! You do not need to be a professional writer to tell a good story.")
+  meta(itemprop="image" content="https://www.adminroaminglove.com/wp-content/uploads/2016/09/logo.svg")
+
 
 block content
     include ../includes/header-window.jade
     .container.post
         .postInner
             .headerContent
-                img(src="https://adminroaminglove.com/wp-content/uploads/2016/09/window5.jpg")
+                img(src="https://roaminglove.imgix.net/2016/09/window5.jpg?blend=2693BB&bm=lighten&auto=compress,format")
                 h1 Contribute
             section
                 h1 Tell us your travel story!
@@ -40,6 +62,6 @@ block content
                     li You will keep all rights to your media after submitting
                     li Roaming Love does not pay for contributor posts
                     li You are not an employee of Roaming Love after contributing posts
-                p Thanks for sharing your stories with our community! 
+                p Thanks for sharing your stories with our community!
                 p &nbsp;
 

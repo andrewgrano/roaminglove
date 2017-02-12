@@ -24,7 +24,7 @@ module.exports =
         post:
           template: 'views/_single.jade'
           number: 100
-    config(api_url: api_url, static_items: 10),
+    config(api_url: api_url, static_items: 9),
     templates(base: 'views/templates')
     records(
       categories: {
@@ -32,7 +32,7 @@ module.exports =
         # path: 'categories',
         hook: (data) -> data.categories,
         template: "views/_category.jade",
-        out: (category) -> "/places/#{category.name.replace(" ", "-")}"
+        out: (category) -> "/places/#{category.name.replace(/ /g, "-")}"
       }
       post: {
         url: 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100',

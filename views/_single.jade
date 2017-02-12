@@ -1,40 +1,40 @@
 extends layout
 
 block meta
-  - var featimgixsrc = post.featured_image.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+  - var featimgixsrc = item.featured_image.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
 
-  if (post.title == "Playa Blanca")
+  if (item.title == "Playa Blanca")
     -var description = "We found a driver to take us to Playa Blanca one afternoon. I was excited to relax on a beach and play in the warm water."
-  else if (post.title == "Food In Italy: Part 2")
+  else if (item.title == "Food In Italy: Part 2")
     -var description = "I now realize that we ate a lot of pasta in Italy. I do not think that is a bad thing. Go to Italy and try all of the pasta!"
-  else if (post.title == "The Pena Palace, Sintra: A Day in a Fairy Tale")
+  else if (item.title == "The Pena Palace, Sintra: A Day in a Fairy Tale")
     -var description = "The Pena Palace, as we see it today, was projected in 1863 by King Ferdinand II. The man was a genius, I say!! It was used as a summer residence..."
   else
-    -var description = post.content.substring(0,150).replace(/<p>/g,'').replace(/<\/p>/g,'').replace(/<div>/g,'').replace(/<\/div>/g,'').replace(/&#8217;/g,'\'').replace(/&#8220;/g,'\'').replace(/&#8221;/g,'\'').replace(/&#8230;/g,'...') + "..."
+    -var description = item.content.substring(0,150).replace(/<p>/g,'').replace(/<\/p>/g,'').replace(/<div>/g,'').replace(/<\/div>/g,'').replace(/&#8217;/g,'\'').replace(/&#8220;/g,'\'').replace(/&#8221;/g,'\'').replace(/&#8230;/g,'...') + "..."
 
-  title #{post.title} - Roaming Love
+  title #{item.title} - Roaming Love
   meta(name='description', content ="#{description}")
-  meta(name='author', content= "#{post.author.name}")
+  meta(name='author', content= "#{item.author.name}")
 
   //- twitter card data
   meta(name="twitter:card" content="summary_large_image")
   meta(name="twitter:site" content="Roaming Love")
-  meta(name="twitter:title" content="#{post.title}")
+  meta(name="twitter:title" content="#{item.title}")
   meta(name="twitter:description" content="#{description}")
-  meta(name="twitter:creator" content="#{post.author.name}")
+  meta(name="twitter:creator" content="#{item.author.name}")
   meta(name="twitter:image:src" content="#{featimgixsrc}")
 
   //- open graph data
-  meta(property="og:title" content="#{post.title}")
+  meta(property="og:title" content="#{item.title}")
   meta(property="og:type" content="article")
-  meta(property="og:url" content="http://www.roaminglove.com/post/#{post.slug}")
+  meta(property="og:url" content="http://www.roaminglove.com/post/#{item.slug}")
   meta(property="og:image" content="#{featimgixsrc}")
   meta(property="og:description" content="#{description}")
   meta(property="og:site_name" content="Roaming Love")
   //- meta(property="fb:admins" content="Facebook numeric ID")
 
   //- schema.org markup for google+
-  meta(itemprop="name" content="#{post.title}")
+  meta(itemprop="name" content="#{item.title}")
   meta(itemprop="description" content="#{description}")
   meta(itemprop="image" content="#{featimgixsrc}")
 
@@ -43,44 +43,33 @@ block content
   .container.post
       .postInner
           h1
-            span= post.title
-          //- h1= post.categories.name
-          //- p.date= moment(post.date).format("MMMM DD, YYYY")
-          p.date By #{post.author.name} on #{moment(post.date).format("MMMM DD, YYYY")}
+            span= item.title
+          //- h1= item.categories.name
+          //- p.date= moment(item.date).format("MMMM DD, YYYY")
+          p.date By #{item.author.name} on #{moment(item.date).format("MMMM DD, YYYY")}
           ul.categories
-            - for category in post.categories
+            - for category in item.categories
               if (category.name != "Uncategorized")
                 li
                   a(href='/places/' + category.name.replace(" ","-") + '.html')= category.name
-            - for tag in post.tags
+            - for tag in item.tags
                 li
                   a(href='/' + tag.name.replace(" ","-") + '.html')= tag.name
 
 
-          .content!= post.content
+          .content!= item.content
 
           .authorBlock
-            .authorBlock__name Contributed by #{post.author.name}
-            .authorBlock__link!= post.author.first_name.replace(/\[a/g, "<a").replace(/\]/g,">").replace(/\[\/a/g,"</a").replace(/%5D/g,">")
-            .authorBlock__desc!= post.author.last_name
+            .authorBlock__name Contributed by #{item.author.name}
+            .authorBlock__link!= item.author.first_name.replace(/\[a/g, "<a").replace(/\]/g,">").replace(/\[\/a/g,"</a").replace(/%5D/g,">")
+            .authorBlock__desc!= item.author.last_name
 
-
-
-          //- - for category in post.categories
-          //-   if (category.name != "Uncategorized")
-          //-     h2 More Posts About #{category.name}
-          //- .postWidget__wrapper
-          //-   - for item in records.post
-          //-     item.title
-          //- ul.foo
-          //-   -for category in records.categories
-          //-     li= category.name
 
           #disqus_thread
           script
             :uglify-js
-              var postID = "#{post.ID}"
-              var postURL = "http://www.roaminglove.com/post/#{post.slug}"
+              var postID = "#{item.ID}"
+              var postURL = "http://www.roaminglove.com/post/#{item.slug}"
               /**
               *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
               *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
@@ -95,22 +84,34 @@ block content
                 (d.head || d.body).appendChild(s);
               })();
 
-
-        - var featimgixsrc = post.featured_image.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
-
+        - var featimgixsrc = item.featured_image.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
         .headerContent.is--post
             img(src="#{featimgixsrc}?w=1140&h=400&fit=crop&crop=focalpoint&blend=2693BB&bm=lighten&auto=compress,format")
             h1
-               - for category in post.categories
+               - for category in item.categories
                 if (category.name != "Uncategorized")
                   if( category.parent != "0")
                     span  #{category.name},
-               - for category in post.categories
+               - for category in item.categories
                 if (category.name != "Uncategorized")
                   if( category.parent == "0")
                     span  #{category.name}
 
-
+  .container.postRecommend
+    hr.bg-orange
+    .postWidget__wrapper.clearfix
+      - for itemCategory in item.categories
+        if (itemCategory.parent == "0"  & itemCategory.name != "Uncategorized")
+          h3.pageHeading <span class="chevronsRight">>></span> More Stories About #{itemCategory.name}
+          -var index = 0
+            each post in records.post
+              - for category in post.categories
+                if (category.parent == "0"  & category.name != "Uncategorized")
+                  if (itemCategory.name == category.name)
+                    if (post.title != item.title)
+                      -index++
+                      if( index < 5 )
+                        include ../views/templates/post-horizontal
 
 
   //- pre= JSON.stringify(post, null, 2)

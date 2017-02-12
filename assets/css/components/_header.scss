@@ -333,6 +333,11 @@ $hamburger-hover-filter    : opacity(50%) !default;
         }
 
         h1 {
+
+          @media screen and (max-width: $vp-md-max) {
+            font-size: 46px;
+          }
+
           @media screen and (max-width: $vp-sm-max) {
             display: none;
           }

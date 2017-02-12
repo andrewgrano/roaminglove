@@ -31,7 +31,7 @@ block content
     .container.index
         .indexHeader
             .owl-carousel.owl-theme
-                each post, index in wordpress.post
+                each post, index in records.post
                     if index < 4
                         a(href='/post/' + post.slug + '.html' class="itemLink")
                             - var featimgixsrc = post.featured_image.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
@@ -60,7 +60,7 @@ block content
             h1.pageHeading <span class="chevronsRight">>></span> Recent Travel Stories
 
             .postWidget__wrapper
-              each post, index in wordpress.post
+              each post, index in records.post
                 if index < 9
                     //- pre= JSON.stringify(post, null, 2)
                     //- p= post.title

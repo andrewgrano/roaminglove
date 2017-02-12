@@ -18,12 +18,12 @@ module.exports =
   extensions: [
     js_pipeline(files: 'assets/js/*.coffee'),
     css_pipeline(files: 'assets/css/*.styl'),
-    wordpress
-      site: '107.170.229.16'
-      post_types:
-        post:
-          template: 'views/_single.jade'
-          number: 100
+    # wordpress
+    #   site: '107.170.229.16'
+    #   post_types:
+    #     post:
+    #       template: 'views/_single.jade'
+    #       number: 100
     config(api_url: api_url, static_items: 9),
     templates(base: 'views/templates')
     records(
@@ -37,6 +37,8 @@ module.exports =
       post: {
         url: 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100',
         hook: (data) -> data.posts
+        template: "views/_single.jade",
+        out: (post) -> "/post/#{post.slug}"
       }
     )
   ]

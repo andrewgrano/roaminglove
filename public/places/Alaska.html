@@ -54,6 +54,7 @@
           <li><span>Alaska</span></li>
         </ul>
         <h1 class="pageHeading"><span class="chevronsRight">>></span> All Alaska Stories</h1>
+        <div id="categoryName" class="hide">Alaska</div>
         <div class="postWidget__wrapper">
           <div class="postWidget"><a href="/post/mixing-heritage-and-wildlife.html">
               <figure class="postWidget__img"><img src="https://roaminglove.imgix.net/2016/09/IMG_0881_opt.jpg?w=457&amp;h=300&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format">
@@ -115,6 +116,9 @@
             </h6></a><a href="/places/Hawaii.html" class="locationWidgetnew"><img src="https://roaminglove.imgix.net/2017/01/views_opt.jpg?w=257&amp;h=257&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format" class="img-responsive">
             <h6>
               <div><span>Hawaii</span></div>
+            </h6></a><a href="/places/Massachusetts.html" class="locationWidgetnew"><img src="https://roaminglove.imgix.net/2017/02/IMG_0223-1_opt.jpg?w=257&amp;h=257&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format" class="img-responsive">
+            <h6>
+              <div><span>Massachusetts</span></div>
             </h6></a><a href="/places/Nevada.html" class="locationWidgetnew"><img src="https://roaminglove.imgix.net/2017/02/wan11_opt-1.jpg?w=257&amp;h=257&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format" class="img-responsive">
             <h6>
               <div><span>Nevada</span></div>
@@ -207,6 +211,9 @@
       ga('create', 'UA-45435817-2', 'auto');
       ga('send', 'pageview');
       
-    </script><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100","static_items":9}</script><script src='/js/main.js'></script>
+    </script><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1","api_url2":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2","static_items":9}</script><script src='/js/category.js'></script>
+<script src='/js/main.js'></script>
+    <script>$(function(){$(document).ready(function(){var t,e;t=$("#categoryName").text(),$.get(config.api_url2,function(o){e=o.posts,$.each(e,function(o,i){$.each(i.categories,function(i,s){s.name==t&&$(".postWidget__wrapper").append($(templates.post({post:e[o]})).hide().fadeIn())})})})})});
+    </script>
   </body>
 </html>

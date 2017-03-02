@@ -55,6 +55,7 @@ block content
                     span= item.name
 
             h1.pageHeading <span class="chevronsRight">>></span> All #{item.name} Stories
+            div.hide#categoryName= item.name
             .postWidget__wrapper
                 for post in records.post
                     - for category in post.categories
@@ -100,10 +101,41 @@ block content
                                     div
                                         span= category.name
 
-
-
-
-
             //- pre= JSON.stringify(item, null, 2)
             //- pre= JSON.stringify(records.post, null, 2)
             //- pre= JSON.stringify(records.categories, null, 2)
+block JS
+    script
+        :uglify-js
+            $(function() {
+                $(document).ready(function() {
+                    var categoryName, post2;
+                    // console.log("this is the category page");
+                    categoryName = $("#categoryName").text();
+                    $.get(config.api_url2, function(res) {
+                        // console.log("foo1");
+                        // console.log(res);
+                        // console.log(categoryName);
+                        post2 = res.posts;
+                        // console.log(post2);
+                        // console.log(post2[0].categories);
+
+                        $.each(post2, function(index, element) {
+                            // console.log(element.categories);
+                            $.each(element.categories, function(index2, element2) {
+                                // console.log(index + element2.name);
+                                if ( element2.name == categoryName ) {
+                                    // console.log("yes, post number " + index + " is a match")
+                                    $('.postWidget__wrapper').append($(templates.post({
+                                        post: post2[index]
+                                    })).hide().fadeIn());
+                                }
+                            });
+                        });
+
+                        // console.log("foo2");
+                    });
+                });
+            });
+
+

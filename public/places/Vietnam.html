@@ -54,6 +54,7 @@
           <li><span>Vietnam</span></li>
         </ul>
         <h1 class="pageHeading"><span class="chevronsRight">>></span> All Vietnam Stories</h1>
+        <div id="categoryName" class="hide">Vietnam</div>
         <div class="postWidget__wrapper">
           <div class="postWidget"><a href="/post/being-a-black-woman-in-southeast-asia.html">
               <figure class="postWidget__img"><img src="https://roaminglove.imgix.net/2016/04/IMG_2769_opt.jpg?w=457&amp;h=300&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format">
@@ -131,55 +132,6 @@
                   <li>Vietnam</li>
                 </ul>
               </div></a></div>
-          <div class="postWidget"><a href="/post/bia-hoi.html">
-              <figure class="postWidget__img"><img src="https://roaminglove.imgix.net/2016/04/IMG_2335_opt.jpg?w=457&amp;h=300&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format">
-              </figure>
-              <div class="postWidget__content">
-                <div class="postWidget__main">
-                  <div><span class="postWidget__title">Eating Bia Hoi in Hanoi</span><span class="postWidget__author">by Sigournee Grano</span></div>
-                </div>
-                <ul class="postWidget__categories">
-                  <li>Asia</li>
-                  <li>Vietnam</li>
-                  <li>Food</li>
-                </ul>
-              </div></a></div>
-          <div class="postWidget"><a href="/post/hoan-kiem-lake.html">
-              <figure class="postWidget__img"><img src="https://roaminglove.imgix.net/2016/04/IMG_2534_opt.jpg?w=457&amp;h=300&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format">
-              </figure>
-              <div class="postWidget__content">
-                <div class="postWidget__main">
-                  <div><span class="postWidget__title">A Day In Hanoi</span><span class="postWidget__author">by Sigournee Grano</span></div>
-                </div>
-                <ul class="postWidget__categories">
-                  <li>Asia</li>
-                  <li>Vietnam</li>
-                </ul>
-              </div></a></div>
-          <div class="postWidget"><a href="/post/old-quarter.html">
-              <figure class="postWidget__img"><img src="https://roaminglove.imgix.net/2016/04/IMG_2303_opt.jpg?w=457&amp;h=300&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format">
-              </figure>
-              <div class="postWidget__content">
-                <div class="postWidget__main">
-                  <div><span class="postWidget__title">Old Quarter of Hanoi</span><span class="postWidget__author">by Sigournee Grano</span></div>
-                </div>
-                <ul class="postWidget__categories">
-                  <li>Asia</li>
-                  <li>Vietnam</li>
-                </ul>
-              </div></a></div>
-          <div class="postWidget"><a href="/post/home-of-the-train-tracks.html">
-              <figure class="postWidget__img"><img src="https://roaminglove.imgix.net/2016/04/IMG_2215_opt.jpg?w=457&amp;h=300&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format">
-              </figure>
-              <div class="postWidget__content">
-                <div class="postWidget__main">
-                  <div><span class="postWidget__title">Train Track Homes of Hanoi</span><span class="postWidget__author">by Sigournee Grano</span></div>
-                </div>
-                <ul class="postWidget__categories">
-                  <li>Asia</li>
-                  <li>Vietnam</li>
-                </ul>
-              </div></a></div>
         </div>
         <hr class="bg-orange"><br>
         <h1 class="pageHeading"><span class="chevronsRight">>></span> Other Destinations in Asia</h1>
@@ -192,6 +144,9 @@
             </h6></a><a href="/places/Philippines.html" class="locationWidgetnew"><img src="https://roaminglove.imgix.net/2016/12/Bild-3_opt.jpg?w=257&amp;h=257&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format" class="img-responsive">
             <h6>
               <div><span>Philippines</span></div>
+            </h6></a><a href="/places/Thailand.html" class="locationWidgetnew"><img src="https://roaminglove.imgix.net/2017/02/crop_opt.jpg?w=257&amp;h=257&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format" class="img-responsive">
+            <h6>
+              <div><span>Thailand</span></div>
             </h6></a>
         </div>
       </div>
@@ -272,6 +227,9 @@
       ga('create', 'UA-45435817-2', 'auto');
       ga('send', 'pageview');
       
-    </script><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100","static_items":9}</script><script src='/js/main.js'></script>
+    </script><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1","api_url2":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2","static_items":9}</script><script src='/js/category.js'></script>
+<script src='/js/main.js'></script>
+    <script>$(function(){$(document).ready(function(){var t,e;t=$("#categoryName").text(),$.get(config.api_url2,function(o){e=o.posts,$.each(e,function(o,i){$.each(i.categories,function(i,s){s.name==t&&$(".postWidget__wrapper").append($(templates.post({post:e[o]})).hide().fadeIn())})})})})});
+    </script>
   </body>
 </html>

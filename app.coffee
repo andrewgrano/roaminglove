@@ -10,7 +10,8 @@ config       = require 'roots-config'
 templates    = require 'client-templates'
 records      = require 'roots-records'
 
-api_url = 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100'
+api_url  = 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1'
+api_url2 = 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2'
 
 module.exports =
   ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']
@@ -24,7 +25,7 @@ module.exports =
     #     post:
     #       template: 'views/_single.jade'
     #       number: 100
-    config(api_url: api_url, static_items: 9),
+    config(api_url: api_url, api_url2: api_url2, static_items: 9),
     templates(base: 'views/templates')
     records(
       categories: {
@@ -35,7 +36,8 @@ module.exports =
         out: (category) -> "/places/#{category.name.replace(/ /g, "-")}"
       }
       post: {
-        url: 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100',
+        url: 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1',
+        # data: 'foobar',
         hook: (data) -> data.posts
         template: "views/_single.jade",
         out: (post) -> "/post/#{post.slug}"

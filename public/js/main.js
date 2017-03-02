@@ -1,5 +1,5 @@
 (function() {
-  var parallax, post;
+  var parallax, post, post2;
 
   $(document).ready(function() {
     var menuToggle;
@@ -94,10 +94,189 @@
 
   post = [];
 
-  $.get(config.api_url, function(res) {
+  post2 = $.get(config.api_url, function(res) {
     post = res.posts.slice(config.static_items);
     $('.more--2inarow').removeClass('disabled');
     return $('.more--3inarow').removeClass('disabled');
+  });
+
+  $('.more--3inarow').on('click', function() {
+    if (post.length > 12) {
+      $('.postWidget__wrapper').append($(templates.post({
+        post: post[0]
+      })).hide().fadeIn(), $(templates.post({
+        post: post[1]
+      })).hide().fadeIn(), $(templates.post({
+        post: post[2]
+      })).hide().fadeIn(), $(templates.post({
+        post: post[3]
+      })).hide().fadeIn(), $(templates.post({
+        post: post[4]
+      })).hide().fadeIn(), $(templates.post({
+        post: post[5]
+      })).hide().fadeIn());
+      post.splice(0, 6);
+    } else {
+      if (post.length >= 6) {
+        $('.postWidget__wrapper').append($(templates.post({
+          post: post[0]
+        })).hide().fadeIn(), $(templates.post({
+          post: post[1]
+        })).hide().fadeIn(), $(templates.post({
+          post: post[2]
+        })).hide().fadeIn(), $(templates.post({
+          post: post[3]
+        })).hide().fadeIn(), $(templates.post({
+          post: post[4]
+        })).hide().fadeIn(), $(templates.post({
+          post: post[5]
+        })).hide().fadeIn());
+        post.splice(0, 6);
+        $('.more--3inarow').addClass('disabled');
+        $.get(config.api_url2, function(res) {
+          post2 = res.posts;
+          $('.more--3inarow').removeClass('disabled');
+          return $('.more--3inarow').addClass("loaded-url2");
+        });
+      }
+    }
+    if ($(this).hasClass("loaded-url2")) {
+      if (post.length === 1) {
+        if (post2.length >= 5) {
+          $('.postWidget__wrapper').append($(templates.post({
+            post: post[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[1]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[2]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[3]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[4]
+          })).hide().fadeIn());
+          return post2.splice(0, 5);
+        } else if (post2.length === 4) {
+          $('.postWidget__wrapper').append($(templates.post({
+            post: post[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[1]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[2]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[3]
+          })).hide().fadeIn());
+          post2.splice(0, 4);
+          return $('.more--3inarow').fadeOut();
+        } else if (post2.length === 3) {
+          $('.postWidget__wrapper').append($(templates.post({
+            post: post[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[1]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[2]
+          })).hide().fadeIn());
+          post2.splice(0, 3);
+          return $('.more--3inarow').fadeOut();
+        } else if (post2.length === 2) {
+          $('.postWidget__wrapper').append($(templates.post({
+            post: post[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[1]
+          })).hide().fadeIn());
+          post2.splice(0, 2);
+          return $('.more--3inarow').fadeOut();
+        } else if (post2.length === 1) {
+          $('.postWidget__wrapper').append($(templates.post({
+            post: post[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[0]
+          })).hide().fadeIn());
+          post2.splice(0, 1);
+          return $('.more--3inarow').fadeOut();
+        } else if (post2.length === 0) {
+          $('.postWidget__wrapper').append($(templates.post({
+            post: post[0]
+          })).hide().fadeIn());
+          post2.splice(0, 1);
+          return $('.more--3inarow').fadeOut();
+        }
+      } else {
+        if (post2.length >= 6) {
+          $('.postWidget__wrapper').append($(templates.post({
+            post: post2[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[1]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[2]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[3]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[4]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[5]
+          })).hide().fadeIn());
+          return post2.splice(0, 6);
+        } else if (post2.length === 5) {
+          $('.postWidget__wrapper').append($(templates.post({
+            post: post2[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[1]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[2]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[3]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[3]
+          })).hide().fadeIn());
+          post2.splice(0, 5);
+          return $('.more--3inarow').fadeOut();
+        } else if (post2.length === 4) {
+          $('.postWidget__wrapper').append($(templates.post({
+            post: post2[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[1]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[2]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[3]
+          })).hide().fadeIn());
+          post2.splice(0, 4);
+          return $('.more--3inarow').fadeOut();
+        } else if (post2.length === 3) {
+          $('.postWidget__wrapper').append($(templates.post({
+            post: post2[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[1]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[1]
+          })).hide().fadeIn());
+          post2.splice(0, 3);
+          return $('.more--3inarow').fadeOut();
+        } else if (post2.length === 2) {
+          $('.postWidget__wrapper').append($(templates.post({
+            post: post2[0]
+          })).hide().fadeIn(), $(templates.post({
+            post: post2[1]
+          })).hide().fadeIn());
+          post2.splice(0, 2);
+          return $('.more--3inarow').fadeOut();
+        } else if (post2.length === 1) {
+          $('.postWidget__wrapper').append($(templates.post({
+            post: post2[0]
+          })).hide().fadeIn());
+          post2.splice(0, 1);
+          return $('.more--3inarow').fadeOut();
+        }
+      }
+    }
   });
 
   $('.more--2inarow').on('click', function() {
@@ -136,75 +315,6 @@
       })).hide().fadeIn());
       post.splice(0, 1);
       return $('.more--2inarow').fadeOut();
-    }
-  });
-
-  $('.more--3inarow').on('click', function() {
-    if (post.length >= 6) {
-      $('.postWidget__wrapper').append($(templates.post({
-        post: post[0]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[1]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[2]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[3]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[4]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[5]
-      })).hide().fadeIn());
-      return post.splice(0, 6);
-    } else if (post.length === 5) {
-      $('.postWidget__wrapper').append($(templates.post({
-        post: post[0]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[1]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[2]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[3]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[4]
-      })).hide().fadeIn());
-      post.splice(0, 5);
-      return $('.more--3inarow').fadeOut();
-    } else if (post.length === 4) {
-      $('.postWidget__wrapper').append($(templates.post({
-        post: post[0]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[1]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[2]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[3]
-      })).hide().fadeIn());
-      post.splice(0, 4);
-      return $('.more--3inarow').fadeOut();
-    } else if (post.length === 3) {
-      $('.postWidget__wrapper').append($(templates.post({
-        post: post[0]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[1]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[2]
-      })).hide().fadeIn());
-      post.splice(0, 3);
-      return $('.more--3inarow').fadeOut();
-    } else if (post.length === 2) {
-      $('.postWidget__wrapper').append($(templates.post({
-        post: post[0]
-      })).hide().fadeIn(), $(templates.post({
-        post: post[1]
-      })).hide().fadeIn());
-      post.splice(0, 2);
-      return $('.more--3inarow').fadeOut();
-    } else if (post.length === 1) {
-      $('.postWidget__wrapper').append($(templates.post({
-        post: post[0]
-      })).hide().fadeIn());
-      post.splice(0, 1);
-      return $('.more--3inarow').fadeOut();
     }
   });
 

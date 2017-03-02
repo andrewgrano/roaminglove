@@ -100,12 +100,103 @@ $(document).ready ->
 
 
 post = []
-
+post2 =
 $.get config.api_url, (res) ->
   # console.log(res)
   post = res.posts[config.static_items..]
   $('.more--2inarow').removeClass('disabled')
   $('.more--3inarow').removeClass('disabled')
+
+$('.more--3inarow').on 'click', ->
+  # console.log(post)
+  if post.length > 12
+    $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post[1])).hide().fadeIn(),$(templates.post(post: post[2])).hide().fadeIn(),$(templates.post(post: post[3])).hide().fadeIn(),$(templates.post(post: post[4])).hide().fadeIn(),$(templates.post(post: post[5])).hide().fadeIn())
+    post.splice(0, 6)
+    # console.log(post)
+  # else if post.length == 5
+  #   $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post[1])).hide().fadeIn(),$(templates.post(post: post[2])).hide().fadeIn(),$(templates.post(post: post[3])).hide().fadeIn(),$(templates.post(post: post[4])).hide().fadeIn())
+  #   post.splice(0, 5)
+  #   $('.more--3inarow').fadeOut();
+  # else if post.length == 4
+  #   $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post[1])).hide().fadeIn(),$(templates.post(post: post[2])).hide().fadeIn(),$(templates.post(post: post[3])).hide().fadeIn())
+  #   post.splice(0, 4)
+  #   $('.more--3inarow').fadeOut();
+  # else if post.length == 3
+  #   $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post[1])).hide().fadeIn(),$(templates.post(post: post[2])).hide().fadeIn())
+  #   post.splice(0, 3)
+  #   $('.more--3inarow').fadeOut();
+  # else if post.length == 2
+  #   $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post[1])).hide().fadeIn())
+  #   post.splice(0, 2)
+  #   $('.more--3inarow').fadeOut();
+  else
+    # $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn())
+    # post.splice(0, 1)
+    if post.length >= 6
+      $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post[1])).hide().fadeIn(),$(templates.post(post: post[2])).hide().fadeIn(),$(templates.post(post: post[3])).hide().fadeIn(),$(templates.post(post: post[4])).hide().fadeIn(),$(templates.post(post: post[5])).hide().fadeIn())
+      post.splice(0, 6)
+      $('.more--3inarow').addClass('disabled')
+      $.get config.api_url2, (res) ->
+        # console.log(res)
+        post2 = res.posts
+        # console.log(post2)
+        $('.more--3inarow').removeClass('disabled')
+        $('.more--3inarow').addClass("loaded-url2")
+        # $('.postWidget__wrapper').append($(templates.post(post: post2[0])).hide().fadeIn())
+        # $('.more--3inarow').fadeOut();
+  if $(this).hasClass("loaded-url2")
+    # console.log(post2)
+    # console.log(post2.length)
+    if post.length == 1
+      # console.log("yes, post (1) length equals 1")
+      if post2.length >= 5
+        $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn(),$(templates.post(post: post2[2])).hide().fadeIn(),$(templates.post(post: post2[3])).hide().fadeIn(),$(templates.post(post: post2[4])).hide().fadeIn())
+        post2.splice(0, 5)
+      else if post2.length == 4
+        $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn(),$(templates.post(post: post2[2])).hide().fadeIn(),$(templates.post(post: post2[3])).hide().fadeIn())
+        post2.splice(0, 4)
+        $('.more--3inarow').fadeOut();
+      else if post2.length == 3
+        $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn(),$(templates.post(post: post2[2])).hide().fadeIn())
+        post2.splice(0, 3)
+        $('.more--3inarow').fadeOut();
+      else if post2.length == 2
+        $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn())
+        post2.splice(0, 2)
+        $('.more--3inarow').fadeOut();
+      else if post2.length == 1
+        $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post2[0])).hide().fadeIn())
+        post2.splice(0, 1)
+        $('.more--3inarow').fadeOut();
+      else if post2.length == 0
+        $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn())
+        post2.splice(0, 1)
+        $('.more--3inarow').fadeOut();
+    else
+      # console.log("nope, post (1) length DOES NOT equal 1")
+      if post2.length >= 6
+        $('.postWidget__wrapper').append($(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn(),$(templates.post(post: post2[2])).hide().fadeIn(),$(templates.post(post: post2[3])).hide().fadeIn(),$(templates.post(post: post2[4])).hide().fadeIn(),$(templates.post(post: post2[5])).hide().fadeIn())
+        post2.splice(0, 6)
+      else if post2.length == 5
+        $('.postWidget__wrapper').append($(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn(),$(templates.post(post: post2[2])).hide().fadeIn(),$(templates.post(post: post2[3])).hide().fadeIn(),$(templates.post(post: post2[3])).hide().fadeIn())
+        post2.splice(0, 5)
+        $('.more--3inarow').fadeOut();
+      else if post2.length == 4
+        $('.postWidget__wrapper').append($(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn(),$(templates.post(post: post2[2])).hide().fadeIn(),$(templates.post(post: post2[3])).hide().fadeIn())
+        post2.splice(0, 4)
+        $('.more--3inarow').fadeOut();
+      else if post2.length == 3
+        $('.postWidget__wrapper').append($(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn())
+        post2.splice(0, 3)
+        $('.more--3inarow').fadeOut();
+      else if post2.length == 2
+        $('.postWidget__wrapper').append($(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn())
+        post2.splice(0, 2)
+        $('.more--3inarow').fadeOut();
+      else if post2.length == 1
+        $('.postWidget__wrapper').append($(templates.post(post: post2[0])).hide().fadeIn())
+        post2.splice(0, 1)
+        $('.more--3inarow').fadeOut();
 
 $('.more--2inarow').on 'click', ->
   # console.log(post)
@@ -124,33 +215,6 @@ $('.more--2inarow').on 'click', ->
     $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn())
     post.splice(0, 1)
     $('.more--2inarow').fadeOut();
-
-$('.more--3inarow').on 'click', ->
-  # console.log(post)
-  if post.length >= 6
-    $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post[1])).hide().fadeIn(),$(templates.post(post: post[2])).hide().fadeIn(),$(templates.post(post: post[3])).hide().fadeIn(),$(templates.post(post: post[4])).hide().fadeIn(),$(templates.post(post: post[5])).hide().fadeIn())
-    post.splice(0, 6)
-  else if post.length == 5
-    $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post[1])).hide().fadeIn(),$(templates.post(post: post[2])).hide().fadeIn(),$(templates.post(post: post[3])).hide().fadeIn(),$(templates.post(post: post[4])).hide().fadeIn())
-    post.splice(0, 5)
-    $('.more--3inarow').fadeOut();
-  else if post.length == 4
-    $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post[1])).hide().fadeIn(),$(templates.post(post: post[2])).hide().fadeIn(),$(templates.post(post: post[3])).hide().fadeIn())
-    post.splice(0, 4)
-    $('.more--3inarow').fadeOut();
-  else if post.length == 3
-    $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post[1])).hide().fadeIn(),$(templates.post(post: post[2])).hide().fadeIn())
-    post.splice(0, 3)
-    $('.more--3inarow').fadeOut();
-  else if post.length == 2
-    $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post[1])).hide().fadeIn())
-    post.splice(0, 2)
-    $('.more--3inarow').fadeOut();
-  else if post.length == 1
-    $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn())
-    post.splice(0, 1)
-    $('.more--3inarow').fadeOut();
-
 
 # this was all stuff I was playing around with. none of it works.
 # categories = []

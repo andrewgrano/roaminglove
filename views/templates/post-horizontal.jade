@@ -1,6 +1,11 @@
 - var imagesrc = post.featured_image
 - var imgixsrc = imagesrc.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
 
+if (post.author.name == "another_j")
+  -var authorName = "김경진"
+else
+  -var authorName = post.author.name
+
 //- div.postWidget: a(href=post._url) <-- post._url is a roots variable that the JSON data cannot use, so we do the following instead...
 div.postWidgetHorizontal: a(href='/post/' + post.slug + '.html')
   .postWidgetHorizontal__img
@@ -11,7 +16,7 @@ div.postWidgetHorizontal: a(href='/post/' + post.slug + '.html')
   .postWidgetHorizontal__content
     span.postWidgetHorizontal__title= post.title
     //- span.postWidgetHorizontal__date= moment(post.date).format("MMMM DD, YYYY")
-    span.postWidgetHorizontal__author by #{post.author.name}
+    span.postWidgetHorizontal__author by #{authorName}
     ul.postWidgetHorizontal__categories
       - for category in post.categories
         if (category.name != "Uncategorized")

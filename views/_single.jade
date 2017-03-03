@@ -12,16 +12,23 @@ block meta
   else
     -var description = item.content.substring(0,150).replace(/<p>/g,'').replace(/<\/p>/g,'').replace(/<div>/g,'').replace(/<\/div>/g,'').replace(/&#8217;/g,'\'').replace(/&#8220;/g,'\'').replace(/&#8221;/g,'\'').replace(/&#8230;/g,'...') + "..."
 
+
+  if (item.author.name == "another_j")
+    -var authorName = "김경진"
+  else
+    -var authorName = item.author.name
+
+
   title #{item.title} - Roaming Love
   meta(name='description', content ="#{description}")
-  meta(name='author', content= "#{item.author.name}")
+  meta(name='author', content= "#{authorName}")
 
   //- twitter card data
   meta(name="twitter:card" content="summary_large_image")
   meta(name="twitter:site" content="Roaming Love")
   meta(name="twitter:title" content="#{item.title}")
   meta(name="twitter:description" content="#{description}")
-  meta(name="twitter:creator" content="#{item.author.name}")
+  meta(name="twitter:creator" content="#{authorName}")
   meta(name="twitter:image:src" content="#{featimgixsrc}")
 
   //- open graph data
@@ -46,7 +53,7 @@ block content
             span= item.title
           //- h1= item.categories.name
           //- p.date= moment(item.date).format("MMMM DD, YYYY")
-          p.date By #{item.author.name} on #{moment(item.date).format("MMMM DD, YYYY")}
+          p.date By #{authorName} on #{moment(item.date).format("MMMM DD, YYYY")}
           ul.categories
             - for category in item.categories
               if (category.name != "Uncategorized")
@@ -60,7 +67,7 @@ block content
           .content!= item.content
 
           .authorBlock
-            .authorBlock__name Contributed by #{item.author.name}
+            .authorBlock__name Contributed by #{authorName}
             .authorBlock__link!= item.author.first_name.replace(/\[a/g, "<a").replace(/\]/g,">").replace(/\[\/a/g,"</a").replace(/%5D/g,">")
             .authorBlock__desc!= item.author.last_name
 

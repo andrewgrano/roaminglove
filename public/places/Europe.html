@@ -54,6 +54,18 @@
         <h1 class="pageHeading"><span class="chevronsRight">>></span> All Europe Stories</h1>
         <div id="categoryName" class="hide">Europe</div>
         <div class="postWidget__wrapper">
+          <div class="postWidget"><a href="/post/torrevieja.html">
+              <figure class="postWidget__img"><img src="https://roaminglove.imgix.net/2017/02/KakaoTalk_20170114_145525368_opt.jpg?w=457&amp;h=300&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format">
+              </figure>
+              <div class="postWidget__content">
+                <div class="postWidget__main">
+                  <div><span class="postWidget__title">Torrevieja</span><span class="postWidget__author">by 김경진</span></div>
+                </div>
+                <ul class="postWidget__categories">
+                  <li>Europe</li>
+                  <li>Spain</li>
+                </ul>
+              </div></a></div>
           <div class="postWidget"><a href="/post/naples-and-capri.html">
               <figure class="postWidget__img"><img src="https://roaminglove.imgix.net/2017/02/sconosciuto-1_opt.jpg?w=457&amp;h=300&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format">
               </figure>
@@ -589,7 +601,7 @@
       
     </script><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1","api_url2":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2","static_items":9}</script><script src='/js/category.js'></script>
 <script src='/js/main.js'></script>
-    <script>$(function(){$(document).ready(function(){var t,e;t=$("#categoryName").text(),$.get(config.api_url2,function(o){e=o.posts,$.each(e,function(o,i){$.each(i.categories,function(i,s){s.name==t&&$(".postWidget__wrapper").append($(templates.post({post:e[o]})).hide().fadeIn())})})})})});
+    <script>$(function(){$(document).ready(function(){var t,e;t=$("#categoryName").text(),$.get(config.api_url2,function(i){e=i.posts,$.each(e,function(i,o){$.each(o.categories,function(o,s){s.name==t&&$(".postWidget__wrapper").append($(templates.post({post:e[i]})).hide().fadeIn())})})})})});
     </script>
   </body>
 </html>

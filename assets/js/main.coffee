@@ -149,28 +149,39 @@ $('.more--3inarow').on 'click', ->
     # console.log(post2.length)
     if post.length == 1
       # console.log("yes, post (1) length equals 1")
-      if post2.length >= 5
+      if post2.length > 5
         $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn(),$(templates.post(post: post2[2])).hide().fadeIn(),$(templates.post(post: post2[3])).hide().fadeIn(),$(templates.post(post: post2[4])).hide().fadeIn())
         post2.splice(0, 5)
+        post.splice(0, 1)
+      if post2.length == 5
+        $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn(),$(templates.post(post: post2[2])).hide().fadeIn(),$(templates.post(post: post2[3])).hide().fadeIn(),$(templates.post(post: post2[4])).hide().fadeIn())
+        post2.splice(0, 5)
+        post.splice(0, 1)
+        $('.more--3inarow').fadeOut();
       else if post2.length == 4
         $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn(),$(templates.post(post: post2[2])).hide().fadeIn(),$(templates.post(post: post2[3])).hide().fadeIn())
         post2.splice(0, 4)
+        post.splice(0, 1)
         $('.more--3inarow').fadeOut();
       else if post2.length == 3
         $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn(),$(templates.post(post: post2[2])).hide().fadeIn())
         post2.splice(0, 3)
+        post.splice(0, 1)
         $('.more--3inarow').fadeOut();
       else if post2.length == 2
         $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn())
         post2.splice(0, 2)
+        post.splice(0, 1)
         $('.more--3inarow').fadeOut();
       else if post2.length == 1
         $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post2[0])).hide().fadeIn())
         post2.splice(0, 1)
+        post.splice(0, 1)
         $('.more--3inarow').fadeOut();
       else if post2.length == 0
         $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn())
         post2.splice(0, 1)
+        post.splice(0, 1)
         $('.more--3inarow').fadeOut();
     else
       # console.log("nope, post (1) length DOES NOT equal 1")

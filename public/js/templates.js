@@ -6,6 +6,14 @@ var jade_interp;
 ;var locals_for_with = (locals || {});(function (post, undefined) {
 var imagesrc = post.featured_image
 var imgixsrc = imagesrc.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+if ( (post.author.name == "another_j"))
+{
+var authorName = "김경진"
+}
+else
+{
+var authorName = post.author.name
+}
 buf.push("<div class=\"postWidgetHorizontal\"><a" + (jade.attr("href", '/post/' + post.slug + '.html', true, false)) + "><div class=\"postWidgetHorizontal__img\">");
 if ( post.featured_image)
 {
@@ -15,7 +23,83 @@ else
 {
 buf.push("<img src=\"http://placehold.it/350x200?text=roaming+love\" class=\"img-responsive\"/>");
 }
-buf.push("</div><div class=\"postWidgetHorizontal__content\"><span class=\"postWidgetHorizontal__title\">" + (jade.escape(null == (jade_interp = post.title) ? "" : jade_interp)) + "</span><span class=\"postWidgetHorizontal__author\">by " + (jade.escape((jade_interp = post.author.name) == null ? '' : jade_interp)) + "</span><ul class=\"postWidgetHorizontal__categories\">");
+buf.push("</div><div class=\"postWidgetHorizontal__content\"><span class=\"postWidgetHorizontal__title\">" + (jade.escape(null == (jade_interp = post.title) ? "" : jade_interp)) + "</span><span class=\"postWidgetHorizontal__author\">by " + (jade.escape((jade_interp = authorName) == null ? '' : jade_interp)) + "</span><ul class=\"postWidgetHorizontal__categories\">");
+// iterate post.categories
+;(function(){
+  var $$obj = post.categories;
+  if ('number' == typeof $$obj.length) {
+
+    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
+      var category = $$obj[$index];
+
+if ( (category.name != "Uncategorized"))
+{
+buf.push("<li>" + (jade.escape(null == (jade_interp = category.name) ? "" : jade_interp)) + "</li>");
+}
+    }
+
+  } else {
+    var $$l = 0;
+    for (var $index in $$obj) {
+      $$l++;      var category = $$obj[$index];
+
+if ( (category.name != "Uncategorized"))
+{
+buf.push("<li>" + (jade.escape(null == (jade_interp = category.name) ? "" : jade_interp)) + "</li>");
+}
+    }
+
+  }
+}).call(this);
+
+// iterate post.tags
+;(function(){
+  var $$obj = post.tags;
+  if ('number' == typeof $$obj.length) {
+
+    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
+      var tag = $$obj[$index];
+
+buf.push("<li>" + (jade.escape(null == (jade_interp = tag.name) ? "" : jade_interp)) + "</li>");
+    }
+
+  } else {
+    var $$l = 0;
+    for (var $index in $$obj) {
+      $$l++;      var tag = $$obj[$index];
+
+buf.push("<li>" + (jade.escape(null == (jade_interp = tag.name) ? "" : jade_interp)) + "</li>");
+    }
+
+  }
+}).call(this);
+
+buf.push("</ul></div></a></div>");}.call(this,"post" in locals_for_with?locals_for_with.post:typeof post!=="undefined"?post:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
+},"post": function template(locals) {
+var buf = [];
+var jade_mixins = {};
+var jade_interp;
+;var locals_for_with = (locals || {});(function (post, undefined) {
+var imagesrc = post.featured_image
+var imgixsrc = imagesrc.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+if ( (post.author.name == "another_j"))
+{
+var authorName = "김경진"
+}
+else
+{
+var authorName = post.author.name
+}
+buf.push("<div class=\"postWidget\"><a" + (jade.attr("href", '/post/' + post.slug + '.html', true, false)) + "><figure class=\"postWidget__img\">");
+if ( post.featured_image)
+{
+buf.push("<img" + (jade.attr("src", "" + (imgixsrc) + "?w=457&h=300&fit=crop&crop=entropy&auto=compress,format", true, false)) + "/>");
+}
+else
+{
+buf.push("<img src=\"http://placehold.it/350x200?text=roaming+love\" class=\"img-responsive\"/>");
+}
+buf.push("</figure><div class=\"postWidget__content\"><div class=\"postWidget__main\"><div><span class=\"postWidget__title\">" + (jade.escape(null == (jade_interp = post.title) ? "" : jade_interp)) + "</span><span class=\"postWidget__author\">by " + (jade.escape((jade_interp = authorName) == null ? '' : jade_interp)) + "</span></div></div><ul class=\"postWidget__categories\">");
 // iterate post.categories
 ;(function(){
   var $$obj = post.categories;
@@ -73,73 +157,5 @@ var jade_mixins = {};
 var jade_interp;
 ;var locals_for_with = (locals || {});(function (post) {
 buf.push("<div class=\"postWidget\"><span class=\"postWidget__title\">" + (jade.escape(null == (jade_interp = post.name) ? "" : jade_interp)) + "</span></div>");}.call(this,"post" in locals_for_with?locals_for_with.post:typeof post!=="undefined"?post:undefined));;return buf.join("");
-},"post": function template(locals) {
-var buf = [];
-var jade_mixins = {};
-var jade_interp;
-;var locals_for_with = (locals || {});(function (post, undefined) {
-var imagesrc = post.featured_image
-var imgixsrc = imagesrc.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
-buf.push("<div class=\"postWidget\"><a" + (jade.attr("href", '/post/' + post.slug + '.html', true, false)) + "><figure class=\"postWidget__img\">");
-if ( post.featured_image)
-{
-buf.push("<img" + (jade.attr("src", "" + (imgixsrc) + "?w=457&h=300&fit=crop&crop=entropy&auto=compress,format", true, false)) + "/>");
-}
-else
-{
-buf.push("<img src=\"http://placehold.it/350x200?text=roaming+love\" class=\"img-responsive\"/>");
-}
-buf.push("</figure><div class=\"postWidget__content\"><div class=\"postWidget__main\"><div><span class=\"postWidget__title\">" + (jade.escape(null == (jade_interp = post.title) ? "" : jade_interp)) + "</span><span class=\"postWidget__author\">by " + (jade.escape((jade_interp = post.author.name) == null ? '' : jade_interp)) + "</span></div></div><ul class=\"postWidget__categories\">");
-// iterate post.categories
-;(function(){
-  var $$obj = post.categories;
-  if ('number' == typeof $$obj.length) {
-
-    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
-      var category = $$obj[$index];
-
-if ( (category.name != "Uncategorized"))
-{
-buf.push("<li>" + (jade.escape(null == (jade_interp = category.name) ? "" : jade_interp)) + "</li>");
-}
-    }
-
-  } else {
-    var $$l = 0;
-    for (var $index in $$obj) {
-      $$l++;      var category = $$obj[$index];
-
-if ( (category.name != "Uncategorized"))
-{
-buf.push("<li>" + (jade.escape(null == (jade_interp = category.name) ? "" : jade_interp)) + "</li>");
-}
-    }
-
-  }
-}).call(this);
-
-// iterate post.tags
-;(function(){
-  var $$obj = post.tags;
-  if ('number' == typeof $$obj.length) {
-
-    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
-      var tag = $$obj[$index];
-
-buf.push("<li>" + (jade.escape(null == (jade_interp = tag.name) ? "" : jade_interp)) + "</li>");
-    }
-
-  } else {
-    var $$l = 0;
-    for (var $index in $$obj) {
-      $$l++;      var tag = $$obj[$index];
-
-buf.push("<li>" + (jade.escape(null == (jade_interp = tag.name) ? "" : jade_interp)) + "</li>");
-    }
-
-  }
-}).call(this);
-
-buf.push("</ul></div></a></div>");}.call(this,"post" in locals_for_with?locals_for_with.post:typeof post!=="undefined"?post:undefined,"undefined" in locals_for_with?locals_for_with.undefined:typeof undefined!=="undefined"?undefined:undefined));;return buf.join("");
 }};
 });

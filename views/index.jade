@@ -2,6 +2,7 @@ extends layout
 
 block meta
   title Roaming Love
+  mata(charset="utf-8")
   meta(name='description', content='Roaming Love is an online community of travel storytellers. We allow readers a personal, honest look into our trips. We hope our stories inspire others to travel.')
 
   //- twitter card data
@@ -58,7 +59,6 @@ block content
 
         section
             h1.pageHeading <span class="chevronsRight">>></span> Recent Travel Stories
-
             .postWidget__wrapper
               each post, index in records.post
                 if index < 9

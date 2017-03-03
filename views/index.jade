@@ -27,8 +27,8 @@ block meta
   meta(itemprop="description" content="Roaming Love is an online community of travel storytellers. We allow readers a personal, honest look into our trips. We hope our stories inspire others to travel.")
   meta(itemprop="image" content="https://www.adminroaminglove.com/wp-content/uploads/2016/09/logo.svg")
 
-
 block content
+
     .container.index
         .indexHeader
             .owl-carousel.owl-theme
@@ -36,11 +36,15 @@ block content
                     if index < 4
                         a(href='/post/' + post.slug + '.html' class="itemLink")
                             - var featimgixsrc = post.featured_image.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+                            if (post.author.name == "another_j")
+                              -var authorName = "김경진"
+                            else
+                              -var authorName = post.author.name
                             img(src="#{featimgixsrc}?w=1140&h=400&fit=crop&crop=focalpoint&auto=format&q=58")
                             .itemContent
                                 h4= post.title
-                                //- p by #{post.author.name} &nbsp; / &nbsp; #{moment(post.date).fromNow()}
-                                p by #{post.author.name} &nbsp; / &nbsp;
+                                //- p by #{authorName} &nbsp; / &nbsp; #{moment(post.date).fromNow()}
+                                p by #{authorName} &nbsp; / &nbsp;
                                     - for category in post.categories
                                         if (category.name != "Uncategorized")
                                         if( category.parent != "0")

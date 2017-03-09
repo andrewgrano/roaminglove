@@ -161,8 +161,12 @@ block JS
 
                 function setHeightofWidget() {
                     var widgetWidth = $(".locationWidgetnew").outerWidth();
-                    console.log(widgetWidth);
-                    $(".locationWidgetnew").css("height",widgetWidth);
+                    // console.log(widgetWidth);
+                    if ($(window).width() > 380) {
+                        $(".locationWidgetnew").css("height",widgetWidth);
+                    } else {
+                        $(".locationWidgetnew").css("height","");
+                    }
                 }
 
 

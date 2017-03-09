@@ -193,7 +193,7 @@
       
     </script><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1","api_url2":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2","static_items":9}</script><script src='/js/category.js'></script>
 <script src='/js/main.js'></script>
-    <script>$(function(){$(document).ready(function(){var e,t;e=$("#categoryName").text(),$.get(config.api_url2,function(n){t=n.posts,$.each(t,function(n,a){$.each(a.categories,function(a,o){o.name==e&&$(".postWidget__wrapper").append($(templates.post({post:t[n]})).hide().fadeIn())})})})})});
+    <script>$(function(){$(document).ready(function(){var t,e;t=$("#categoryName").text(),$.get(config.api_url2,function(o){e=o.posts,$.each(e,function(o,i){$.each(i.categories,function(i,s){s.name==t&&$(".postWidget__wrapper").append($(templates.post({post:e[o]})).hide().fadeIn())})})})})});
     </script>
   </body>
 </html>

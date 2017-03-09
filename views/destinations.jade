@@ -64,14 +64,14 @@ block content
                                 - var subcategoryimageix = subcategory.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
                                 if( subcategory.parent == category.ID )
                                   a.locationWidgetnew(href="/places/" + subcategory.name.replace(/ /g,"-") + ".html")
-                                    img(src="#{subcategoryimageix}?w=250&h=250&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
+                                    img(data-original="#{subcategoryimageix}?w=250&h=250&fit=crop&crop=entropy&auto=compress,format" class="img-responsive lazy")
                                     h6
                                         div
                                             span= subcategory.name
 
                             a.locationWidgetnew.locationWidgetnew--viewAll(href="/places/" + category.name.replace(/ /g,"-") + ".html")
                                 //- img(src="https://roaminglove.imgix.net/2016/12/logo-square-dark.jpg?w=250&h=250" class="img-responsive")
-                                img(src="#{categoryimageix}?w=250&h=250&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
+                                img(data-original="#{categoryimageix}?w=250&h=250&fit=crop&crop=entropy&auto=compress,format" class="img-responsive lazy")
                                 h6
                                     div
                                         span View All #{category.name} Stories
@@ -84,12 +84,20 @@ block content
         //- pre= JSON.stringify(records.categories, null, 2)
 
 block JS
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js")
     script(src="/js/bootstrap-scrollspy.js")
     script
         :uglify-js
             $(function() {
+
+                $("img.lazy").lazyload({
+                    threshold : 100,
+                    effect : "fadeIn"
+                });
+
                 $(document).ready(function() {
                     parallaxWindows();
+                    setHeightofWidget();
                 });
 
                 $(window).scroll(function(e) {
@@ -132,7 +140,7 @@ block JS
                 }
 
                 function setSidebarHeight() {
-                    pageHeight = $(".destinationsnew").outerHeight(true);
+                    pageHeight = $(".destinationsnew__main").outerHeight(true);
                     // console.log( pageHeight );
                     $(".destinationsnew__sidebar").css("height",pageHeight);
                 }
@@ -149,6 +157,12 @@ block JS
                     } else {
                         $(".sidebarList").removeClass("is--bottom")
                     }
+                }
+
+                function setHeightofWidget() {
+                    var widgetWidth = $(".locationWidgetnew").outerWidth();
+                    console.log(widgetWidth);
+                    $(".locationWidgetnew").css("height",widgetWidth);
                 }
 
 
@@ -168,6 +182,7 @@ block JS
                     // console.log("resizing has stopped")
                     setSidebarHeight();
                     setSidebarWidth();
+                    setHeightofWidget();
                   },250);
                 });
 

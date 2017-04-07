@@ -50,7 +50,7 @@ block content
   .container.post
       .postInner
           h1
-            span= item.title
+            span!= item.title
           //- h1= item.categories.name
           //- p.date= moment(item.date).format("MMMM DD, YYYY")
           p.date By #{authorName} on #{moment(item.date).format("MMMM DD, YYYY")}
@@ -67,10 +67,28 @@ block content
           .content!= item.content
 
           .authorBlock
-            .authorBlock__name Contributed by #{authorName}
-            .authorBlock__link!= item.author.first_name.replace(/\[a/g, "<a").replace(/\]/g,">").replace(/\[\/a/g,"</a").replace(/%5D/g,">")
-            .authorBlock__desc!= item.author.last_name
+              .authorBlock__name Contributed by #{authorName}
 
+              // -var count = 0
+              // -for author in records.authors
+              //   -if( author.name == authorName )
+              //     -count++
+              // if ( count > 0 )
+              //   -for author in records.authors
+              //     -if( author.name == authorName )
+              //       .authorBlock__name(href="") Contributed by <a href="/authors/#{author.slug}.html">#{authorName}</a>
+              // else
+              //   .authorBlock__name Contributed by #{authorName}
+
+              .authorBlock__link!= item.author.first_name.replace(/\[a/g, "<a").replace(/\]/g,">").replace(/\[\/a/g,"</a").replace(/%5D/g,">")
+              .authorBlock__desc!= item.author.last_name
+              // -for author in records.authors
+              //   -if( author.name == authorName )
+              //       a.authorBlock__link(href="/authors/#{author.slug}.html") View More Travel Stories By #{authorName} Here
+
+
+            //- div.foobar
+            //-   pre= JSON.stringify(item, null, 2)
 
           #disqus_thread
           script
@@ -121,5 +139,5 @@ block content
                         include ../views/templates/post-horizontal
 
 
-  //- pre= JSON.stringify(post, null, 2)
+
 

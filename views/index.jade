@@ -42,7 +42,7 @@ block content
                               -var authorName = post.author.name
                             img(src="#{featimgixsrc}?w=1140&h=400&fit=crop&crop=focalpoint&auto=format&q=58")
                             .itemContent
-                                h4= post.title
+                                h4!= post.title
                                 //- p by #{authorName} &nbsp; / &nbsp; #{moment(post.date).fromNow()}
                                 p by #{authorName} &nbsp; / &nbsp;
                                     - for category in post.categories

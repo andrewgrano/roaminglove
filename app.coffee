@@ -42,6 +42,13 @@ module.exports =
         template: "views/_single.jade",
         out: (post) -> "/post/#{post.slug}"
       }
+      authors: {
+        data: [{ name: 'Sigournee Grano', slug: 'sigournee-grano', index: 1 },
+               { name: 'Elizabeth Maccoy', slug: 'elizabeth-maccoy', index: 2 },
+               { name: 'Stefana Puscasu', slug: 'stefana-puscasu', index: 3 }],
+        template: "views/_author.jade",
+        out: (author) -> "/authors/#{author.slug}"
+      }
     )
   ]
 

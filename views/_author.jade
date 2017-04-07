@@ -1,0 +1,74 @@
+extends layout
+
+block meta
+  title Roaming Love
+  mata(charset="utf-8")
+  meta(name='description', content='Roaming Love is an online community of travel storytellers. We allow readers a personal, honest look into our trips. We hope our stories inspire others to travel.')
+
+  //- twitter card data
+  meta(name="twitter:card" content="summary_large_image")
+  meta(name="twitter:site" content="Roaming Love")
+  meta(name="twitter:title" content="Roaming Love")
+  meta(name="twitter:description" content="Roaming Love is an online community of travel storytellers. We allow readers a personal, honest look into our trips. We hope our stories inspire others to travel.")
+  meta(name="twitter:creator" content="Roaming Love")
+  meta(name="twitter:image:src" content="https://www.adminroaminglove.com/wp-content/uploads/2016/09/logo.svg")
+
+  //- open graph data
+  meta(property="og:title" content="Roaming Love")
+  meta(property="og:type" content="article")
+  meta(property="og:url" content="http://www.roaminglove.com")
+  meta(property="og:image" content="https://www.adminroaminglove.com/wp-content/uploads/2016/09/logo.svg")
+  meta(property="og:description" content="Roaming Love is an online community of travel storytellers. We allow readers a personal, honest look into our trips. We hope our stories inspire others to travel.")
+  meta(property="og:site_name" content="Roaming Love")
+  //- meta(property="fb:admins" content="Facebook numeric ID")
+
+  //- schema.org markup for google+
+  meta(itemprop="name" content="Roaming Love")
+  meta(itemprop="description" content="Roaming Love is an online community of travel storytellers. We allow readers a personal, honest look into our trips. We hope our stories inspire others to travel.")
+  meta(itemprop="image" content="https://www.adminroaminglove.com/wp-content/uploads/2016/09/logo.svg")
+
+block content
+
+    .container.authorPage
+            hr.bg-orange
+            h1.pageHeading <span class="chevronsRight">>></span> Travel Stories by #{item.name}
+            -var index = 0
+            - for post in records.post
+                if  (post.author.name == item.name )
+                  -index++
+                  if( index < 2 )
+                    .authorBlock
+                      .authorBlock__link!= post.author.first_name.replace(/\[a/g, "<a").replace(/\]/g,">").replace(/\[\/a/g,"</a").replace(/%5D/g,">")
+                      .authorBlock__desc!= post.author.last_name
+            hr.bg-orange
+            .postWidget__wrapper
+                - for post in records.post
+                    if  (post.author.name == item.name)
+                      include templates/post
+
+block JS
+    script
+        :uglify-js
+            $(function() {
+                $(document).ready(function() {
+                    var categoryName, post2;
+                    categoryName = item.name;
+                    $.get(config.api_url2, function(res) {
+                        console.log("foo1");
+                        console.log(res);
+                        console.log(categoryName);
+                        post2 = res.posts;
+                        console.log(post2);
+                        // console.log(post2[0].categories);
+
+                        $.each(post2, function(index, element) {
+                            // console.log(element.categories);
+                            if (element.author.name == categoryName ) {
+                                $('.postWidget__wrapper').append($(templates.post({
+                                    post: post2[index]
+                                })).hide().fadeIn());
+                            }
+                        });
+                    });
+                });
+            });

@@ -4,7 +4,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Special+Elite|Merriweather:400,300,300italic,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../css/styles.css">
-    <meta charset="utf8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>By The Banyan Tree - Roaming Love</title>
@@ -76,8 +76,22 @@
 </div>
         <div class="authorBlock">
           <div class="authorBlock__name">Contributed by Shareen Cassy Karunaratne</div>
+          <!-- -var count = 0-->
+          <!-- -for author in records.authors-->
+          <!--   -if( author.name == authorName )-->
+          <!--     -count++-->
+          <!-- if ( count > 0 )-->
+          <!--   -for author in records.authors-->
+          <!--     -if( author.name == authorName )-->
+          <!--       .authorBlock__name(href="") Contributed by <a href="/authors/#{author.slug}.html">#{authorName}</a>-->
+          <!-- else-->
+          <!--   .authorBlock__name Contributed by #{authorName}-->
           <div class="authorBlock__link"><a href="https://definingcassy.wordpress.com/" target="blank">definingcassy.wordpress.com</a> <a href="https://www.instagram.com/definingcassy" target="blank">Instagram</a></div>
           <div class="authorBlock__desc"></div>
+          <!-- -for author in records.authors-->
+          <!--   -if( author.name == authorName )-->
+          <!--       a.authorBlock__link(href="/authors/#{author.slug}.html") View More Travel Stories By #{authorName} Here-->
+          
         </div>
         <div id="disqus_thread"></div>
         <script>var postID="1038",postURL="http://www.roaminglove.com/post/by-the-banyan-tree",disqus_config=function(){this.page.url=postURL,this.page.identifier=postID};(function(){var t=document,e=t.createElement("script");e.src="//roaminglove.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)})();
@@ -92,6 +106,15 @@
       <hr class="bg-orange">
       <div class="postWidget__wrapper clearfix">
         <h3 class="pageHeading"><span class="chevronsRight">>></span> More Stories About Middle East</h3>
+        <div class="postWidgetHorizontal"><a href="/post/dubai-traditional-meets-new.html">
+            <div class="postWidgetHorizontal__img"><img src="https://roaminglove.imgix.net/2017/03/12032104_1181231531903498_3118455934891944629_n_opt-1-2.jpg?w=257&amp;h=185&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format">
+            </div>
+            <div class="postWidgetHorizontal__content"><span class="postWidgetHorizontal__title">Dubai: Traditional Meets New</span><span class="postWidgetHorizontal__author">by Stefana Puscasu</span>
+              <ul class="postWidgetHorizontal__categories">
+                <li>Middle East</li>
+                <li>United Arab Emirates</li>
+              </ul>
+            </div></a></div>
         <div class="postWidgetHorizontal"><a href="/post/shiraz-the-capital-of-culture-and-poetry.html">
             <div class="postWidgetHorizontal__img"><img src="https://roaminglove.imgix.net/2017/01/IMAG1904_opt-1.jpg?w=257&amp;h=185&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format">
             </div>

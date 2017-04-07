@@ -14,7 +14,7 @@ div.postWidgetHorizontal: a(href='/post/' + post.slug + '.html')
     else
         img(src="http://placehold.it/350x200?text=roaming+love" class="img-responsive")
   .postWidgetHorizontal__content
-    span.postWidgetHorizontal__title= post.title
+    span.postWidgetHorizontal__title!= post.title
     //- span.postWidgetHorizontal__date= moment(post.date).format("MMMM DD, YYYY")
     span.postWidgetHorizontal__author by #{authorName}
     ul.postWidgetHorizontal__categories

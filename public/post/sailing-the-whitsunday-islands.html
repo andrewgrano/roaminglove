@@ -4,7 +4,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Special+Elite|Merriweather:400,300,300italic,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../css/styles.css">
-    <meta charset="utf8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sailing the Whitsunday Islands - Roaming Love</title>
@@ -85,8 +85,22 @@ The arrival at Airlie Beach was...well we arrived! as the weather greeted...">
 </div>
         <div class="authorBlock">
           <div class="authorBlock__name">Contributed by Britt Hayward</div>
+          <!-- -var count = 0-->
+          <!-- -for author in records.authors-->
+          <!--   -if( author.name == authorName )-->
+          <!--     -count++-->
+          <!-- if ( count > 0 )-->
+          <!--   -for author in records.authors-->
+          <!--     -if( author.name == authorName )-->
+          <!--       .authorBlock__name(href="") Contributed by <a href="/authors/#{author.slug}.html">#{authorName}</a>-->
+          <!-- else-->
+          <!--   .authorBlock__name Contributed by #{authorName}-->
           <div class="authorBlock__link"><a href="http://www.britthayward.com" target="blank">britthayward.com</a> <a href="https://www.instagram.com/brithayward" target="blank">Instagram</a></div>
           <div class="authorBlock__desc"></div>
+          <!-- -for author in records.authors-->
+          <!--   -if( author.name == authorName )-->
+          <!--       a.authorBlock__link(href="/authors/#{author.slug}.html") View More Travel Stories By #{authorName} Here-->
+          
         </div>
         <div id="disqus_thread"></div>
         <script>var postID="835",postURL="http://www.roaminglove.com/post/sailing-the-whitsunday-islands",disqus_config=function(){this.page.url=postURL,this.page.identifier=postID};(function(){var t=document,e=t.createElement("script");e.src="//roaminglove.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)})();

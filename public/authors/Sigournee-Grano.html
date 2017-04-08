@@ -45,13 +45,13 @@
       </div>
     </header>
     <div class="container authorPage">
-      <hr class="bg-orange">
-      <h1 class="pageHeading"><span class="chevronsRight">>></span> Travel Stories by Sigournee Grano</h1>
-      <div class="authorBlock">
-        <div class="authorBlock__link"></div>
-        <div class="authorBlock__desc">Sigournee is the co-creator of Roaming Love. She is a travel enthusiast, photographer, writer and wife.</div>
+      <div class="authorPageHeader">
+        <h1 class="pageHeading"><span class="chevronsRight">>></span> Travel Stories by Sigournee Grano</h1>
+        <div id="authorName" class="hide">Sigournee Grano</div>
+        <div>
+          <div class="authorPageHeader__desc">Sigournee is the co-creator of Roaming Love. She is a travel enthusiast, photographer, writer and wife.</div>
+        </div>
       </div>
-      <hr class="bg-orange">
       <div class="postWidget__wrapper">
         <div class="postWidget"><a href="/post/the-perfect-cabin-in-the-woods-in-lake-arrowhead.html">
             <figure class="postWidget__img"><img src="https://roaminglove.imgix.net/2017/03/IMG_0047_opt.jpg?w=457&amp;h=300&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format">
@@ -414,7 +414,7 @@
       
     </script><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1","api_url2":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2","static_items":9}</script><script src='/js/category.js'></script>
 <script src='/js/main.js'></script>
-    <script>$(function(){$(document).ready(function(){var t,e;t=item.name,$.get(config.api_url2,function(o){console.log("foo1"),console.log(o),console.log(t),e=o.posts,console.log(e),$.each(e,function(o,i){i.author.name==t&&$(".postWidget__wrapper").append($(templates.post({post:e[o]})).hide().fadeIn())})})})});
+    <script>$(function(){$(document).ready(function(){var t,e;t=$("#authorName").text(),$.get(config.api_url2,function(o){console.log("foo1"),console.log(o),console.log(t),e=o.posts,console.log(e),$.each(e,function(o,i){i.author.name==t&&$(".postWidget__wrapper").append($(templates.post({post:e[o]})).hide().fadeIn())})})})});
     </script>
   </body>
 </html>

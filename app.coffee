@@ -45,7 +45,11 @@ module.exports =
       authors: {
         data: [{ name: 'Sigournee Grano', slug: 'sigournee-grano', index: 1 },
                { name: 'Elizabeth Maccoy', slug: 'elizabeth-maccoy', index: 2 },
-               { name: 'Stefana Puscasu', slug: 'stefana-puscasu', index: 3 }],
+               { name: 'Stefana Puscasu', slug: 'stefana-puscasu', index: 3 },
+               { name: 'Karine Van Den Heuvel', slug: 'karine-van-den-heuvel', index: 4 },
+               { name: 'Lucy Jamison', slug: 'lucy-jamison', index: 5 },
+               { name: 'Luz Carreiro', slug: 'luz-carreiro', index: 6 },
+               { name: 'Parniyan Fakharzadeh', slug: 'parniyan-fakharzadeh', index: 7 }],
         template: "views/_author.jade",
         out: (author) -> "/authors/#{author.slug}"
       }

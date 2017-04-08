@@ -1,0 +1,89 @@
+.authorPage {
+    border-top: 7px solid $primary-color;
+
+    &Header {
+        margin-top: 40px;
+        margin-bottom: 60px;
+
+        @media screen and (max-width: 767px) {
+            margin-bottom: 40px;
+        }
+
+        .pageHeading {
+            margin: 0 0 10px 0;
+        }
+
+        &__link,
+        &__desc {
+            background: $light-gray;
+            color: $dark-gray;
+            display: inline-block;
+            padding: 3px 10px;
+            font-style: italic;
+            margin-left: 35px;
+            margin-top: 10px;
+
+            @media screen and (max-width: 767px) {
+                margin-left: 0;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        &__link {
+            margin-left: 60px;
+
+            @media screen and (max-width: 767px) {
+                margin-left: 0;
+            }
+
+            a {
+                color: $dark-gray;
+                margin-left: 10px;
+                font-style: normal;
+                position: relative;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $black;
+                }
+
+                &:last-child {
+                    &:after {
+                        display: none;
+                    }
+                }
+
+                &:after {
+                    content: " ";
+                    position: absolute;
+                    right: -7px;
+                    top: 1px;
+                    width: 1px;
+                    height: 20px;
+                    background: $black;
+
+                    @media screen and (max-width: 767px) {
+                        display: none;
+                    }
+                }
+
+
+                @media screen and (max-width: 767px) {
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        &__desc {
+            @media screen and (max-width: 767px) {
+                padding: 3px 5px 7px;
+            }
+        }
+
+    }
+
+
+
+}

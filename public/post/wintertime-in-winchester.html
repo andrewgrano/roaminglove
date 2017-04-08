@@ -58,7 +58,7 @@
     <div class="container post">
       <div class="postInner">
         <h1><span>Wintertime in Winchester</span></h1>
-        <p class="date">By Lucy Jamison on January 20, 2017</p>
+        <p class="date">By <a href="/authors/lucy-jamison.html">Lucy Jamison</a> on January 20, 2017</p>
         <ul class="categories">
           <li><a href="/places/England.html">England</a></li>
           <li><a href="/places/Europe.html">Europe</a></li>
@@ -84,23 +84,15 @@ There were a lot of Christmas decorations around Winchester &#8211; it felt like
 <p><img class="alignnone size-full wp-image-1520" src="https://www.adminroaminglove.com/wp-content/uploads/2017/01/IMG_1225-1_opt.jpg" alt="IMG_1225 1_opt" width="700" height="933" srcset="https://adminroaminglove.com/wp-content/uploads/2017/01/IMG_1225-1_opt.jpg 700w, https://adminroaminglove.com/wp-content/uploads/2017/01/IMG_1225-1_opt-225x300.jpg 225w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px" /></p>
 </div>
         <div class="authorBlock">
-          <div class="authorBlock__name">Contributed by Lucy Jamison</div>
-          <!-- -var count = 0-->
-          <!-- -for author in records.authors-->
-          <!--   -if( author.name == authorName )-->
-          <!--     -count++-->
-          <!-- if ( count > 0 )-->
-          <!--   -for author in records.authors-->
-          <!--     -if( author.name == authorName )-->
-          <!--       .authorBlock__name(href="") Contributed by <a href="/authors/#{author.slug}.html">#{authorName}</a>-->
-          <!-- else-->
-          <!--   .authorBlock__name Contributed by #{authorName}-->
+          <div href="" class="authorBlock__name">Contributed by <a href="/authors/lucy-jamison.html">Lucy Jamison</a></div>
           <div class="authorBlock__link"><a href="https://travellinglucyblog.wordpress.com/" target="blank">travellinglucyblog.wordpress.com</a> <a href="https://www.instagram.com/travelling_lucy" target="blank">Instagram</a></div>
           <div class="authorBlock__desc"></div>
-          <!-- -for author in records.authors-->
-          <!--   -if( author.name == authorName )-->
-          <!--       a.authorBlock__link(href="/authors/#{author.slug}.html") View More Travel Stories By #{authorName} Here-->
+          <!-- -for author in records.authors
+          // -if( author.name == authorName )
+              //- a.authorBlock__link(href="/authors/") View More Travel Stories By Lucy Jamison Here >>
           
+          
+          -->
         </div>
         <div id="disqus_thread"></div>
         <script>var postID="1510",postURL="http://www.roaminglove.com/post/wintertime-in-winchester",disqus_config=function(){this.page.url=postURL,this.page.identifier=postID};(function(){var t=document,e=t.createElement("script");e.src="//roaminglove.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)})();

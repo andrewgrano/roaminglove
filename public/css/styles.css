@@ -2565,6 +2565,10 @@ a {
   margin-top: 0;
   font-style: italic;
   margin-bottom: 10px; }
+  .post .date a {
+    color: #999; }
+    .post .date a:hover, .post .date a:active, .post .date a:focus {
+      color: #2C2C2C; }
 
 .post .btn {
   margin: 40px 0px; }
@@ -3027,3 +3031,58 @@ a {
 
 .category {
   border-top: 7px solid #F1B870; }
+
+.authorPage {
+  border-top: 7px solid #F1B870; }
+  .authorPageHeader {
+    margin-top: 40px;
+    margin-bottom: 60px; }
+    @media screen and (max-width: 767px) {
+      .authorPageHeader {
+        margin-bottom: 40px; } }
+    .authorPageHeader .pageHeading {
+      margin: 0 0 10px 0; }
+    .authorPageHeader__link, .authorPageHeader__desc {
+      background: #f1f1f1;
+      color: #4F4F4F;
+      display: inline-block;
+      padding: 3px 10px;
+      font-style: italic;
+      margin-left: 35px;
+      margin-top: 10px; }
+      @media screen and (max-width: 767px) {
+        .authorPageHeader__link, .authorPageHeader__desc {
+          margin-left: 0;
+          display: block;
+          text-align: center; } }
+    .authorPageHeader__link {
+      margin-left: 60px; }
+      @media screen and (max-width: 767px) {
+        .authorPageHeader__link {
+          margin-left: 0; } }
+      .authorPageHeader__link a {
+        color: #4F4F4F;
+        margin-left: 10px;
+        font-style: normal;
+        position: relative; }
+        .authorPageHeader__link a:hover, .authorPageHeader__link a:active, .authorPageHeader__link a:focus {
+          color: #2C2C2C; }
+        .authorPageHeader__link a:last-child:after {
+          display: none; }
+        .authorPageHeader__link a:after {
+          content: " ";
+          position: absolute;
+          right: -7px;
+          top: 1px;
+          width: 1px;
+          height: 20px;
+          background: #2C2C2C; }
+          @media screen and (max-width: 767px) {
+            .authorPageHeader__link a:after {
+              display: none; } }
+        @media screen and (max-width: 767px) {
+          .authorPageHeader__link a {
+            margin-left: 5px; } }
+    @media screen and (max-width: 767px) {
+      .authorPageHeader__desc {
+        padding: 3px 5px 7px; } }

@@ -53,7 +53,16 @@ block content
             span!= item.title
           //- h1= item.categories.name
           //- p.date= moment(item.date).format("MMMM DD, YYYY")
-          p.date By #{authorName} on #{moment(item.date).format("MMMM DD, YYYY")}
+          -var count = 0
+          -for author in records.authors
+            -if( author.name == authorName )
+              -count++
+          if ( count > 0 )
+            -for author in records.authors
+              -if( author.name == authorName )
+                p.date By <a href="/authors/#{author.slug}.html">#{authorName}</a> on #{moment(item.date).format("MMMM DD, YYYY")}
+          else
+            p.date By #{authorName} on #{moment(item.date).format("MMMM DD, YYYY")}
           ul.categories
             - for category in item.categories
               if (category.name != "Uncategorized")
@@ -67,24 +76,22 @@ block content
           .content!= item.content
 
           .authorBlock
-              .authorBlock__name Contributed by #{authorName}
-
-              // -var count = 0
-              // -for author in records.authors
-              //   -if( author.name == authorName )
-              //     -count++
-              // if ( count > 0 )
-              //   -for author in records.authors
-              //     -if( author.name == authorName )
-              //       .authorBlock__name(href="") Contributed by <a href="/authors/#{author.slug}.html">#{authorName}</a>
-              // else
-              //   .authorBlock__name Contributed by #{authorName}
+              -var countAgain = 0
+              -for author in records.authors
+                -if( author.name == authorName )
+                  -countAgain++
+              if ( countAgain > 0 )
+                -for author in records.authors
+                  -if( author.name == authorName )
+                    .authorBlock__name(href="") Contributed by <a href="/authors/#{author.slug}.html">#{authorName}</a>
+              else
+                .authorBlock__name Contributed by #{authorName}
 
               .authorBlock__link!= item.author.first_name.replace(/\[a/g, "<a").replace(/\]/g,">").replace(/\[\/a/g,"</a").replace(/%5D/g,">")
               .authorBlock__desc!= item.author.last_name
               // -for author in records.authors
-              //   -if( author.name == authorName )
-              //       a.authorBlock__link(href="/authors/#{author.slug}.html") View More Travel Stories By #{authorName} Here
+                // -if( author.name == authorName )
+                    //- a.authorBlock__link(href="/authors/") View More Travel Stories By #{authorName} Here >>
 
 
             //- div.foobar

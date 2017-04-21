@@ -197,7 +197,7 @@ $('.more--3inarow').on 'click', ->
         post2.splice(0, 4)
         $('.more--3inarow').fadeOut();
       else if post2.length == 3
-        $('.postWidget__wrapper').append($(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn())
+        $('.postWidget__wrapper').append($(templates.post(post: post2[0])).hide().fadeIn(),$(templates.post(post: post2[1])).hide().fadeIn(),$(templates.post(post: post2[2])).hide().fadeIn())
         post2.splice(0, 3)
         $('.more--3inarow').fadeOut();
       else if post2.length == 2

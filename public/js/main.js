@@ -280,7 +280,7 @@
           })).hide().fadeIn(), $(templates.post({
             post: post2[1]
           })).hide().fadeIn(), $(templates.post({
-            post: post2[1]
+            post: post2[2]
           })).hide().fadeIn());
           post2.splice(0, 3);
           return $('.more--3inarow').fadeOut();

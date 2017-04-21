@@ -199,6 +199,31 @@ h1 {
     }
 }
 
+.more.btn {
+    margin-top: 25px;
+    cursor: pointer;
+    min-width: 33%;
+
+    &.disabled {
+        cursor: no-drop;
+
+        .sk-circle {
+            opacity: 1;
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .sk-circle {
+        margin: 0 0 0 10px;
+        display: inline-block;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        @include transition(opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s);
+    }
+}
+
 .chevronsRight {
     letter-spacing: -0.2em;
     font-size: 0.9em;

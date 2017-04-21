@@ -1,3 +1,7 @@
 .category {
     border-top: 7px solid $primary-color;
+
+    &__postSection {
+        margin-bottom: 35px;
+    }
 }

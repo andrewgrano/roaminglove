@@ -267,3 +267,9 @@
         margin-bottom: 35px;
     }
 }
+
+.postWidget__wrapper.postWidget__wrapper--loading {
+    .postWidget:nth-last-child(2) {
+        display: none !important;
+    }
+}

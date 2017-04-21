@@ -56,50 +56,95 @@ block content
 
             h1.pageHeading <span class="chevronsRight">>></span> All #{item.name} Stories
             div.hide#categoryName= item.name
-            .postWidget__wrapper
-                for post in records.post
-                    - for category in post.categories
-                        if  (category.name == item.name)
-                          include templates/post
+            .category__postSection
+              .postWidget__wrapper
+                  -var i = 0
+                  -for post in records.post
+                      - for category in post.categories
+                          if  (category.name == item.name)
+                            -i++
+                            -if( i < 13 )
+                              include templates/post
+                  .postWidget__wrapper2.clearfix.hide
+                    -var i = 0
+                    -for post in records.post
+                        - for category in post.categories
+                            if  (category.name == item.name)
+                              -i++
+                              -if ( i >= 13 )
+                                include templates/post
 
-            -if( item.parent == "0" )
-                hr.bg-orange
-                br
-                h1.pageHeading <span class="chevronsRight">>></span> Destinations in #{item.name}
-                .locationWidgetnewWrapper.locationWidgetnewWrapper--fullWidth.clearfix
-                    -for category in records.categories
-                        - var categoryimageix = category.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
-                        if (category.parent == item.ID)
-                          a.locationWidgetnew(href="/places/" + category.name.replace(" ","-") + ".html")
-                            img(src="#{categoryimageix}?w=257&h=257&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
-                            h6
-                                div
-                                    span= category.name
+                  .postWidget.postWidget--loading.hide
+                    figure.postWidget__img
+                      .sk-circle
+                        .sk-circle1.sk-child
+                        .sk-circle2.sk-child
+                        .sk-circle3.sk-child
+                        .sk-circle4.sk-child
+                        .sk-circle5.sk-child
+                        .sk-circle6.sk-child
+                        .sk-circle7.sk-child
+                        .sk-circle8.sk-child
+                        .sk-circle9.sk-child
+                        .sk-circle10.sk-child
+                        .sk-circle11.sk-child
+                        .sk-circle12.sk-child
+                    .postWidget__content
+              .btnWrapper.hide
+                .more.moreAlt--3inarow.btn.btnSecondary.disabled <span class="chevronsRight">>></span> More #{item.name} Stories
+                  .sk-circle
+                    .sk-circle1.sk-child
+                    .sk-circle2.sk-child
+                    .sk-circle3.sk-child
+                    .sk-circle4.sk-child
+                    .sk-circle5.sk-child
+                    .sk-circle6.sk-child
+                    .sk-circle7.sk-child
+                    .sk-circle8.sk-child
+                    .sk-circle9.sk-child
+                    .sk-circle10.sk-child
+                    .sk-circle11.sk-child
+                    .sk-circle12.sk-child
 
-            -if( item.parent != "0" )
-                -var index = 0
-                each category in records.categories
-                    if (category.parent == item.parent)
-                        if(category.name != item.name)
-                            -while( index < 1 )
-                                -index++
-                                hr.bg-orange
-                                br
-                                //- h1.pageHeading <span class="chevronsRight">>></span> Other Destinations Near #{item.name}
-                                -if( item.parent != "0" )
-                                    -for category in records.categories
-                                        if( category.ID == item.parent)
-                                                h1.pageHeading <span class="chevronsRight">>></span> Other Destinations in #{category.name}
-                .locationWidgetnewWrapper.locationWidgetnewWrapper--fullWidth.clearfix
-                    -for category in records.categories
-                        - var categoryimageix = category.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
-                        if (category.parent == item.parent)
-                            if(category.name != item.name)
-                              a.locationWidgetnew(href="/places/" + category.name.replace(" ","-") + ".html")
-                                img(src="#{categoryimageix}?w=257&h=257&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
-                                h6
-                                    div
-                                        span= category.name
+            .category__destinationSection
+              -if( item.parent == "0" )
+                  hr.bg-orange
+                  br
+                  h1.pageHeading <span class="chevronsRight">>></span> Destinations in #{item.name}
+                  .locationWidgetnewWrapper.locationWidgetnewWrapper--fullWidth.clearfix
+                      -for category in records.categories
+                          - var categoryimageix = category.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+                          if (category.parent == item.ID)
+                            a.locationWidgetnew(href="/places/" + category.name.replace(" ","-") + ".html")
+                              img(src="#{categoryimageix}?w=257&h=257&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
+                              h6
+                                  div
+                                      span= category.name
+
+              -if( item.parent != "0" )
+                  -var index = 0
+                  each category in records.categories
+                      if (category.parent == item.parent)
+                          if(category.name != item.name)
+                              -while( index < 1 )
+                                  -index++
+                                  hr.bg-orange
+                                  br
+                                  //- h1.pageHeading <span class="chevronsRight">>></span> Other Destinations Near #{item.name}
+                                  -if( item.parent != "0" )
+                                      -for category in records.categories
+                                          if( category.ID == item.parent)
+                                                  h1.pageHeading <span class="chevronsRight">>></span> Other Destinations in #{category.name}
+                  .locationWidgetnewWrapper.locationWidgetnewWrapper--fullWidth.clearfix
+                      -for category in records.categories
+                          - var categoryimageix = category.description.replace("https://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net").replace("https://www.adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+                          if (category.parent == item.parent)
+                              if(category.name != item.name)
+                                a.locationWidgetnew(href="/places/" + category.name.replace(" ","-") + ".html")
+                                  img(src="#{categoryimageix}?w=257&h=257&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
+                                  h6
+                                      div
+                                          span= category.name
 
             //- pre= JSON.stringify(item, null, 2)
             //- pre= JSON.stringify(records.post, null, 2)
@@ -109,32 +154,241 @@ block JS
         :uglify-js
             $(function() {
                 $(document).ready(function() {
-                    var categoryName, post2;
-                    // console.log("this is the category page");
-                    categoryName = $("#categoryName").text();
-                    $.get(config.api_url2, function(res) {
-                        // console.log("foo1");
-                        // console.log(res);
-                        // console.log(categoryName);
-                        post2 = res.posts;
-                        // console.log(post2);
-                        // console.log(post2[0].categories);
 
-                        $.each(post2, function(index, element) {
-                            // console.log(element.categories);
-                            $.each(element.categories, function(index2, element2) {
-                                // console.log(index + element2.name);
-                                if ( element2.name == categoryName ) {
-                                    // console.log("yes, post number " + index + " is a match")
-                                    $('.postWidget__wrapper').append($(templates.post({
-                                        post: post2[index]
-                                    })).hide().fadeIn());
+                    var leftOverWidgetsCount;
+                    var leftOverWidgets;
+
+                    url2LoadWidgets = function() {
+                      $('.moreAlt--3inarow').on('click', function() {
+                        if( $("body").hasClass("url2LoadWidgets") ) {
+                          // console.log(leftOverWidgetsCount);
+                          if ( leftOverWidgetsCount > 0 ) {
+                            if (leftOverWidgets.length >= 6) {
+                              if (leftOverWidgets.length == 6) {
+                                $('.moreAlt--3inarow').fadeOut();
+                              }
+                              $('.postWidget__wrapper').append($(templates.post({
+                                post: leftOverWidgets[0]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[1]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[2]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[3]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[4]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[5]
+                              })).hide().fadeIn());
+                              return leftOverWidgets.splice(0, 6);
+                            } else if (leftOverWidgets.length === 5) {
+                              $('.postWidget__wrapper').append($(templates.post({
+                                post: leftOverWidgets[0]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[1]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[2]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[3]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[3]
+                              })).hide().fadeIn());
+                              leftOverWidgets.splice(0, 5);
+                              return $('.moreAlt--3inarow').fadeOut();
+                            } else if (leftOverWidgets.length === 4) {
+                              $('.postWidget__wrapper').append($(templates.post({
+                                post: leftOverWidgets[0]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[1]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[2]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[3]
+                              })).hide().fadeIn());
+                              leftOverWidgets.splice(0, 4);
+                              return $('.moreAlt--3inarow').fadeOut();
+                            } else if (leftOverWidgets.length === 3) {
+                              $('.postWidget__wrapper').append($(templates.post({
+                                post: leftOverWidgets[0]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[1]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[2]
+                              })).hide().fadeIn());
+                              leftOverWidgets.splice(0, 3);
+                              return $('.moreAlt--3inarow').fadeOut();
+                            } else if (leftOverWidgets.length === 2) {
+                              $('.postWidget__wrapper').append($(templates.post({
+                                post: leftOverWidgets[0]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[1]
+                              })).hide().fadeIn());
+                              leftOverWidgets.splice(0, 2);
+                              return $('.moreAlt--3inarow').fadeOut();
+                            } else if (leftOverWidgets.length === 1) {
+                              $('.postWidget__wrapper').append($(templates.post({
+                                post: leftOverWidgets[0]
+                              })).hide().fadeIn());
+                              leftOverWidgets.splice(0, 1);
+                              return $('.moreAlt--3inarow').fadeOut();
+                            }
+                          } else {
+                            $('.moreAlt--3inarow').fadeOut();
+                          }
+                        }
+                      });
+                    };
+
+                    var numWidgets = $('.postWidget').length;
+
+                    //if all 12 widgets exsist on-page-load (because all 12 were in api_url1)
+                    if (numWidgets >= 13) {
+                      // console.log(numWidgets);
+                      $(".btnWrapper").removeClass("hide");
+                      $('.moreAlt--3inarow').removeClass('disabled');
+
+                      var categoryName, post, post2;
+                      categoryName = $("#categoryName").text();
+
+
+                      var numWidgetsHidden = $(".postWidget__wrapper2").children().length;
+                      $(".postWidget__wrapper2").children().each(function (z) {
+                          $(this).addClass('postWidget--hidden');
+                          $(this).data('index', z);
+                      });
+
+                      $('.moreAlt--3inarow').on('click', function() {
+                        if( !$("body").hasClass("url2LoadWidgets") ) {
+
+                          numWidgetsHidden = $(".postWidget__wrapper2").children().length;
+                          // console.log("number of hidden widgets is " + numWidgetsHidden);
+
+                          if ( numWidgetsHidden >= 6 ) {
+                            // console.log("option ONE")
+
+                            for (var i = 0; i < 6; i++) {
+                              // console.log(i);
+                              $.each( $(".postWidget--hidden"), function() {
+                                if( $(this).data("index") === i ) {
+                                  $(this).addClass("interum");
+                                  $(this).removeClass("postWidget--hidden");
+                                  $(this).appendTo(".postWidget__wrapper").addClass("interum").hide();
                                 }
-                            });
-                        });
+                              });
+                            }
 
-                        // console.log("foo2");
-                    });
+                            $(".postWidget__wrapper2").appendTo(".postWidget__wrapper");
+                            $(".postWidget--loading").appendTo(".postWidget__wrapper");
+
+                            $(".postWidget.interum").fadeIn( 400, function() {
+                              $(".postWidget.interum").removeAttr('style').removeAttr('data-index').removeClass('interum');
+                              $(".postWidget__wrapper2").children().each(function (x) {
+                                $(this).data('index', x);
+                              });
+                            });
+
+
+
+                          } else {
+                            // console.log("option TWO")
+                            $(".btnWrapper").addClass("hide");
+                            $('.moreAlt--3inarow').addClass('disabled');
+                            $('.postWidget__wrapper2').children(".postWidget").appendTo(".postWidget__wrapper").addClass("interum").hide();
+                            $(".postWidget--loading").appendTo(".postWidget__wrapper");
+                            $('.postWidget__wrapper2').remove();
+
+                            $(".postWidget__wrapper").addClass("postWidget__wrapper--loading");
+                            $(".postWidget--loading").removeClass("hide");
+
+                            $(".postWidget.interum").removeClass("interum").fadeIn();
+
+                            $.get(config.api_url2, function(res) {
+                              $('.moreAlt--3inarow').removeClass('disabled');
+                              $(".postWidget--loading").fadeOut().remove();
+                              $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
+
+                              var widgetsCount = numWidgetsHidden;
+                              leftOverWidgetsCount = 0;
+                              leftOverWidgets = [];
+                              post2 = res.posts;
+
+                              $.each(post2, function(index, element) {
+                                $.each(element.categories, function(index2, element2) {
+                                  if ( element2.name == categoryName ) {
+                                    widgetsCount++;
+                                    // console.log("widgetsCount is " + widgetsCount);
+                                    if ( widgetsCount < 7 ) {
+                                      $('.postWidget__wrapper').append($(templates.post({
+                                          post: post2[index]
+                                      })).hide().fadeIn());
+                                    } else {
+                                      leftOverWidgetsCount++;
+                                      // console.log("leftOverWidgets count is " + leftOverWidgetsCount);
+                                      leftOverWidgets.push(post2[index]);
+                                      // console.log("leftOverWidgets second");
+                                      // console.log(leftOverWidgets);
+                                      $(".btnWrapper").removeClass("hide");
+                                      $("body").addClass("url2LoadWidgets");
+                                      url2LoadWidgets();
+                                    }
+                                  }
+                                });
+                              });
+                            });
+                          }
+                        }
+                      });
+
+                    ////else if all 12 widgets DID NOT APPEAR on-page-load
+                    } else {
+                      $('.postWidget__wrapper2').remove();
+                      $(".postWidget__wrapper").addClass("postWidget__wrapper--loading");
+                      $(".postWidget--loading").removeClass("hide");
+
+                      var categoryName, post, post2;
+                      categoryName = $("#categoryName").text();
+
+
+                      $.get(config.api_url2, function(res) {
+                          $('.moreAlt--3inarow').removeClass('disabled');
+                          $(".postWidget--loading").fadeOut().remove();
+                          $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
+
+                          var widgetsCount = numWidgets;
+                          leftOverWidgetsCount = 0;
+                          leftOverWidgets = [];
+                          post2 = res.posts;
+
+                          // console.log("leftOverWidgets first");
+                          // console.log(leftOverWidgets);
+                          $.each(post2, function(index, element) {
+                              // console.log(element.categories);
+                              $.each(element.categories, function(index2, element2) {
+                                  // console.log(index + element2.name);
+                                  if ( element2.name == categoryName ) {
+                                      widgetsCount++
+                                      // console.log(widgetsCount);
+                                      // console.log("yes, post number " + index + " is a match")
+                                      if ( widgetsCount < 14 ) {
+                                        $('.postWidget__wrapper').append($(templates.post({
+                                            post: post2[index]
+                                        })).hide().fadeIn());
+                                      } else {
+                                        leftOverWidgetsCount++
+                                        // console.log("leftOverWidgets count is " + leftOverWidgetsCount);
+                                        leftOverWidgets.push(post2[index]);
+                                        // console.log("leftOverWidgets second");
+                                        // console.log(leftOverWidgets);
+                                        $(".btnWrapper").removeClass("hide");
+                                      }
+                                  }
+                              });
+                          });
+
+                          $("body").addClass("url2LoadWidgets");
+                          url2LoadWidgets();
+                      });
+                    }
                 });
             });
 

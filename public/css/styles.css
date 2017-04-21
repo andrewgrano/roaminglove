@@ -841,6 +841,27 @@ a {
     background: #1e7696;
     color: #fff; }
 
+.more.btn {
+  margin-top: 25px;
+  cursor: pointer;
+  min-width: 33%; }
+  .more.btn.disabled {
+    cursor: no-drop; }
+    .more.btn.disabled .sk-circle {
+      opacity: 1;
+      width: 20px;
+      height: 20px; }
+  .more.btn .sk-circle {
+    margin: 0 0 0 10px;
+    display: inline-block;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    -webkit-transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s;
+    -moz-transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s;
+    -spec-transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s;
+    transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s; }
+
 .chevronsRight {
   letter-spacing: -0.2em;
   font-size: 0.9em;
@@ -2284,27 +2305,6 @@ a {
   .index .postWidget:last-child {
     display: none; } }
 
-.index .more.btn {
-  margin-top: 25px;
-  cursor: pointer;
-  min-width: 33%; }
-  .index .more.btn.disabled {
-    cursor: no-drop; }
-    .index .more.btn.disabled .sk-circle {
-      opacity: 1;
-      width: 20px;
-      height: 20px; }
-  .index .more.btn .sk-circle {
-    margin: 0 0 0 10px;
-    display: inline-block;
-    opacity: 0;
-    width: 0;
-    height: 0;
-    -webkit-transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s;
-    -moz-transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s;
-    -spec-transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s;
-    transition: opacity 0.5s linear 0s, height 0.5s linear 0.5s, width 0.5s linear 0.5s; }
-
 .index .indexAbout {
   float: left;
   display: block;
@@ -2670,6 +2670,9 @@ a {
   .postRecommend hr {
     margin-bottom: 35px; }
 
+.postWidget__wrapper.postWidget__wrapper--loading .postWidget:nth-last-child(2) {
+  display: none !important; }
+
 .destinations {
   margin-top: -32px;
   background: #fff;
@@ -3031,6 +3034,8 @@ a {
 
 .category {
   border-top: 7px solid #F1B870; }
+  .category__postSection {
+    margin-bottom: 35px; }
 
 .authorPage {
   border-top: 7px solid #F1B870; }

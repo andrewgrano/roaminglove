@@ -273,7 +273,6 @@ block JS
                             $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
                             $(".postWidget--loading").addClass("hide");
 
-                            $(".postWidget--loading").removeClass("hide");
                             for (var i = 0; i < 6; i++) {
                               // console.log(i);
                               $.each( $(".postWidget--hidden"), function() {
@@ -305,8 +304,8 @@ block JS
                             $(".postWidget--loading").appendTo(".postWidget__wrapper");
                             $('.postWidget__wrapper2').remove();
 
-                            // $(".postWidget__wrapper").addClass("postWidget__wrapper--loading");
-                            // $(".postWidget--loading").removeClass("hide");
+                            $(".postWidget__wrapper").addClass("postWidget__wrapper--loading");
+                            $(".postWidget--loading").removeClass("hide");
 
                             $(".postWidget.interum").removeClass("interum").fadeIn();
 

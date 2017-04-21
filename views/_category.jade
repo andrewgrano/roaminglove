@@ -57,7 +57,7 @@ block content
             h1.pageHeading <span class="chevronsRight">>></span> All #{item.name} Stories
             div.hide#categoryName= item.name
             .category__postSection
-              .postWidget__wrapper
+              .postWidget__wrapper.postWidget__wrapper--loading
                   -var i = 0
                   -for post in records.post
                       - for category in post.categories
@@ -74,7 +74,7 @@ block content
                               -if ( i >= 13 )
                                 include templates/post
 
-                  .postWidget.postWidget--loading.hide
+                  .postWidget.postWidget--loading
                     figure.postWidget__img
                       .sk-circle
                         .sk-circle1.sk-child
@@ -244,6 +244,10 @@ block JS
                     //if all 12 widgets exsist on-page-load (because all 12 were in api_url1)
                     if (numWidgets >= 13) {
                       // console.log(numWidgets);
+
+                      $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
+                      $(".postWidget--loading").addClass("hide");
+
                       $(".btnWrapper").removeClass("hide");
                       $('.moreAlt--3inarow').removeClass('disabled');
 
@@ -266,6 +270,10 @@ block JS
                           if ( numWidgetsHidden >= 6 ) {
                             // console.log("option ONE")
 
+                            $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
+                            $(".postWidget--loading").addClass("hide");
+
+                            $(".postWidget--loading").removeClass("hide");
                             for (var i = 0; i < 6; i++) {
                               // console.log(i);
                               $.each( $(".postWidget--hidden"), function() {
@@ -297,8 +305,8 @@ block JS
                             $(".postWidget--loading").appendTo(".postWidget__wrapper");
                             $('.postWidget__wrapper2').remove();
 
-                            $(".postWidget__wrapper").addClass("postWidget__wrapper--loading");
-                            $(".postWidget--loading").removeClass("hide");
+                            // $(".postWidget__wrapper").addClass("postWidget__wrapper--loading");
+                            // $(".postWidget--loading").removeClass("hide");
 
                             $(".postWidget.interum").removeClass("interum").fadeIn();
 
@@ -342,8 +350,6 @@ block JS
                     ////else if all 12 widgets DID NOT APPEAR on-page-load
                     } else {
                       $('.postWidget__wrapper2').remove();
-                      $(".postWidget__wrapper").addClass("postWidget__wrapper--loading");
-                      $(".postWidget--loading").removeClass("hide");
 
                       var categoryName, post, post2;
                       categoryName = $("#categoryName").text();

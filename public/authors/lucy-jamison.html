@@ -169,7 +169,7 @@
       
     </script><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1","api_url2":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2","static_items":9}</script><script src='/js/category.js'></script>
 <script src='/js/main.js'></script>
-    <script>$(function(){$(document).ready(function(){var e,t;e=$("#authorName").text(),$.get(config.api_url2,function(o){console.log("foo1"),console.log(o),console.log(e),t=o.posts,console.log(t),$.each(t,function(o,s){s.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:t[o]})).hide().fadeIn())})})})});
+    <script>$(function(){$(document).ready(function(){var e,t;e=$("#authorName").text(),$.get(config.api_url2,function(p){console.log("foo1"),console.log(p),console.log(e),t=p.posts,console.log(t),$.each(t,function(p,a){a.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:t[p]})).hide().fadeIn())})})})});
     </script>
   </body>
 </html>

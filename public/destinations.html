@@ -79,6 +79,12 @@
               <li><a href="/places/Canada.html">View All Canada</a></li>
             </ul>
           </li>
+          <li><a href="#Caribbean">Caribbean</a>
+            <ul class="nav">
+              <li><a href="/places/Aruba.html">Aruba</a></li>
+              <li><a href="/places/Caribbean.html">View All Caribbean</a></li>
+            </ul>
+          </li>
           <li><a href="#Europe">Europe</a>
             <ul class="nav">
               <li><a href="/places/Austria.html">Austria</a></li>
@@ -250,6 +256,28 @@
               </h6></a><a href="/places/Canada.html" class="locationWidgetnew locationWidgetnew--viewAll"><img data-original="https://roaminglove.imgix.net/2016/12/IMG_2512_opt-1.jpg?w=250&amp;h=250&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format" class="img-responsive lazy">
               <h6>
                 <div><span>View All Canada Stories</span></div>
+              </h6></a>
+          </div>
+          <!-- a(class="destinationsnewCountry__viewAll" href="/places/" + category.name.replace(" ","-") + ".html")  View All #{category.name} Stories <span class="chevronsRight">>></span>-->
+          
+        </section>
+        <section id="Caribbean" class="destinationsnewCountry destinationsnewCountry--Caribbean clearfix">
+          <h1 class="destinationsnewCountry__header--mobile">Caribbean</h1>
+          <div class="destinationsnewCountry__header parallax-window">
+            <div class="parallax-static-content">
+              <h1>Caribbean</h1>
+            </div>
+            <div style="background-image:url(https://roaminglove.imgix.net/2017/04/UriramaBeach_opt.jpg?w=788&amp;h=400&amp;fit=crop&amp;crop=focalpoint&amp;blend=2693BB&amp;bm=lighten&amp;auto=compress,format)" class="parallax-background"></div>
+          </div>
+          <!-- h1.destinationsnewCountry__heading-->
+          <!--     span= category.name-->
+          <!--     a(href="/places/" + category.name.replace(" ","-") + ".html")  View All #{category.name} Posts <span class="chevronsRight">>></span>-->
+          <div class="locationWidgetnewWrapper clearfix"><a href="/places/Aruba.html" class="locationWidgetnew"><img data-original="https://roaminglove.imgix.net/2017/04/sailboatatArashibeach_opt.jpg?w=250&amp;h=250&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format" class="img-responsive lazy">
+              <h6>
+                <div><span>Aruba</span></div>
+              </h6></a><a href="/places/Caribbean.html" class="locationWidgetnew locationWidgetnew--viewAll"><img data-original="https://roaminglove.imgix.net/2017/04/UriramaBeach_opt.jpg?w=250&amp;h=250&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format" class="img-responsive lazy">
+              <h6>
+                <div><span>View All Caribbean Stories</span></div>
               </h6></a>
           </div>
           <!-- a(class="destinationsnewCountry__viewAll" href="/places/" + category.name.replace(" ","-") + ".html")  View All #{category.name} Stories <span class="chevronsRight">>></span>-->
@@ -543,7 +571,7 @@
 <script src='/js/main.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
     <script src="/js/bootstrap-scrollspy.js"></script>
-    <script>$(function(){function e(){$(".parallax-window").each(function(){var e=$(this).children(".parallax-background"),t=$(this),p=$(t).offset().top,a=$(window).scrollTop(),s=p-a;$(e).offset().top,window.innerHeight;var o=.35;a>p-150?e.css("top",-(s*o)+"px"):e.css("top","-52px")})}function t(){var e=$(".destinationsnew__sidebar").width();$(".sidebarList").css("width",e)}function p(){o=$(".destinationsnew__main").outerHeight(!0),$(".destinationsnew__sidebar").css("height",o)}function a(){$(window).scrollTop()>=d?$(".sidebarList").addClass("is--sticky"):$(".sidebarList").removeClass("is--sticky"),$(window).scrollTop()>=o-$(".sidebarList").outerHeight()?$(".sidebarList").addClass("is--bottom"):$(".sidebarList").removeClass("is--bottom")}function s(){var e=$(".locationWidgetnew").outerWidth();$(window).width()>380?$(".locationWidgetnew").css("height",e):$(".locationWidgetnew").css("height","")}$("img.lazy").lazyload({threshold:115,effect:"fadeIn"}),$(document).ready(function(){e(),s()}),$(window).scroll(function(){e()}),$("body").scrollspy({target:".destinationsnew__sidebar"});var o=$(".destinationsnew").outerHeight(!0),d=$(".destinationsnew__sidebar").offset().top;p(),t(),a(),setTimeout(function(){p(),a()},1e3);var i;$(window).on("resize",function(){clearTimeout(i),i=setTimeout(function(){p(),t(),s()},250)}),$(window).scroll(function(){a()})});
+    <script>$(function(){function e(){$(".parallax-window").each(function(){var e=$(this).children(".parallax-background"),t=$(this),p=$(t).offset().top,a=$(window).scrollTop(),s=p-a;$(e).offset().top,window.innerHeight;var d=.35;a>p-150?e.css("top",-(s*d)+"px"):e.css("top","-52px")})}function t(){var e=$(".destinationsnew__sidebar").width();$(".sidebarList").css("width",e)}function p(){d=$(".destinationsnew__main").outerHeight(!0),$(".destinationsnew__sidebar").css("height",d)}function a(){$(window).scrollTop()>=o?$(".sidebarList").addClass("is--sticky"):$(".sidebarList").removeClass("is--sticky"),$(window).scrollTop()>=d-$(".sidebarList").outerHeight()?$(".sidebarList").addClass("is--bottom"):$(".sidebarList").removeClass("is--bottom")}function s(){var e=$(".locationWidgetnew").outerWidth();$(window).width()>380?$(".locationWidgetnew").css("height",e):$(".locationWidgetnew").css("height","")}$("img.lazy").lazyload({threshold:115,effect:"fadeIn"}),$(document).ready(function(){e(),s()}),$(window).scroll(function(){e()}),$("body").scrollspy({target:".destinationsnew__sidebar"});var d=$(".destinationsnew").outerHeight(!0),o=$(".destinationsnew__sidebar").offset().top;p(),t(),a(),setTimeout(function(){p(),a()},1e3);var i;$(window).on("resize",function(){clearTimeout(i),i=setTimeout(function(){p(),t(),s()},250)}),$(window).scroll(function(){a()})});
     </script>
   </body>
 </html>

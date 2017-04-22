@@ -101,6 +101,7 @@
   });
 
   $('.more--3inarow').on('click', function() {
+    console.log(post.length);
     if (post.length > 12) {
       $('.postWidget__wrapper').append($(templates.post({
         post: post[0]

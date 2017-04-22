@@ -108,7 +108,7 @@ $.get config.api_url, (res) ->
   $('.more--3inarow').removeClass('disabled')
 
 $('.more--3inarow').on 'click', ->
-  # console.log(post)
+  console.log(post.length)
   if post.length > 12
     $('.postWidget__wrapper').append($(templates.post(post: post[0])).hide().fadeIn(),$(templates.post(post: post[1])).hide().fadeIn(),$(templates.post(post: post[2])).hide().fadeIn(),$(templates.post(post: post[3])).hide().fadeIn(),$(templates.post(post: post[4])).hide().fadeIn(),$(templates.post(post: post[5])).hide().fadeIn())
     post.splice(0, 6)

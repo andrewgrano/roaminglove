@@ -137,13 +137,22 @@ block content
               if (itemCategory.name == category.name)
                 if (post.title != item.title)
                   -index++
-                  if( index > 0 )
+                  if( index < 2 )
                     .container.postRecommend
                       hr.bg-orange
                       .postWidget__wrapper.clearfix
                         h3.pageHeading <span class="chevronsRight">>></span> More Stories About #{itemCategory.name}
-                        if( index < 5 )
-                          include ../views/templates/post-horizontal
+                        - for itemCategory in item.categories
+                          if (itemCategory.parent == "0"  & itemCategory.name != "Uncategorized")
+                            -var indexAgain = 0
+                              each post in records.post
+                                - for category in post.categories
+                                  if (category.parent == "0"  & category.name != "Uncategorized")
+                                    if (itemCategory.name == category.name)
+                                      if (post.title != item.title)
+                                        -indexAgain++
+                                        if( indexAgain < 5 )
+                                          include ../views/templates/post-horizontal
 
 
 

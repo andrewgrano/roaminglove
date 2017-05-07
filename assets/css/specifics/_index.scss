@@ -11,6 +11,11 @@
     .indexHeader {
         margin-bottom: 40px;
 
+        @media screen and (max-width: 479px) {
+            border-top: 7px solid $primary-color;
+            margin-bottom: 30px;
+        }
+
         .owl-carousel.owl-theme {
             @media screen and (max-width: 479px) {
                 display: none;
@@ -295,6 +300,62 @@
         .more.btn {
             margin-top: 40px;
         }
+    }
+
+    .locationWidgetnewWrapper {
+        position: relative;
+    }
+
+    .locationWidgetnew {
+        display: inline-block;
+        width: 325px;
+        height: 185px;
+        margin-right: 82px;
+        margin-bottom: 25px;
+        overflow: hidden;
+
+        @media screen and (max-width: $vp-lg-max) {
+            width: 30%;
+            margin-right: 3%;
+            height: auto;
+        }
+
+        @media screen and (max-width: $vp-sm-max) {
+            width: 45%;
+            margin-right: 5%;
+        }
+
+        @media screen and (max-width: 479px) {
+            width: 100%;
+            max-width: 325px;
+            height: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        &:nth-child(even) {
+            @media screen and (max-width: $vp-sm-max) {
+                margin-right: 0;
+            }
+
+            @media screen and (max-width: 479px) {
+                margin-right: auto;
+            }
+        }
+
+        &:nth-child(3n+3) {
+            margin-right: 0;
+
+            @media screen and (max-width: $vp-sm-max) {
+                margin-right: 5%;
+            }
+
+            @media screen and (max-width: 479px) {
+                margin-right: auto;
+            }
+        }
+
     }
 
     // .locationWidget {

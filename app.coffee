@@ -25,7 +25,7 @@ module.exports =
     #     post:
     #       template: 'views/_single.jade'
     #       number: 100
-    config(api_url: api_url, api_url2: api_url2, static_items: 9),
+    config(api_url: api_url, api_url2: api_url2, static_items: 14),
     templates(base: 'views/templates')
     records(
       categories: {
@@ -49,7 +49,8 @@ module.exports =
                { name: 'Karine Van Den Heuvel', slug: 'karine-van-den-heuvel', index: 4 },
                { name: 'Lucy Jamison', slug: 'lucy-jamison', index: 5 },
                { name: 'Luz Carreiro', slug: 'luz-carreiro', index: 6 },
-               { name: 'Parniyan Fakharzadeh', slug: 'parniyan-fakharzadeh', index: 7 }],
+               { name: 'Parniyan Fakharzadeh', slug: 'parniyan-fakharzadeh', index: 7 },
+               { name: 'Drame Djibril', slug: 'drame-djibril', index: 8 }],
         template: "views/_author.jade",
         out: (author) -> "/authors/#{author.slug}"
       }

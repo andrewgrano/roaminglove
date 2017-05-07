@@ -30,6 +30,22 @@ $tertiary-color: $red;
     }
 }
 
+.hidden-xs {
+    @media screen and (max-width: 479px) {
+        display: none !important;
+    }
+}
+
+.visible-xs {
+    display: none !important;
+
+    @media screen and (max-width: 479px) {
+        display: block !important;
+    }
+}
+
+
+
 .bg-lightgray {
     background: $light-gray;
 }

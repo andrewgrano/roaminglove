@@ -45,10 +45,28 @@ block content
                         div
                           .authorPageHeader__link!= 'Follow ' + item.name + ': ' + post.author.first_name.replace(/\[a/g, "<a").replace(/\]/g,">").replace(/\[\/a/g,"</a").replace(/%5D/g,">")
 
-            .postWidget__wrapper
+            .postWidget__wrapper.postWidget__wrapper--loading
                 - for post in records.post
                     if  (post.author.name == item.name)
                       include templates/post
+
+                .postWidget.postWidget--loading
+                  figure.postWidget__img
+                    .sk-circle
+                      .sk-circle1.sk-child
+                      .sk-circle2.sk-child
+                      .sk-circle3.sk-child
+                      .sk-circle4.sk-child
+                      .sk-circle5.sk-child
+                      .sk-circle6.sk-child
+                      .sk-circle7.sk-child
+                      .sk-circle8.sk-child
+                      .sk-circle9.sk-child
+                      .sk-circle10.sk-child
+                      .sk-circle11.sk-child
+                      .sk-circle12.sk-child
+                  .postWidget__content
+
 
 block JS
     script
@@ -57,22 +75,49 @@ block JS
                 $(document).ready(function() {
                     var authorName, post2;
                     authorName = $("#authorName").text();
-                    $.get(config.api_url2, function(res) {
-                        console.log("foo1");
-                        console.log(res);
-                        console.log(authorName);
-                        post2 = res.posts;
-                        console.log(post2);
-                        // console.log(post2[0].categories);
 
-                        $.each(post2, function(index, element) {
-                            // console.log(element.categories);
-                            if (element.author.name == authorName ) {
-                                $('.postWidget__wrapper').append($(templates.post({
-                                    post: post2[index]
-                                })).hide().fadeIn());
-                            }
-                        });
+
+                    // $.get(config.api_url2, function(res) {
+                    //     console.log("foo1");
+                    //     console.log(res);
+                    //     console.log(authorName);
+                    //     post2 = res.posts;
+                    //     console.log(post2);
+                    //     // console.log(post2[0].categories);
+
+                        // $.each(post2, function(index, element) {
+                        //     // console.log(element.categories);
+                        //     if (element.author.name == authorName ) {
+                        //         $('.postWidget__wrapper').append($(templates.post({
+                        //             post: post2[index]
+                        //         })).hide().fadeIn());
+                        //     }
+                        // });
+                    // });
+
+                    $.get(config.api_url2, function(res) {
+                      $(".postWidget--loading").fadeOut().remove();
+                      $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
+
+                      var widgetsCount = numWidgetsHidden;
+                      leftOverWidgetsCount = 0;
+                      leftOverWidgets = [];
+                      post2 = res.posts;
+
+                      $.each(post2, function(index, element) {
+                          // console.log(element.categories);
+                          if (element.author.name == authorName ) {
+                              $('.postWidget__wrapper').append($(templates.post({
+                                  post: post2[index]
+                              })).hide().fadeIn());
+                          }
+                      });
                     });
+
+
+
+
+
+
                 });
             });

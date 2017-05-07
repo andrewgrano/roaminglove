@@ -33,7 +33,7 @@ block content
         .indexHeader
             .owl-carousel.owl-theme
                 each post, index in records.post
-                    if index < 4
+                    if index < 3
                         a(href='/post/' + post.slug + '.html' class="itemLink")
                             - var featimgixsrc = post.featured_image.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
                             if (post.author.name == "another_j")
@@ -53,6 +53,48 @@ block content
                                         if (category.name != "Uncategorized")
                                         if( category.parent == "0")
                                             span  #{category.name}
+        .featureWidgetWrapper
+            each post, index in records.post
+                if (post.author.name == "another_j")
+                  -var authorName = "김경진"
+                else
+                  -var authorName = post.author.name
+                -var description = post.content.replace(/<p>/g,'').replace(/<\/p>/g,'').replace(/<div>/g,'').replace(/<\/div>/g,'').replace(/&#8217;/g,'\'').replace(/&#8220;/g,'\'').replace(/&#8221;/g,'\'').replace(/&#8230;/g,'...')
+                -var cutat = description.lastIndexOf(' ',175);
+                - var imagesrc = post.featured_image
+                - var imgixsrc = imagesrc.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+
+                if index > 2
+                    if index < 5
+                        a(href='/post/' + post.slug + '.html' class="featureWidget")
+                            .featureWidgetHead
+                                .featureWidget__title!= post.title
+                                .featureWidget__author  by #{authorName} &nbsp; / &nbsp;
+                                    - for category in post.categories
+                                        if (category.name != "Uncategorized")
+                                        if( category.parent != "0")
+                                            span  #{category.name},
+                                    - for category in post.categories
+                                        if (category.name != "Uncategorized")
+                                        if( category.parent == "0")
+                                            span  #{category.name}
+
+                            .featureWidgetImg
+                                //- img(src="#{imgixsrc}?w=545&h=175&fit=crop&crop=focalpoint&auto=compress,format" class="img-responsive")
+                                -var i = 0
+                                -for attachment in post.attachments
+                                    - i++
+                                    if( i < 3 )
+                                        - var attachmentsrc = attachment.URL
+                                        - var imgixattachmentsrc = attachmentsrc.replace("http://adminroaminglove.com/wp-content/uploads", "https://roaminglove.imgix.net")
+                                        div
+                                            img(src="#{imgixattachmentsrc}?w=260&h=175&fit=crop&crop=focalpoint&auto=compress,format" class="img-responsive")
+
+                            .featureWidget__desc
+                                if( cutat!=-1 )
+                                    -var description=description.substring(0,cutat)+'...';
+                                    span!= description
+                            .btn.btnSecondary <span class="chevronsRight">>></span> Continue Reading
 
 
             hr.bg-orange
@@ -62,13 +104,19 @@ block content
         //-     h1 Whats Your Travel Story?
 
         section
-            h1.pageHeading <span class="chevronsRight">>></span> Recent Travel Stories
+            h1.pageHeading.visible-xs <span class="chevronsRight">>></span> Recent Travel Stories
+
+            .postWidget__wrapper.postWidget__wrapper--mobile
+              each post, index in records.post
+                if index < 5
+                    include templates/post
             .postWidget__wrapper
               each post, index in records.post
-                if index < 9
-                    //- pre= JSON.stringify(post, null, 2)
-                    //- p= post.title
-                    include templates/post
+                if index > 4
+                    if index < 14
+                        //- pre= JSON.stringify(post, null, 2)
+                        //- p= post.title
+                        include templates/post
             .btnWrapper
                 .more.more--3inarow.btn.btnSecondary.disabled <span class="chevronsRight">>></span> More Recent Stories
                   .sk-circle
@@ -84,6 +132,76 @@ block content
                     .sk-circle10.sk-child
                     .sk-circle11.sk-child
                     .sk-circle12.sk-child
+
+        section.indexDestinations
+            h1.pageHeading <span class="chevronsRight">>></span> Destinations
+            .locationWidgetnewWrapper.clearfix
+
+                a(class="locationWidgetnew" href="/places/Africa.html")
+                    img(src="https://roaminglove.imgix.net/2016/11/rsz_babithehope-trueafrica-10.jpg?w=325&h=185&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
+                    h6
+                        div
+                            span Africa
+
+
+                a(class="locationWidgetnew" href="/places/Asia.html")
+                    img(src="https://roaminglove.imgix.net/2016/04/img_8855.jpg?w=325&h=185&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
+                    h6
+                        div
+                            span Asia
+
+
+                a(class="locationWidgetnew" href="/places/Canada.html")
+                    img(src="https://roaminglove.imgix.net/2016/12/IMG_2512_opt-1.jpg?w=325&h=185&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
+                    h6
+                        div
+                            span Canada
+
+
+                a(class="locationWidgetnew" href="/places/Caribbean.html")
+                    img(src="https://roaminglove.imgix.net/2017/04/UriramaBeach_opt.jpg?w=325&h=185&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
+                    h6
+                        div
+                            span Caribbean
+
+
+                a(class="locationWidgetnew" href="/places/Europe.html")
+                    img(src="https://roaminglove.imgix.net/2016/09/IMG_6767.jpg?w=325&h=185&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
+                    h6
+                        div
+                            span Europe
+
+
+                a(class="locationWidgetnew" href="/places/Latin-America.html")
+                    img(src="https://roaminglove.imgix.net/2016/08/IMG_4026_opt.jpg?w=325&h=185&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
+                    h6
+                        div
+                            span Latin America
+
+
+                a(class="locationWidgetnew" href="/places/Middle-East.html")
+                    img(src="https://roaminglove.imgix.net/2016/12/DSC3297-Copy_opt.jpg?w=325&h=185&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
+                    h6
+                        div
+                            span Middle East
+
+
+                a(class="locationWidgetnew" href="/places/Oceania.html")
+                    img(src="https://roaminglove.imgix.net/2016/10/aussie.jpg?w=325&h=185&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
+                    h6
+                        div
+                            span Oceania
+
+
+                a(class="locationWidgetnew" href="/places/United-States.html")
+                    img(src="https://roaminglove.imgix.net/2016/09/IMG_0231_opt.jpg?w=325&h=185&fit=crop&crop=entropy&auto=compress,format" class="img-responsive")
+                    h6
+                        div
+                            span United States
+
+            .btnWrapper
+                a.more.btn.btnSecondary(href="/Destinations.html") <span class="chevronsRight">>></span> All Destinations
+
         //- section
         //-     h1.pageHeading <span class="chevronsRight">>></span> Top Destinations
         //-     a(href="/places/colombia.html" class="locationWidget")
@@ -105,69 +223,72 @@ block content
         //-         a.more.btn.btnSecondary(href="/Destinations.html") <span class="chevronsRight">>></span> More Destinations
 
 
-        section
-            h1.pageHeading <span class="chevronsRight">>></span> Destinations
-            a(href="/places/asia.html" class="locationWidget locationWidget--lg")
-                h6
-                    span Asia
-                img(src="https://roaminglove.imgix.net/2016/04/img_8855.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
+        //- section
+        //-     h1.pageHeading <span class="chevronsRight">>></span> Destinations
+        //-     a(href="/places/asia.html" class="locationWidget locationWidget--lg")
+        //-         h6
+        //-             span Asia
+        //-         img(src="https://roaminglove.imgix.net/2016/04/img_8855.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
 
-            a(href="/places/africa.html" class="locationWidget locationWidget--lg")
-                h6
-                    span Africa
-                img(src="https://roaminglove.imgix.net/2016/11/rsz_babithehope-trueafrica-10.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
+        //-     a(href="/places/africa.html" class="locationWidget locationWidget--lg")
+        //-         h6
+        //-             span Africa
+        //-         img(src="https://roaminglove.imgix.net/2016/11/rsz_babithehope-trueafrica-10.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
 
-            a(href="/places/canada.html" class="locationWidget locationWidget--lg")
-                h6
-                    span Canada
-                img(src="https://roaminglove.imgix.net/2016/12/IMG_2512_opt-1.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
+        //-     a(href="/places/canada.html" class="locationWidget locationWidget--lg")
+        //-         h6
+        //-             span Canada
+        //-         img(src="https://roaminglove.imgix.net/2016/12/IMG_2512_opt-1.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
 
-            a(href="/places/europe.html" class="locationWidget locationWidget--lg")
-                h6
-                    span Europe
-                img(src="https://roaminglove.imgix.net/2016/09/IMG_6767.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
+        //-     a(href="/places/europe.html" class="locationWidget locationWidget--lg")
+        //-         h6
+        //-             span Europe
+        //-         img(src="https://roaminglove.imgix.net/2016/09/IMG_6767.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
 
-            a(href="/places/latin-america.html" class="locationWidget locationWidget--lg")
-                h6
-                    span Latin America
-                img(src="https://roaminglove.imgix.net/2016/08/IMG_4026_opt.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
+        //-     a(href="/places/latin-america.html" class="locationWidget locationWidget--lg")
+        //-         h6
+        //-             span Latin America
+        //-         img(src="https://roaminglove.imgix.net/2016/08/IMG_4026_opt.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
 
-            a(href="/places/middle-east.html" class="locationWidget locationWidget--lg")
-                h6
-                    span Middle East
-                img(src="https://roaminglove.imgix.net/2016/12/DSC3297-Copy_opt.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
+        //-     a(href="/places/middle-east.html" class="locationWidget locationWidget--lg")
+        //-         h6
+        //-             span Middle East
+        //-         img(src="https://roaminglove.imgix.net/2016/12/DSC3297-Copy_opt.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
 
 
-            a(href="/places/united-states.html" class="locationWidget locationWidget--lg")
-                h6
-                    span United States
-                img(src="https://roaminglove.imgix.net/2016/09/IMG_0231_opt.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
+        //-     a(href="/places/united-states.html" class="locationWidget locationWidget--lg")
+        //-         h6
+        //-             span United States
+        //-         img(src="https://roaminglove.imgix.net/2016/09/IMG_0231_opt.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
 
-            a(href="/places/oceania.html" class="locationWidget locationWidget--lg")
-                h6
-                    span Oceania
-                img(src="https://roaminglove.imgix.net/2016/10/aussie.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
+        //-     a(href="/places/oceania.html" class="locationWidget locationWidget--lg")
+        //-         h6
+        //-             span Oceania
+        //-         img(src="https://roaminglove.imgix.net/2016/10/aussie.jpg?w=935&h=406&fit=crop&crop=entropy&auto=compress,format")
 
-            .btnWrapper
-                a.more.btn.btnSecondary(href="/Destinations.html") <span class="chevronsRight">>></span> All Destinations
+        //-     .btnWrapper
+        //-         a.more.btn.btnSecondary(href="/Destinations.html") <span class="chevronsRight">>></span> All Destinations
 
         section
             .indexAbout#about
                 h1.pageHeading <span class="chevronsRight">>></span> What is Roaming Love?
                 p Travel is for everyone, and so is Roaming Love.
-                p We created this community after seeing too many social media celebrities make travel appear elite, glamourous and inaccessible.
-                p We allow people from around the world to contribute their travel stories and photographs for online publication. We hope these stories inspire others to travel, see the world, and join our community.
+                p We are an online publication that encourages people from around the world to contribute their travel stories and photographs to our community.
+                p We hope that by sharing these personal and raw experiences, we can dispel any myths that travel is dangerous, scary, or only for the elite and glamorous. Instead, we hope to inspire everyone to explore new places, see incredible landscapes, broaden their minds, and share it all with Roaming Love!
+
+                //- p We created this community after seeing too many social media celebrities make travel appear elite, glamourous and inaccessible.
+                //- p We allow people from around the world to contribute their travel stories and photographs for online publication. We hope these stories inspire others to travel, see the world, and join our community.
             .polaroidWrapper
                 div
-                    img(src="https://roaminglove.imgix.net/2016/11/unnamed-4_opt.jpg?w=200&h=215&fit=crop&crop=faces&auto=compress,format")
+                    img(src="https://roaminglove.imgix.net/2017/04/4_opt-9.jpg?w=200&h=215&fit=crop&crop=faces&auto=compress,format")
                 div
-                    img(src="https://roaminglove.imgix.net/2016/12/1_opt-1-1024x768.jpg?w=200&h=215&fit=crop&crop=entropy&auto=compress,format")
+                    img(src="https://roaminglove.imgix.net/2017/01/IMG_5414_opt.jpg?w=200&h=215&fit=crop&crop=entropy&auto=compress,format")
                 div
-                    img(src="https://roaminglove.imgix.net/2017/01/barcelona-skyline-full.jpg?w=200&h=215&fit=crop&crop=entropy&auto=compress,format")
+                    img(src="https://roaminglove.imgix.net/2017/04/14448844_1102632499821559_3434613000402549386_n_opt.jpg?w=200&h=215&fit=crop&crop=entropy&auto=compress,format")
                 div
-                    img(src="https://roaminglove.imgix.net/2016/12/IMG_2450_opt.jpg?w=200&h=215&fit=crop&crop=faces&auto=compress,format")
+                    img(src="https://roaminglove.imgix.net/2017/04/13179388_1340027682690548_993915160715889774_n_opt.jpg?w=200&h=215&fit=crop&crop=faces&auto=compress,format")
                 div
-                    img(src="https://roaminglove.imgix.net/2016/04/IMG_2329_opt.jpg?w=200&h=215&fit=crop&crop=faces&auto=compress,format")
+                    img(src="https://roaminglove.imgix.net/2017/05/DSC_1141_opt.jpg?w=200&h=215&fit=crop&crop=faces&auto=compress,format")
 
 
 
@@ -199,4 +320,62 @@ block JS
                   $("html, body").animate({ scrollTop: $('#about').offset().top }, 800);
                   e.preventDefault();
                 });
+
+                //resize function from stackoverflow.com/questions/2854407/javascript-jquery-window-resize-how-to-fire-after-the-resize-is-completed#answer-2854467
+                var delay = (function(){
+                  var timer = 0;
+                  return function(callback, ms){
+                    clearTimeout (timer);
+                    timer = setTimeout(callback, ms);
+                  };
+                })();
+
+
+                $(window).resize(function() {
+                    delay(function(){
+                      console.log('resized');
+                      equalizeHeights();
+                    }, 500);
+                });
+
+                equalizeHeights();
+
+                function equalizeHeights(selector) {
+                    var heights = new Array();
+
+                    // Loop to get all element heights
+                    $(".featureWidgetHead").each(function() {
+                        $(this).css('height', 'auto');
+                        // Then add size (no units) to array
+                        heights.push($(this).outerHeight(true));
+                    });
+
+                    // Find max height of all elements
+                    var max = Math.max.apply( Math, heights );
+
+                    // Set all heights to max height
+                    $(".featureWidgetHead").each(function() {
+                        $(this).css('height', max + 'px');
+                    });
+
+
+                    // Loop to get all element heights
+                    $(".featureWidget__desc").each(function() {
+                        $(this).css('height', 'auto');
+                        // Then add size (no units) to array
+                        heights.push($(this).outerHeight(true));
+                    });
+
+                    // Find max height of all elements
+                    var max = Math.max.apply( Math, heights );
+
+                    // Set all heights to max height
+                    $(".featureWidget__desc").each(function() {
+                        $(this).css('height', max + 'px');
+                    });
+
+                }
+
+
+
             });

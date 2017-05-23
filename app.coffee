@@ -50,7 +50,8 @@ module.exports =
                { name: 'Lucy Jamison', slug: 'lucy-jamison', index: 5 },
                { name: 'Luz Carreiro', slug: 'luz-carreiro', index: 6 },
                { name: 'Parniyan Fakharzadeh', slug: 'parniyan-fakharzadeh', index: 7 },
-               { name: 'Drame Djibril', slug: 'drame-djibril', index: 8 }],
+               { name: 'Drame Djibril', slug: 'drame-djibril', index: 8 },
+               { name: 'Nicole Marie Kitching', slug: 'nicole-marie-kitching', index: 9 }],
         template: "views/_author.jade",
         out: (author) -> "/authors/#{author.slug}"
       }

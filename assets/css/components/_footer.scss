@@ -25,16 +25,38 @@
 
     .section{
         background: $dark-gray;
-        // border-top: 7px solid $primary-color;
+        background-image: url(//roaminglove.imgix.net/2017/05/footer-bg-logo.png);
+        background-position: 305px 80px;
+        background-repeat: no-repeat;
         color: $white;
         @include outer-container;
         margin-top: 20px;
         padding-top: 50px;
         padding-bottom: 50px;
 
+        @media screen and (max-width: $vp-lg-max) {
+            background-position: 225px 95px;
+        }
+
+        @media screen and (max-width: $vp-md-max) {
+            background-position: 15px 119px;
+            background-size: 200px;
+        }
+
+        @media screen and (max-width: $vp-md-max) {
+            background-position: 330px 88px;
+            background-size: auto;
+        }
+
+        @media screen and (max-width: 550px) {
+            background-position: 146px 85px;
+            background-size: auto;
+        }
+
         @media screen and (max-width: 479px) {
             margin-left: -20px;
             margin-right: -20px;
+            background-position: 175px 320px;
         }
     }
 
@@ -50,18 +72,25 @@
     }
 
     &__summary {
-        @include span-columns(6 of 12);
+        @include span-columns(5 of 12);
         font-weight: 100;
         font-size: 16px;
         text-align: right;
+        margin-top: 4px;
+        position: relative;
 
         @media screen and (max-width: $vp-lg-max) {
-            @include span-columns(5 of 12);
+            padding-right: 50px;
         }
 
-
         @media screen and (max-width: $vp-md-max) {
-            @include span-columns(6 of 12);
+            font-size: 12px;
+            padding-right: 60px;
+        }
+
+        @media screen and (max-width: $vp-sm-max) {
+            @include span-columns(7 of 12);
+            padding-right: 0;
         }
 
         @media screen and (max-width: 479px) {
@@ -71,8 +100,27 @@
             font-size: 15px;
         }
 
+
+        // &:after {
+        //     content: " ";
+        //     position: absolute;
+        //     height: 100%;
+        //     width: 1px;
+        //     top: 0;
+        //     left: -50px;
+        //     background: white;
+
+        //     @media screen and (max-width: $vp-lg-max) {
+        //         display: none;
+        //     }
+        // }
+
+    }
+
+    &__newsletter {
+        @include span-columns(5 of 12);
+
         .formNewsletter {
-            margin-top: 30px;
 
             @media screen and (max-width: $vp-sm-max) {
                 position: absolute;
@@ -91,14 +139,17 @@
 
             &__title {
                 width: 320px;
-                float: right;
+                float: left;
                 margin-bottom: 5px;
                 padding-right: 5px;
                 border-bottom: 1px solid;
 
+                @media screen and (max-width: $vp-md-max) {
+                    width: auto;
+                }
+
                 @media screen and (max-width: $vp-sm-max) {
                     float: none;
-                    width: auto;
                     margin-bottom: 15px;
                     padding-bottom: 5px;
                 }
@@ -114,6 +165,9 @@
 
             &__main {
                 input {
+                    @media screen and (max-width: $vp-md-max) {
+                        width: 185px;
+                    }
                     @media screen and (max-width: $vp-xs-max) {
                         width: 190px;
                     }
@@ -136,14 +190,18 @@
 
 
     &__links {
-        @include span-columns(6 of 12);
+        @include span-columns(2 of 12);
 
-        @media screen and (max-width: $vp-lg-max) {
-            @include span-columns(7 of 12);
-        }
+        // @media screen and (max-width: $vp-lg-max) {
+        //     @include span-columns(7 of 12);
+        // }
 
-        @media screen and (max-width: $vp-md-max) {
-            @include span-columns(6 of 12);
+        // @media screen and (max-width: $vp-md-max) {
+        //     @include span-columns(6 of 12);
+        // }
+
+        @media screen and (max-width: $vp-sm-max) {
+            @include span-columns(5 of 12);
         }
 
         @media screen and (max-width: 479px) {
@@ -157,6 +215,7 @@
                 float: right;
                 margin-right: 10px;
             }
+
 
             @media screen and (max-width: 479px) {
                 float: none;
@@ -208,10 +267,12 @@
     }
 
     .instagramLink {
-        float: right;
         margin-top: 20px;
-        margin-right: 15px;
         color: $black;
+        float: none;
+        display: block;
+        max-width: 250px;
+        margin-left: auto;
 
         &:hover,
         &:active,
@@ -219,12 +280,8 @@
             background: $primary-color;
         }
 
-        @media screen and (max-width: $vp-md-max) {
-            margin-right: 55px;
-        }
 
         @media screen and (max-width: $vp-sm-max) {
-            margin-right: 0;
             margin-top: 30px;
         }
 

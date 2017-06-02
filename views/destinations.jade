@@ -90,6 +90,14 @@ block JS
         :uglify-js
             $(function() {
 
+                $('body').scrollspy({ target: '.destinationsnew__sidebar' })
+
+                function updateScrollSpy() {
+                    $('body').scrollspy('refresh');
+                    $(window).scrollTop($(window).scrollTop()+1);
+                }
+                setTimeout(updateScrollSpy, 500);
+
                 $("img.lazy").lazyload({
                     threshold : 115,
                     effect : "fadeIn"
@@ -127,8 +135,6 @@ block JS
                         }
                     });
                 }
-
-                $('body').scrollspy({ target: '.destinationsnew__sidebar' })
 
                 var pageHeight = $(".destinationsnew").outerHeight(true);
                 var sidebarOffset = $(".destinationsnew__sidebar").offset().top

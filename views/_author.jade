@@ -1,30 +1,29 @@
 extends layout
 
 block meta
-  title Roaming Love
+  title #{item.name} - Roaming Love
   mata(charset="utf-8")
-  meta(name='description', content='Roaming Love is an online community of travel storytellers. We allow readers a personal, honest look into our trips. We hope our stories inspire others to travel.')
+  meta(name='description', content='View all travel stories written by #{item.name} on Roaming Love - an online community of travel storytellers.')
 
   //- twitter card data
   meta(name="twitter:card" content="summary_large_image")
   meta(name="twitter:site" content="Roaming Love")
-  meta(name="twitter:title" content="Roaming Love")
-  meta(name="twitter:description" content="Roaming Love is an online community of travel storytellers. We allow readers a personal, honest look into our trips. We hope our stories inspire others to travel.")
+  meta(name="twitter:title" content="#{item.name} - Roaming Love")
+  meta(name="twitter:description" content="View all travel stories written by #{item.name} on Roaming Love - an online community of travel storytellers.")
   meta(name="twitter:creator" content="Roaming Love")
   meta(name="twitter:image:src" content="https://www.adminroaminglove.com/wp-content/uploads/2016/09/logo.svg")
 
   //- open graph data
-  meta(property="og:title" content="Roaming Love")
+  meta(property="og:title" content="#{item.name} - Roaming Love")
   meta(property="og:type" content="article")
-  meta(property="og:url" content="http://www.roaminglove.com")
   meta(property="og:image" content="https://www.adminroaminglove.com/wp-content/uploads/2016/09/logo.svg")
-  meta(property="og:description" content="Roaming Love is an online community of travel storytellers. We allow readers a personal, honest look into our trips. We hope our stories inspire others to travel.")
+  meta(property="og:description" content="View all travel stories written by #{item.name} on Roaming Love - an online community of travel storytellers.")
   meta(property="og:site_name" content="Roaming Love")
   //- meta(property="fb:admins" content="Facebook numeric ID")
 
   //- schema.org markup for google+
   meta(itemprop="name" content="Roaming Love")
-  meta(itemprop="description" content="Roaming Love is an online community of travel storytellers. We allow readers a personal, honest look into our trips. We hope our stories inspire others to travel.")
+  meta(itemprop="description" content="View all travel stories written by #{item.name} on Roaming Love - an online community of travel storytellers.")
   meta(itemprop="image" content="https://www.adminroaminglove.com/wp-content/uploads/2016/09/logo.svg")
 
 block content

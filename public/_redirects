@@ -1,6 +1,7 @@
 # 301 Redirects
-/post/Pub-Street-and-Siem-Reap-Night-Market         /post/pub-street              301
+/post/Pub-Street-and-Siem-Reap-Night-Market         /post/pub-street                        301
 /post/2195                                          /post/our-full-time-rving-experience    301
 /post/2195.html                                     /post/our-full-time-rving-experience    301
-/places/united-arab%20emirates                      /places/united-arab-emirates
-
+/places/united-arab%20emirates                      /places/united-arab-emirates            301
+/colombia                                           /places/colombia                        301
+/cambodia                                           /places/cambodia                        301

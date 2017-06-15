@@ -72,27 +72,9 @@ block JS
         :uglify-js
             $(function() {
                 $(document).ready(function() {
-                    var authorName, post2;
+                    var authorName, post2, post3;
                     authorName = $("#authorName").text();
 
-
-                    // $.get(config.api_url2, function(res) {
-                    //     console.log("foo1");
-                    //     console.log(res);
-                    //     console.log(authorName);
-                    //     post2 = res.posts;
-                    //     console.log(post2);
-                    //     // console.log(post2[0].categories);
-
-                        // $.each(post2, function(index, element) {
-                        //     // console.log(element.categories);
-                        //     if (element.author.name == authorName ) {
-                        //         $('.postWidget__wrapper').append($(templates.post({
-                        //             post: post2[index]
-                        //         })).hide().fadeIn());
-                        //     }
-                        // });
-                    // });
 
                     $.get(config.api_url2, function(res) {
                       $(".postWidget--loading").fadeOut().remove();
@@ -111,12 +93,36 @@ block JS
                               })).hide().fadeIn());
                           }
                       });
+                    }).done(function( data ) {
+                      console.log( "DONE" );
+
+                      $.get(config.api_url3, function(res) {
+                          post3 = res.posts;
+                          console.log("URL 3 LOADED");
+                          console.log(post3);
+
+                          $.each(post3, function(index2, element2) {
+                            // console.log(element.categories);
+                            if (element2.author.name == authorName ) {
+                                $('.postWidget__wrapper').append($(templates.post({
+                                    post: post3[index2]
+                                })).hide().fadeIn());
+                            }
+                          });
+                      });
                     });
 
 
-
-
-
+                    // $.get(config.api_url3, function(res) {
+                    //   post3 = res.posts;
+                    //   $.each(post3, function(index2, element2) {
+                    //     if (element2.author.name == authorName ) {
+                    //         $('.postWidget__wrapper').append($(templates.post({
+                    //             post: post3[index]
+                    //         })).hide().fadeIn());
+                    //     }
+                    //   });
+                    // });
 
                 });
             });

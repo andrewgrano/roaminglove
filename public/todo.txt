@@ -9,7 +9,6 @@ PERFORMANCE
 
 SEO
 -----
-- add sitemap
 - other?
 
 
@@ -34,16 +33,7 @@ BUG SQUASHING
 FOOTER
 ------
 - add instagram feed to footer
-- redesign visit
 
-
-- 301 redirects for posts that have had their title changed (also check disqus url)
-- replace admin front-end (www.adminroaminglove.com) with "coming soon" page
-
-- create disqus avatar
-- discuss extra customization(?)
-- read every post
-- Author Page: meta data
 
 REOCCURING
 -----------
@@ -54,3 +44,9 @@ OTHER
 -----
 - mask email address via mailgun
 - pay for private github account
+- 301 redirects for posts that have had their title changed (also check disqus url)
+- replace admin front-end (www.adminroaminglove.com) with "coming soon" page
+
+- create disqus avatar
+- discuss extra customization(?)
+- read every post

@@ -88,18 +88,6 @@
                 <li>Peru</li>
               </ul>
             </div></a></div>
-        <div class="postWidget"><a href="/post/the-rainbow-city-guatape.html">
-            <figure class="postWidget__img"><img src="https://roaminglove.imgix.net/2017/02/IMG_0214_opt.jpg?w=457&amp;h=300&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format">
-            </figure>
-            <div class="postWidget__content">
-              <div class="postWidget__main">
-                <div><span class="postWidget__title">The Rainbow City: Guatape</span><span class="postWidget__author">by Luz Carreiro</span></div>
-              </div>
-              <ul class="postWidget__categories">
-                <li>Colombia</li>
-                <li>Latin America</li>
-              </ul>
-            </div></a></div>
         <div class="postWidget postWidget--loading">
           <figure class="postWidget__img">
             <div class="sk-circle">
@@ -178,12 +166,14 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1","api_url2":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2","api_url3":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=3","static_items":14}</script>
+    <!-- != js('/')-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.js"></script>
     <script src="/js/templates.js"></script>
     <script src="/js/validation.js"></script>
+    <script src="/js/main.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -192,9 +182,8 @@
       ga('create', 'UA-45435817-2', 'auto');
       ga('send', 'pageview');
       
-    </script><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1","api_url2":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2","static_items":14}</script><script src='/js/category.js'></script>
-<script src='/js/main.js'></script>
-    <script>$(function(){$(document).ready(function(){var e,t;e=$("#authorName").text(),$.get(config.api_url2,function(p){$(".postWidget--loading").fadeOut().remove(),$(".postWidget__wrapper").removeClass("postWidget__wrapper--loading"),leftOverWidgetsCount=0,leftOverWidgets=[],t=p.posts,$.each(t,function(p,a){a.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:t[p]})).hide().fadeIn())})})})});
+    </script>
+    <script>$(function(){$(document).ready(function(){var e,t,s;e=$("#authorName").text(),$.get(config.api_url2,function(s){$(".postWidget--loading").fadeOut().remove(),$(".postWidget__wrapper").removeClass("postWidget__wrapper--loading"),leftOverWidgetsCount=0,leftOverWidgets=[],t=s.posts,$.each(t,function(s,p){p.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:t[s]})).hide().fadeIn())})}).done(function(){console.log("DONE"),$.get(config.api_url3,function(t){s=t.posts,console.log("URL 3 LOADED"),console.log(s),$.each(s,function(t,p){p.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:s[t]})).hide().fadeIn())})})})})});
     </script>
   </body>
 </html>

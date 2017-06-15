@@ -153,20 +153,498 @@ block JS
     script
         :uglify-js
             $(function() {
-                $(document).ready(function() {
+                var leftOverWidgetsCount;
+                var leftOverWidgets;
+                var widgetsCount
+                var numWidgets = $('.postWidget').length;
 
-                    var leftOverWidgetsCount;
-                    var leftOverWidgets;
 
-                    url2LoadWidgets = function() {
-                      $('.moreAlt--3inarow').on('click', function() {
-                        if( $("body").hasClass("url2LoadWidgets") ) {
-                          // console.log(leftOverWidgetsCount);
-                          if ( leftOverWidgetsCount > 0 ) {
-                            if (leftOverWidgets.length >= 6) {
-                              if (leftOverWidgets.length == 6) {
-                                $('.moreAlt--3inarow').fadeOut();
+                var $div_postWidget__loading = $("<div>", {"class": "postWidget postWidget--loading"});
+                var $figure_postWidget__img = $("<figure>", {"class": "postWidget__img"});
+                var $div_sk_circle = $("<div>", {"class": "sk-circle"});
+                var $sk_circle1 = $("<div>", {"class": "sk-circle1 sk-child"});
+                var $sk_circle2 = $("<div>", {"class": "sk-circle2 sk-child"});
+                var $sk_circle3 = $("<div>", {"class": "sk-circle3 sk-child"});
+                var $sk_circle4 = $("<div>", {"class": "sk-circle4 sk-child"});
+                var $sk_circle5 = $("<div>", {"class": "sk-circle5 sk-child"});
+                var $sk_circle6 = $("<div>", {"class": "sk-circle6 sk-child"});
+                var $sk_circle7 = $("<div>", {"class": "sk-circle7 sk-child"});
+                var $sk_circle8 = $("<div>", {"class": "sk-circle8 sk-child"});
+                var $sk_circle9 = $("<div>", {"class": "sk-circle9 sk-child"});
+                var $sk_circle10 = $("<div>", {"class": "sk-circle10 sk-child"});
+                var $sk_circle11 = $("<div>", {"class": "sk-circle11 sk-child"});
+                var $sk_circle12 = $("<div>", {"class": "sk-circle12 sk-child"});
+                var $div_postWidget__content = $("<div>", {"class": "postWidget__content"});
+
+
+
+                // All 12 widgets exsist on-page-load (because all 12 were in api_url1)
+                if (numWidgets >= 13) {
+                  console.log("All 12 widgets exsist on-page-load, numWidgets is " + numWidgets)
+                  // console.log(numWidgets);
+
+                  $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
+                  $(".postWidget--loading").addClass("hide");
+
+                  $(".btnWrapper").removeClass("hide");
+                  $('.moreAlt--3inarow').removeClass('disabled');
+
+                  var categoryName, post, post2;
+                  categoryName = $("#categoryName").text();
+
+
+                  var numWidgetsHidden = $(".postWidget__wrapper2").children().length;
+                  $(".postWidget__wrapper2").children().each(function (z) {
+                      $(this).addClass('postWidget--hidden');
+                      $(this).data('index', z);
+                  });
+
+                  $('.moreAlt--3inarow').on('click', function() {
+                    if( !$("body").hasClass("url3Loaded") ) {
+                      console.log("CLICKED, body does NOT have class url3Loaded");
+
+                      if( !$("body").hasClass("foobar") ) {
+                        console.log("CLICKED, body does NOT have class url3Loaded");
+
+                        numWidgetsHidden = $(".postWidget__wrapper2").children().length;
+                        // console.log("number of hidden widgets is " + numWidgetsHidden);
+
+                        if ( numWidgetsHidden >= 12 ) {
+                          console.log("numWidgetsHidden is greater than or equal to 12, it is " + numWidgetsHidden)
+
+                          $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
+                          $(".postWidget--loading").addClass("hide");
+
+                          for (var i = 0; i < 12; i++) {
+                            // console.log(i);
+                            $.each( $(".postWidget--hidden"), function() {
+                              if( $(this).data("index") === i ) {
+                                $(this).addClass("interum");
+                                $(this).removeClass("postWidget--hidden");
+                                $(this).appendTo(".postWidget__wrapper").addClass("interum").hide();
                               }
+                            });
+                          }
+
+                          $(".postWidget__wrapper2").appendTo(".postWidget__wrapper");
+                          $(".postWidget--loading").appendTo(".postWidget__wrapper");
+
+                          $(".postWidget.interum").fadeIn( 400, function() {
+                            $(".postWidget.interum").removeAttr('style').removeAttr('data-index').removeClass('interum');
+                            $(".postWidget__wrapper2").children().each(function (x) {
+                              $(this).data('index', x);
+                            });
+                          });
+
+                        } else {
+                          console.log("numWidgetsHidden is less than 12, it is " + numWidgetsHidden)
+
+                          $(".btnWrapper").addClass("hide");
+                          $('.moreAlt--3inarow').addClass('disabled');
+                          $('.postWidget__wrapper2').children(".postWidget").appendTo(".postWidget__wrapper").addClass("interum").hide();
+                          $(".postWidget--loading").appendTo(".postWidget__wrapper");
+                          $('.postWidget__wrapper2').remove();
+
+                          $(".postWidget__wrapper").addClass("postWidget__wrapper--loading");
+                          $(".postWidget--loading").removeClass("hide");
+
+                          $(".postWidget.interum").removeClass("interum").fadeIn();
+
+                          $.get(config.api_url2, function(res) {
+                            $('.moreAlt--3inarow').removeClass('disabled');
+                            $(".postWidget--loading").fadeOut().remove();
+                            $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
+
+                            $("body").addClass("url2Loaded");
+
+                            widgetsCount = numWidgetsHidden;
+                            leftOverWidgetsCount = 0;
+                            leftOverWidgets = [];
+                            post2 = res.posts;
+
+                            url2LoadWidgets();
+
+                          });
+                        }
+                      }
+                    }
+                  });
+
+                //// All 12 widgets DID NOT APPEAR on-page-load
+                } else {
+                  $('.postWidget__wrapper2').remove();
+
+                  var categoryName, post, post2;
+                  categoryName = $("#categoryName").text();
+
+                  $.get(config.api_url2, function(res) {
+                      // All 12 widgets DID NOT APPEAR on-page-load
+                      // So Load widgets from URL2
+                      $('.moreAlt--3inarow').removeClass('disabled');
+                      $(".postWidget--loading").fadeOut().remove();
+                      $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
+
+                      $("body").addClass("url2Loaded");
+
+                      widgetsCount = (numWidgets - 1);
+                      leftOverWidgetsCount = 0;
+                      leftOverWidgets = [];
+                      post2 = res.posts;
+
+                      url2LoadWidgets();
+
+                  });
+                }
+
+                // /////////////////////////////////////////////
+
+                $('.moreAlt--3inarow').on('click', function() {
+                  if( $("body").hasClass("url3Loaded") ) {
+                    console.log("CLICKED, body DOES HAVE class url3Loaded");
+                    console.log(leftOverWidgetsCount);
+
+                    if ( leftOverWidgetsCount > 0 ) {
+                      if (leftOverWidgets.length >= 6) {
+                        if (leftOverWidgets.length == 6) {
+                          $('.moreAlt--3inarow').fadeOut();
+                        }
+                        $('.postWidget__wrapper').append($(templates.post({
+                          post: leftOverWidgets[0]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[1]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[2]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[3]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[4]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[5]
+                        })).hide().fadeIn());
+                        return leftOverWidgets.splice(0, 6);
+                      } else if (leftOverWidgets.length === 5) {
+                        $('.postWidget__wrapper').append($(templates.post({
+                          post: leftOverWidgets[0]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[1]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[2]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[3]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[3]
+                        })).hide().fadeIn());
+                        leftOverWidgets.splice(0, 5);
+                        return $('.moreAlt--3inarow').fadeOut();
+                      } else if (leftOverWidgets.length === 4) {
+                        $('.postWidget__wrapper').append($(templates.post({
+                          post: leftOverWidgets[0]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[1]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[2]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[3]
+                        })).hide().fadeIn());
+                        leftOverWidgets.splice(0, 4);
+                        return $('.moreAlt--3inarow').fadeOut();
+                      } else if (leftOverWidgets.length === 3) {
+                        $('.postWidget__wrapper').append($(templates.post({
+                          post: leftOverWidgets[0]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[1]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[2]
+                        })).hide().fadeIn());
+                        leftOverWidgets.splice(0, 3);
+                        return $('.moreAlt--3inarow').fadeOut();
+                      } else if (leftOverWidgets.length === 2) {
+                        $('.postWidget__wrapper').append($(templates.post({
+                          post: leftOverWidgets[0]
+                        })).hide().fadeIn(), $(templates.post({
+                          post: leftOverWidgets[1]
+                        })).hide().fadeIn());
+                        leftOverWidgets.splice(0, 2);
+                        return $('.moreAlt--3inarow').fadeOut();
+                      } else if (leftOverWidgets.length === 1) {
+                        $('.postWidget__wrapper').append($(templates.post({
+                          post: leftOverWidgets[0]
+                        })).hide().fadeIn());
+                        leftOverWidgets.splice(0, 1);
+                        return $('.moreAlt--3inarow').fadeOut();
+                      }
+                    } else {
+                      $('.moreAlt--3inarow').fadeOut();
+                    }
+                  }
+                });
+
+
+
+                url2LoadWidgets = function() {
+                  $.each(post2, function(index, element) {
+                      // console.log(element.categories);
+                      $.each(element.categories, function(index2, element2) {
+                          // console.log(index + element2.name);
+                          if ( element2.name == categoryName ) {
+                              widgetsCount++
+                              console.log("url2, widgets count is " + widgetsCount);
+                              // console.log("yes, post number " + index + " is a match")
+                              if ( widgetsCount <= 12 ) {
+                                $('.postWidget__wrapper').append($(templates.post({
+                                    post: post2[index]
+                                })).hide().fadeIn());
+                                console.log("url2, option 1");
+                              } else {
+                                leftOverWidgetsCount++
+                                console.log("api2, leftOverWidgets count is " + leftOverWidgetsCount);
+                                leftOverWidgets.push(post2[index]);
+                                $(".btnWrapper").removeClass("hide");
+                              }
+                          }
+                      });
+                  });
+
+                  console.log("directly before loading url 3, widget count is " + widgetsCount);
+
+                  if( widgetsCount < 12 ) {
+                      // All 12 widgets DID NOT APPEAR on-page-load
+                      // Loaded URL 2, but still less than 12 widgets total
+                      // LOAD URL 3 HERE, display widgets instantly
+                      console.log("LOAD URL 3 HERE, display widgets instantly")
+
+                      $sk_circle1.appendTo($div_sk_circle);
+                      $sk_circle2.appendTo($div_sk_circle);
+                      $sk_circle3.appendTo($div_sk_circle);
+                      $sk_circle4.appendTo($div_sk_circle);
+                      $sk_circle5.appendTo($div_sk_circle);
+                      $sk_circle6.appendTo($div_sk_circle);
+                      $sk_circle7.appendTo($div_sk_circle);
+                      $sk_circle8.appendTo($div_sk_circle);
+                      $sk_circle9.appendTo($div_sk_circle);
+                      $sk_circle10.appendTo($div_sk_circle);
+                      $sk_circle11.appendTo($div_sk_circle);
+                      $sk_circle12.appendTo($div_sk_circle);
+                      $div_sk_circle.appendTo($figure_postWidget__img);
+                      $figure_postWidget__img.appendTo($div_postWidget__loading);
+                      $div_postWidget__content.appendTo($div_postWidget__loading);
+                      $div_postWidget__loading.appendTo(".postWidget__wrapper");
+
+                      $(".postWidget__wrapper").addClass("postWidget__wrapper--loading");
+                      $(".postWidget--loading").removeClass("hide");
+                      // $(".postWidget.interum").removeClass("interum").fadeIn();
+
+                      $.get(config.api_url3, function(res) {
+                          $('.moreAlt--3inarow').removeClass('disabled');
+                          $(".postWidget--loading").fadeOut().remove();
+                          $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
+
+                          $("body").addClass("url3Loaded");
+                          // var widgetsCount = numWidgets;
+                          // leftOverWidgetsCount = 0;
+                          // leftOverWidgets = [];
+                          post3 = res.posts;
+                          console.log("URL 3 LOADED");
+                          console.log(post3);
+
+                          $.each(post3, function(index, element) {
+                              // console.log(element.categories);
+                              $.each(element.categories, function(index2, element2) {
+                                  // console.log(index + element2.name);
+                                  if ( element2.name == categoryName ) {
+                                      widgetsCount++
+                                      console.log("url3, widgets count is " + widgetsCount);
+                                      // console.log("yes, post number " + index + " is a match")
+                                      if ( widgetsCount <= 12 ) {
+                                        $('.postWidget__wrapper').append($(templates.post({
+                                            post: post3[index]
+                                        })).hide().fadeIn());
+                                        console.log("url3, option 1");
+                                      } else {
+                                        leftOverWidgetsCount++
+                                        console.log("url3, leftOverWidgets count is " + leftOverWidgetsCount);
+                                        leftOverWidgets.push(post3[index]);
+                                        $(".btnWrapper").removeClass("hide");
+
+                                      }
+                                  }
+                              });
+                          });
+
+                      });
+
+                  // } else if( widgetsCount === 12 ) {
+                  //     // All 12 widgets DID NOT APPEAR on-page-load
+                  //     // Loaded URL 2, and now 12 widgets are displayed
+                  //     // There are no more widgets for this category in URL 2, so
+                  //     // LOAD URL 3 HERE on the BTN
+                  //     console.log("LOAD URL 3 HERE on the BTN")
+
+                  } else if ( widgetsCount >= 12 ) {
+                      // All 12 widgets DID NOT APPEAR on-page-load
+                      // Loaded URL 2, and now 12 widgets are displayed
+                      // There are more widgets for this category in URL 2, so
+                      // wait until btn click, display 12 more widgets from URL 2 or from URL 2 & URL 3
+                      $("body").addClass("foobar");
+                      console.log("wait until btn click, display 12 more widgets from URL 2 or from URL 2 & URL 3")
+
+                      $('.moreAlt--3inarow').on('click', function() {
+                          console.log("CLICKED FOOBAR");
+
+                          console.log("leftOverWidgetsCount is " + leftOverWidgetsCount);
+
+                          if ( leftOverWidgetsCount >= 12 ) {
+                            //if there are still 12 remaining widgets from URL 2, display them on-click of btn
+                            console.log("there are still 12 remaining widgets from URL 2, display them on-click of btn");
+
+
+                            $('.postWidget__wrapper').append($(templates.post({
+                              post: leftOverWidgets[0]
+                            })).hide().fadeIn(), $(templates.post({
+                              post: leftOverWidgets[1]
+                            })).hide().fadeIn(), $(templates.post({
+                              post: leftOverWidgets[2]
+                            })).hide().fadeIn(), $(templates.post({
+                              post: leftOverWidgets[3]
+                            })).hide().fadeIn(), $(templates.post({
+                              post: leftOverWidgets[4]
+                            })).hide().fadeIn(), $(templates.post({
+                              post: leftOverWidgets[5]
+                            })).hide().fadeIn(), $(templates.post({
+                              post: leftOverWidgets[6]
+                            })).hide().fadeIn(), $(templates.post({
+                              post: leftOverWidgets[7]
+                            })).hide().fadeIn(), $(templates.post({
+                              post: leftOverWidgets[8]
+                            })).hide().fadeIn(), $(templates.post({
+                              post: leftOverWidgets[9]
+                            })).hide().fadeIn(), $(templates.post({
+                              post: leftOverWidgets[10]
+                            })).hide().fadeIn(), $(templates.post({
+                              post: leftOverWidgets[11]
+                            })).hide().fadeIn());
+                            leftOverWidgets.splice(0, 12);
+
+                            leftOverWidgetsCount = ( leftOverWidgetsCount - 12 );
+
+                          } else if (leftOverWidgetsCount < 12) {
+                            //there are less than 12 remaining widgets from URL2.  Display the remaining ones and then Load URL 3
+                            console.log("there are less than 12 remaining widgets from URL2.  Display the remaining ones and then Load URL 3");
+
+                            console.log("leftOverWidget Count is " + leftOverWidgetsCount);
+
+                            if (leftOverWidgets.length === 11) {
+
+                              $('.postWidget__wrapper').append($(templates.post({
+                                post: leftOverWidgets[0]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[1]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[2]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[3]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[4]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[5]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[6]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[7]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[8]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[9]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[10]
+                              })).hide().fadeIn());
+                              leftOverWidgets.splice(0, 11);
+                            } else if (leftOverWidgets.length === 10) {
+
+                              $('.postWidget__wrapper').append($(templates.post({
+                                post: leftOverWidgets[0]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[1]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[2]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[3]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[4]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[5]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[6]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[7]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[8]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[9]
+                              })).hide().fadeIn());
+                              leftOverWidgets.splice(0, 10);
+                            } else if (leftOverWidgets.length === 9) {
+
+                              $('.postWidget__wrapper').append($(templates.post({
+                                post: leftOverWidgets[0]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[1]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[2]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[3]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[4]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[5]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[6]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[7]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[8]
+                              })).hide().fadeIn());
+                              leftOverWidgets.splice(0, 9);
+                            } else if (leftOverWidgets.length === 8) {
+
+                              $('.postWidget__wrapper').append($(templates.post({
+                                post: leftOverWidgets[0]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[1]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[2]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[3]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[4]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[5]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[6]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[7]
+                              })).hide().fadeIn());
+                              leftOverWidgets.splice(0, 8);
+                            } else if (leftOverWidgets.length === 7) {
+
+                              $('.postWidget__wrapper').append($(templates.post({
+                                post: leftOverWidgets[0]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[1]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[2]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[3]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[4]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[5]
+                              })).hide().fadeIn(), $(templates.post({
+                                post: leftOverWidgets[6]
+                              })).hide().fadeIn());
+                              leftOverWidgets.splice(0, 7);
+                            } else if (leftOverWidgets.length === 6) {
+
                               $('.postWidget__wrapper').append($(templates.post({
                                 post: leftOverWidgets[0]
                               })).hide().fadeIn(), $(templates.post({
@@ -180,7 +658,8 @@ block JS
                               })).hide().fadeIn(), $(templates.post({
                                 post: leftOverWidgets[5]
                               })).hide().fadeIn());
-                              return leftOverWidgets.splice(0, 6);
+                              leftOverWidgets.splice(0, 6);
+
                             } else if (leftOverWidgets.length === 5) {
                               $('.postWidget__wrapper').append($(templates.post({
                                 post: leftOverWidgets[0]
@@ -191,10 +670,10 @@ block JS
                               })).hide().fadeIn(), $(templates.post({
                                 post: leftOverWidgets[3]
                               })).hide().fadeIn(), $(templates.post({
-                                post: leftOverWidgets[3]
+                                post: leftOverWidgets[4]
                               })).hide().fadeIn());
                               leftOverWidgets.splice(0, 5);
-                              return $('.moreAlt--3inarow').fadeOut();
+
                             } else if (leftOverWidgets.length === 4) {
                               $('.postWidget__wrapper').append($(templates.post({
                                 post: leftOverWidgets[0]
@@ -206,7 +685,7 @@ block JS
                                 post: leftOverWidgets[3]
                               })).hide().fadeIn());
                               leftOverWidgets.splice(0, 4);
-                              return $('.moreAlt--3inarow').fadeOut();
+
                             } else if (leftOverWidgets.length === 3) {
                               $('.postWidget__wrapper').append($(templates.post({
                                 post: leftOverWidgets[0]
@@ -216,7 +695,7 @@ block JS
                                 post: leftOverWidgets[2]
                               })).hide().fadeIn());
                               leftOverWidgets.splice(0, 3);
-                              return $('.moreAlt--3inarow').fadeOut();
+
                             } else if (leftOverWidgets.length === 2) {
                               $('.postWidget__wrapper').append($(templates.post({
                                 post: leftOverWidgets[0]
@@ -224,177 +703,90 @@ block JS
                                 post: leftOverWidgets[1]
                               })).hide().fadeIn());
                               leftOverWidgets.splice(0, 2);
-                              return $('.moreAlt--3inarow').fadeOut();
+
                             } else if (leftOverWidgets.length === 1) {
                               $('.postWidget__wrapper').append($(templates.post({
                                 post: leftOverWidgets[0]
                               })).hide().fadeIn());
                               leftOverWidgets.splice(0, 1);
-                              return $('.moreAlt--3inarow').fadeOut();
-                            }
-                          } else {
-                            $('.moreAlt--3inarow').fadeOut();
-                          }
-                        }
-                      });
-                    };
-
-                    var numWidgets = $('.postWidget').length;
-
-                    //if all 12 widgets exsist on-page-load (because all 12 were in api_url1)
-                    if (numWidgets >= 13) {
-                      // console.log(numWidgets);
-
-                      $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
-                      $(".postWidget--loading").addClass("hide");
-
-                      $(".btnWrapper").removeClass("hide");
-                      $('.moreAlt--3inarow').removeClass('disabled');
-
-                      var categoryName, post, post2;
-                      categoryName = $("#categoryName").text();
-
-
-                      var numWidgetsHidden = $(".postWidget__wrapper2").children().length;
-                      $(".postWidget__wrapper2").children().each(function (z) {
-                          $(this).addClass('postWidget--hidden');
-                          $(this).data('index', z);
-                      });
-
-                      $('.moreAlt--3inarow').on('click', function() {
-                        if( !$("body").hasClass("url2LoadWidgets") ) {
-
-                          numWidgetsHidden = $(".postWidget__wrapper2").children().length;
-                          // console.log("number of hidden widgets is " + numWidgetsHidden);
-
-                          if ( numWidgetsHidden >= 6 ) {
-                            // console.log("option ONE")
-
-                            $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
-                            $(".postWidget--loading").addClass("hide");
-
-                            for (var i = 0; i < 6; i++) {
-                              // console.log(i);
-                              $.each( $(".postWidget--hidden"), function() {
-                                if( $(this).data("index") === i ) {
-                                  $(this).addClass("interum");
-                                  $(this).removeClass("postWidget--hidden");
-                                  $(this).appendTo(".postWidget__wrapper").addClass("interum").hide();
-                                }
-                              });
                             }
 
-                            $(".postWidget__wrapper2").appendTo(".postWidget__wrapper");
-                            $(".postWidget--loading").appendTo(".postWidget__wrapper");
 
-                            $(".postWidget.interum").fadeIn( 400, function() {
-                              $(".postWidget.interum").removeAttr('style').removeAttr('data-index').removeClass('interum');
-                              $(".postWidget__wrapper2").children().each(function (x) {
-                                $(this).data('index', x);
-                              });
-                            });
-
-
-
-                          } else {
-                            // console.log("option TWO")
                             $(".btnWrapper").addClass("hide");
                             $('.moreAlt--3inarow').addClass('disabled');
                             $('.postWidget__wrapper2').children(".postWidget").appendTo(".postWidget__wrapper").addClass("interum").hide();
-                            $(".postWidget--loading").appendTo(".postWidget__wrapper");
-                            $('.postWidget__wrapper2').remove();
 
+
+                            $sk_circle1.appendTo($div_sk_circle);
+                            $sk_circle2.appendTo($div_sk_circle);
+                            $sk_circle3.appendTo($div_sk_circle);
+                            $sk_circle4.appendTo($div_sk_circle);
+                            $sk_circle5.appendTo($div_sk_circle);
+                            $sk_circle6.appendTo($div_sk_circle);
+                            $sk_circle7.appendTo($div_sk_circle);
+                            $sk_circle8.appendTo($div_sk_circle);
+                            $sk_circle9.appendTo($div_sk_circle);
+                            $sk_circle10.appendTo($div_sk_circle);
+                            $sk_circle11.appendTo($div_sk_circle);
+                            $sk_circle12.appendTo($div_sk_circle);
+                            $div_sk_circle.appendTo($figure_postWidget__img);
+                            $figure_postWidget__img.appendTo($div_postWidget__loading);
+                            $div_postWidget__content.appendTo($div_postWidget__loading);
+                            $div_postWidget__loading.appendTo(".postWidget__wrapper");
+
+
+                            $('.postWidget__wrapper2').remove();
                             $(".postWidget__wrapper").addClass("postWidget__wrapper--loading");
                             $(".postWidget--loading").removeClass("hide");
 
                             $(".postWidget.interum").removeClass("interum").fadeIn();
 
-                            $.get(config.api_url2, function(res) {
-                              $('.moreAlt--3inarow').removeClass('disabled');
-                              $(".postWidget--loading").fadeOut().remove();
-                              $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
+                            console.log("everything loaded, now leftOverWidget Count is " + leftOverWidgetsCount);
 
-                              var widgetsCount = numWidgetsHidden;
-                              leftOverWidgetsCount = 0;
-                              leftOverWidgets = [];
-                              post2 = res.posts;
+                            //then Load URL 3
+                            $.get(config.api_url3, function(res) {
+                                $('.moreAlt--3inarow').removeClass('disabled');
+                                $(".postWidget--loading").fadeOut().remove();
+                                $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
 
-                              $.each(post2, function(index, element) {
-                                $.each(element.categories, function(index2, element2) {
-                                  if ( element2.name == categoryName ) {
-                                    widgetsCount++;
-                                    // console.log("widgetsCount is " + widgetsCount);
-                                    if ( widgetsCount < 7 ) {
-                                      $('.postWidget__wrapper').append($(templates.post({
-                                          post: post2[index]
-                                      })).hide().fadeIn());
-                                    } else {
-                                      leftOverWidgetsCount++;
-                                      // console.log("leftOverWidgets count is " + leftOverWidgetsCount);
-                                      leftOverWidgets.push(post2[index]);
-                                      // console.log("leftOverWidgets second");
-                                      // console.log(leftOverWidgets);
-                                      $(".btnWrapper").removeClass("hide");
-                                      $("body").addClass("url2LoadWidgets");
-                                      url2LoadWidgets();
-                                    }
-                                  }
+                                $("body").addClass("url3Loaded");
+                                // var widgetsCount = numWidgets;
+                                // leftOverWidgetsCount = 0;
+                                // leftOverWidgets = [];
+                                post3 = res.posts;
+                                console.log("URL 3 LOADED");
+                                console.log(post3);
+
+                                $.each(post3, function(index, element) {
+                                    // console.log(element.categories);
+                                    $.each(element.categories, function(index2, element2) {
+                                        // console.log(index + element2.name);
+                                        if ( element2.name == categoryName ) {
+                                            widgetsCount++
+                                            console.log("url3, widgets count is " + widgetsCount);
+                                            // console.log("yes, post number " + index + " is a match")
+                                            if ( widgetsCount <= 12 ) {
+                                              $('.postWidget__wrapper').append($(templates.post({
+                                                  post: post3[index]
+                                              })).hide().fadeIn());
+                                              console.log("url3, option 1");
+                                            } else {
+                                              leftOverWidgetsCount++
+                                              console.log("url3, leftOverWidgets count is " + leftOverWidgetsCount);
+                                              leftOverWidgets.push(post3[index]);
+                                              $(".btnWrapper").removeClass("hide");
+                                            }
+                                        }
+                                    });
                                 });
-                              });
+
                             });
                           }
-                        }
                       });
+                  }
 
-                    ////else if all 12 widgets DID NOT APPEAR on-page-load
-                    } else {
-                      $('.postWidget__wrapper2').remove();
+                };
 
-                      var categoryName, post, post2;
-                      categoryName = $("#categoryName").text();
-
-
-                      $.get(config.api_url2, function(res) {
-                          $('.moreAlt--3inarow').removeClass('disabled');
-                          $(".postWidget--loading").fadeOut().remove();
-                          $(".postWidget__wrapper").removeClass("postWidget__wrapper--loading");
-
-                          var widgetsCount = numWidgets;
-                          leftOverWidgetsCount = 0;
-                          leftOverWidgets = [];
-                          post2 = res.posts;
-
-                          // console.log("leftOverWidgets first");
-                          // console.log(leftOverWidgets);
-                          $.each(post2, function(index, element) {
-                              // console.log(element.categories);
-                              $.each(element.categories, function(index2, element2) {
-                                  // console.log(index + element2.name);
-                                  if ( element2.name == categoryName ) {
-                                      widgetsCount++
-                                      // console.log(widgetsCount);
-                                      // console.log("yes, post number " + index + " is a match")
-                                      if ( widgetsCount < 14 ) {
-                                        $('.postWidget__wrapper').append($(templates.post({
-                                            post: post2[index]
-                                        })).hide().fadeIn());
-                                      } else {
-                                        leftOverWidgetsCount++
-                                        // console.log("leftOverWidgets count is " + leftOverWidgetsCount);
-                                        leftOverWidgets.push(post2[index]);
-                                        // console.log("leftOverWidgets second");
-                                        // console.log(leftOverWidgets);
-                                        $(".btnWrapper").removeClass("hide");
-                                      }
-                                  }
-                              });
-                          });
-
-                          $("body").addClass("url2LoadWidgets");
-                          url2LoadWidgets();
-                      });
-                    }
-                });
             });
 
 

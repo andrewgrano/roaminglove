@@ -26,11 +26,16 @@ html
     block content
     include ../includes/footer.jade
 
+    != config_js()
+    // != js('/')
+
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js')
     script(src='https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.js')
     script(src='/js/templates.js')
     script(src='/js/validation.js')
+    script(src='/js/main.js')
+
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -39,6 +44,4 @@ html
       ga('create', 'UA-45435817-2', 'auto');
       ga('send', 'pageview');
 
-    != config_js()
-    != js('/')
     block JS

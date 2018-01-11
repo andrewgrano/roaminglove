@@ -13,6 +13,7 @@ records      = require 'roots-records'
 api_url  = 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1'
 api_url2 = 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2'
 api_url3 = 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=3'
+api_url4 = 'https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=4'
 
 module.exports =
   ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']
@@ -26,7 +27,7 @@ module.exports =
     #     post:
     #       template: 'views/_single.jade'
     #       number: 100
-    config(api_url: api_url, api_url2: api_url2, api_url3: api_url3, static_items: 14),
+    config(api_url: api_url, api_url2: api_url2, api_url3: api_url3, api_url4: api_url4, static_items: 14),
     templates(base: 'views/templates')
     records(
       categories: {

@@ -47,23 +47,8 @@
       <div class="authorPageHeader">
         <h1 class="pageHeading"><span class="chevronsRight">>></span> Travel Stories by Cristina Jones</h1>
         <div id="authorName" class="hide">Cristina Jones</div>
-        <div>
-          <div class="authorPageHeader__link">Follow Cristina Jones: <a href="http://cristinaalynn.wixsite.com/cristinajones" target="blank">cristinaalynn.wixsite.com/cristinajones</a> <a href="https://www.instagram.com/cristinajones_photography" target="blank">Instagram</a></div>
-        </div>
       </div>
       <div class="postWidget__wrapper postWidget__wrapper--loading">
-        <div class="postWidget"><a href="/post/north-carolina-the-land-of-waterfalls.html">
-            <figure class="postWidget__img"><img src="https://roaminglove.imgix.net/2017/06/2_opt.jpg?w=457&amp;h=300&amp;fit=crop&amp;crop=entropy&amp;auto=compress,format">
-            </figure>
-            <div class="postWidget__content">
-              <div class="postWidget__main">
-                <div><span class="postWidget__title">North Carolina: The Land of Waterfalls</span><span class="postWidget__author">by Cristina Jones</span></div>
-              </div>
-              <ul class="postWidget__categories">
-                <li>North Carolina</li>
-                <li>United States</li>
-              </ul>
-            </div></a></div>
         <div class="postWidget postWidget--loading">
           <figure class="postWidget__img">
             <div class="sk-circle">
@@ -142,7 +127,7 @@
           </div>
         </div>
       </div>
-    </footer><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1","api_url2":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2","api_url3":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=3","static_items":14}</script>
+    </footer><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1","api_url2":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2","api_url3":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=3","api_url4":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=4","static_items":14}</script>
     <!-- != js('/')-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
@@ -159,7 +144,7 @@
       ga('send', 'pageview');
       
     </script>
-    <script>$(function(){$(document).ready(function(){var e,t,s;e=$("#authorName").text(),$.get(config.api_url2,function(s){$(".postWidget--loading").fadeOut().remove(),$(".postWidget__wrapper").removeClass("postWidget__wrapper--loading"),leftOverWidgetsCount=0,leftOverWidgets=[],t=s.posts,$.each(t,function(s,p){p.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:t[s]})).hide().fadeIn())})}).done(function(){console.log("DONE"),$.get(config.api_url3,function(t){s=t.posts,console.log("URL 3 LOADED"),console.log(s),$.each(s,function(t,p){p.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:s[t]})).hide().fadeIn())})})})})});
+    <script>$(function(){$(document).ready(function(){var e,t,s;e=$("#authorName").text(),$.get(config.api_url2,function(s){$(".postWidget--loading").fadeOut().remove(),$(".postWidget__wrapper").removeClass("postWidget__wrapper--loading"),leftOverWidgetsCount=0,leftOverWidgets=[],t=s.posts,$.each(t,function(s,p){p.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:t[s]})).hide().fadeIn())})}).done(function(){console.log("DONE"),$.get(config.api_url3,function(t){s=t.posts,console.log("URL 3 LOADED"),console.log(s),$.each(s,function(t,p){p.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:s[t]})).hide().fadeIn())})})}).done(function(){console.log("DONE AGAIN"),$.get(config.api_url4,function(t){post4=t.posts,console.log("URL 4 LOADED"),console.log(post4),$.each(post4,function(t,s){s.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:post4[t]})).hide().fadeIn())})})})})});
     </script>
   </body>
 </html>

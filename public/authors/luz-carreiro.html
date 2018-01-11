@@ -127,7 +127,7 @@
           </div>
         </div>
       </div>
-    </footer><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1","api_url2":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2","api_url3":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=3","static_items":14}</script>
+    </footer><script>window.config = {"api_url":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=1","api_url2":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=2","api_url3":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=3","api_url4":"https://public-api.wordpress.com/rest/v1/sites/107.170.229.16/posts?number=100&page=4","static_items":14}</script>
     <!-- != js('/')-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.min.js"></script>
@@ -144,7 +144,7 @@
       ga('send', 'pageview');
       
     </script>
-    <script>$(function(){$(document).ready(function(){var e,t,s;e=$("#authorName").text(),$.get(config.api_url2,function(s){$(".postWidget--loading").fadeOut().remove(),$(".postWidget__wrapper").removeClass("postWidget__wrapper--loading"),leftOverWidgetsCount=0,leftOverWidgets=[],t=s.posts,$.each(t,function(s,p){p.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:t[s]})).hide().fadeIn())})}).done(function(){console.log("DONE"),$.get(config.api_url3,function(t){s=t.posts,console.log("URL 3 LOADED"),console.log(s),$.each(s,function(t,p){p.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:s[t]})).hide().fadeIn())})})})})});
+    <script>$(function(){$(document).ready(function(){var e,t,s;e=$("#authorName").text(),$.get(config.api_url2,function(s){$(".postWidget--loading").fadeOut().remove(),$(".postWidget__wrapper").removeClass("postWidget__wrapper--loading"),leftOverWidgetsCount=0,leftOverWidgets=[],t=s.posts,$.each(t,function(s,p){p.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:t[s]})).hide().fadeIn())})}).done(function(){console.log("DONE"),$.get(config.api_url3,function(t){s=t.posts,console.log("URL 3 LOADED"),console.log(s),$.each(s,function(t,p){p.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:s[t]})).hide().fadeIn())})})}).done(function(){console.log("DONE AGAIN"),$.get(config.api_url4,function(t){post4=t.posts,console.log("URL 4 LOADED"),console.log(post4),$.each(post4,function(t,s){s.author.name==e&&$(".postWidget__wrapper").append($(templates.post({post:post4[t]})).hide().fadeIn())})})})})});
     </script>
   </body>
 </html>

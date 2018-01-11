@@ -110,6 +110,23 @@ block JS
                             }
                           });
                       });
+                    }).done(function( data ) {
+                      console.log( "DONE AGAIN" );
+
+                      $.get(config.api_url4, function(res) {
+                          post4 = res.posts;
+                          console.log("URL 4 LOADED");
+                          console.log(post4);
+
+                          $.each(post4, function(index3, element3) {
+                            // console.log(element.categories);
+                            if (element3.author.name == authorName ) {
+                                $('.postWidget__wrapper').append($(templates.post({
+                                    post: post4[index3]
+                                })).hide().fadeIn());
+                            }
+                          });
+                      });
                     });
 
 
